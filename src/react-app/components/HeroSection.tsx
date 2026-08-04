@@ -95,8 +95,9 @@ export default function HeroSection() {
           className="text-lg sm:text-xl text-stone-300 mt-6 mb-10 max-w-2xl mx-auto leading-relaxed"
           style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
         >
-          Experience the rich flavors of traditional Indian cuisine, 
-          crafted with passion in the heart of Canggu
+          Savour the rich flavours of traditional Indian cuisine, crafted with
+          passion in the heart of Canggu — served in the cosy, home-like warmth
+          of our fully air-conditioned dining room.
         </p>
 
         {/* Action Buttons */}
