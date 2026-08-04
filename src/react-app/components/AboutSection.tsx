@@ -95,13 +95,13 @@ export default function AboutSection() {
                   I was raised in a family where love, hard work, and community meant everything. But at the heart of it all is one person: my mother, Sandra.
                 </p>
                 <p>
-                  She's more than just my mom—she's the glue that holds our big, beautiful family together. A woman of strength, warmth, and endless love, she's always made sure that no one ever feels alone, especially around the dinner table. Her home-cooked meals weren't just food; they were comfort, connection, and a reminder that no matter where life takes us, family is always at the core.
+                  She's more than just my mom, she's the glue that holds our big, beautiful family together. A woman of strength, warmth, and endless love, she's always made sure that no one ever feels alone, especially around the dinner table. Her home-cooked meals weren't just food; they were comfort, connection, and a reminder that no matter where life takes us, family is always at the core.
                 </p>
                 <p>
                   My nieces and nephews lovingly call her "Nanny," and it's from that love that Nana Sans was born. This restaurant is my way of honoring her; of sharing the warmth, hospitality, and home-cooked flavors that she's always given us.
                 </p>
                 <p>
-                  At Nana Sans, we believe food brings people together. We are nothing without our community, and we'd love for you to be part of ours. So come on in, share a meal, share a story, and most of all—feel at home.
+                  At Nana Sans, we believe food brings people together. We are nothing without our community, and we'd love for you to be part of ours. So come on in, share a meal, share a story, and most of all, feel at home.
                 </p>
                 <p className="font-medium text-stone-800 flex items-center gap-2">
                   Welcome to the family. <Heart className="w-5 h-5 text-red-500 fill-red-500" />
