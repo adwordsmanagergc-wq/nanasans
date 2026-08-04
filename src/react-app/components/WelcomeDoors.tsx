@@ -238,9 +238,16 @@ export default function WelcomeDoors() {
         >
           Welcome to Nana Sans
         </h1>
-        <p className="mt-3 max-w-md text-sm text-amber-200/80 sm:text-base">
-          Authentic Tandoori &amp; British-Indian Cuisine
-        </p>
+        <div className="mt-4 flex items-center gap-3 text-amber-200/60">
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-amber-300/70 sm:w-12" />
+          <span
+            className="text-base font-semibold uppercase tracking-[0.18em] text-amber-100 drop-shadow-md sm:text-xl"
+            style={{ textShadow: "0 1px 12px rgba(240,200,90,0.35)" }}
+          >
+            Authentic Tandoori &amp; British-Indian Cuisine
+          </span>
+          <span className="h-px w-8 bg-gradient-to-l from-transparent to-amber-300/70 sm:w-12" />
+        </div>
 
         <button
           type="button"
