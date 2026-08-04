@@ -2,6 +2,7 @@ import HeroSection from "@/react-app/components/HeroSection";
 import FloatingWhatsApp from "@/react-app/components/FloatingWhatsApp";
 import PhotoGallery from "@/react-app/components/PhotoGallery";
 import AboutSection from "@/react-app/components/AboutSection";
+import BlogHighlights from "@/react-app/components/BlogHighlights";
 import Footer from "@/react-app/components/Footer";
 import WelcomeDoors from "@/react-app/components/WelcomeDoors";
 
@@ -15,6 +16,8 @@ export default function HomePage() {
       <PhotoGallery />
 
       <AboutSection />
+
+      <BlogHighlights />
 
       <Footer />
 

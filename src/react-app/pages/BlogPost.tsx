@@ -34,35 +34,126 @@ export default function BlogPost() {
     return <Navigate to="/blog" replace />;
   }
 
-  // Parse markdown-style content to HTML
+  // Parse inline markdown (**bold** and [text](url) links) into React nodes.
+  const renderInline = (text: string): (string | JSX.Element)[] => {
+    const nodes: (string | JSX.Element)[] = [];
+    const pattern = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    let key = 0;
+
+    while ((match = pattern.exec(text)) !== null) {
+      if (match.index > lastIndex) {
+        nodes.push(text.slice(lastIndex, match.index));
+      }
+      if (match[1] !== undefined) {
+        // Bold
+        nodes.push(
+          <strong key={key++} className="font-semibold text-stone-900">
+            {match[1]}
+          </strong>
+        );
+      } else {
+        // Link
+        const label = match[2];
+        const href = match[3];
+        if (href.startsWith("/")) {
+          nodes.push(
+            <Link
+              key={key++}
+              to={href}
+              className="text-amber-700 font-medium underline underline-offset-2 hover:text-amber-600"
+            >
+              {label}
+            </Link>
+          );
+        } else {
+          nodes.push(
+            <a
+              key={key++}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-amber-700 font-medium underline underline-offset-2 hover:text-amber-600"
+            >
+              {label}
+            </a>
+          );
+        }
+      }
+      lastIndex = pattern.lastIndex;
+    }
+    if (lastIndex < text.length) {
+      nodes.push(text.slice(lastIndex));
+    }
+    return nodes;
+  };
+
+  // Parse markdown-style content into React elements.
   const renderContent = (content: string) => {
     const lines = content.split("\n");
     const elements: JSX.Element[] = [];
+    let listItems: string[] = [];
     let key = 0;
 
+    const flushList = () => {
+      if (listItems.length === 0) return;
+      const items = listItems;
+      listItems = [];
+      elements.push(
+        <ul key={key++} className="list-disc pl-6 mb-5 space-y-2 text-stone-700">
+          {items.map((item, i) => (
+            <li key={i} className="leading-relaxed">
+              {renderInline(item)}
+            </li>
+          ))}
+        </ul>
+      );
+    };
+
     for (const line of lines) {
-      if (line.startsWith("## ")) {
+      const trimmed = line.trim();
+      const imageMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+
+      if (imageMatch) {
+        flushList();
+        elements.push(
+          <img
+            key={key++}
+            src={imageMatch[2]}
+            alt={imageMatch[1]}
+            loading="lazy"
+            className="w-full rounded-xl shadow-md my-6 object-cover"
+          />
+        );
+      } else if (line.startsWith("## ")) {
+        flushList();
         elements.push(
           <h2 key={key++} className="text-2xl font-bold text-stone-900 mt-8 mb-4">
-            {line.replace("## ", "")}
+            {renderInline(line.replace("## ", ""))}
           </h2>
         );
       } else if (line.startsWith("### ")) {
+        flushList();
         elements.push(
           <h3 key={key++} className="text-xl font-semibold text-stone-800 mt-6 mb-3">
-            {line.replace("### ", "")}
+            {renderInline(line.replace("### ", ""))}
           </h3>
         );
-      } else if (line.trim() === "") {
-        // Skip empty lines
+      } else if (trimmed.startsWith("- ")) {
+        listItems.push(trimmed.slice(2));
+      } else if (trimmed === "") {
+        flushList();
       } else {
+        flushList();
         elements.push(
           <p key={key++} className="text-stone-700 leading-relaxed mb-4">
-            {line}
+            {renderInline(line)}
           </p>
         );
       }
     }
+    flushList();
 
     return elements;
   };
@@ -83,9 +174,18 @@ export default function BlogPost() {
             description: post.metaDescription,
             image: post.image,
             datePublished: post.date,
+            dateModified: post.date,
+            inLanguage: "en",
+            isAccessibleForFree: true,
+            ...(post.keywords ? { keywords: post.keywords } : {}),
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://nanasans.com/blog/${post.slug}`
+            },
             author: {
               "@type": "Organization",
-              name: "Nana Sans Tandoori Kitchen"
+              name: "Nana Sans Tandoori Kitchen",
+              url: "https://nanasans.com"
             },
             publisher: {
               "@type": "Organization",
@@ -95,6 +195,27 @@ export default function BlogPost() {
                 url: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/nana-sans-logo.png"
               }
             }
+          })
+        }}
+      />
+
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://nanasans.com" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://nanasans.com/blog" },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: post.title,
+                item: `https://nanasans.com/blog/${post.slug}`
+              }
+            ]
           })
         }}
       />

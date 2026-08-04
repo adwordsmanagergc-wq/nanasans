@@ -8,9 +8,66 @@ export interface BlogPost {
   image: string;
   imageAlt: string;
   content: string;
+  keywords?: string;
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "indian-restaurant-canggu",
+    title: "Indian Restaurant Canggu",
+    metaDescription:
+      "Looking for the best Indian restaurant in Canggu? Nana Sans Tandoori Kitchen serves authentic, great-value tandoori & curries in a cosy, fully air-conditioned dining room.",
+    excerpt:
+      "The best value, go-to air-conditioned Indian restaurant in Canggu. Authentic tandoori, rich curries, fresh naan and vegan options — right in the heart of Canggu, Bali.",
+    date: "2026-08-04",
+    readTime: "6 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.52-pm.png",
+    imageAlt:
+      "Authentic tandoori platter at Nana Sans, the best Indian restaurant in Canggu, Bali",
+    keywords:
+      "Indian restaurant Canggu, best Indian restaurant Canggu, air conditioned Indian restaurant Canggu, tandoori Canggu, curry Canggu, best value Indian food Bali, Indian food Canggu, Nana Sans",
+    content: `
+Searching for the **best Indian restaurant in Canggu**? Welcome to **Nana Sans Tandoori Kitchen** — the great-value, go-to **air-conditioned Indian restaurant in Canggu**, Bali. We serve authentic North Indian tandoori dishes, rich creamy curries, freshly baked naan and an extensive vegetarian and vegan menu, all in a cosy, home-like dining room that stays cool no matter how hot Bali gets.
+
+![Flame-grilled tandoori platter at Nana Sans Indian restaurant in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+
+## Why Nana Sans Is the Best Indian Restaurant in Canggu
+
+We're not just another curry house — we're a family-owned kitchen built on warmth, hospitality and honest, home-cooked flavour. Here's why locals and travellers keep coming back:
+
+- **Best value in Canggu** — generous, shareable portions of authentic Indian food at fair, honest prices.
+- **Fully air-conditioned** — a cool, comfortable escape from the Bali heat while you dine.
+- **Authentic tandoori & curries** — flame-grilled in a real clay tandoor, using family recipes and freshly ground spices.
+- **Vegetarian & vegan friendly** — an extensive plant-based menu, from dal makhani to chana masala.
+- **Dine in, takeaway or delivery** — order in, or get it delivered across Canggu via GoFood and Grab.
+
+## Great-Value, Authentic Indian Food in Canggu
+
+At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, lamb rogan josh and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
+
+![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png)
+
+## A Cosy, Fully Air-Conditioned Dining Room
+
+Canggu is beautiful, but the tropical heat is real. Nana Sans is one of the few **air-conditioned Indian restaurants in Canggu**, so you can enjoy a relaxed, comfortable meal with family and friends in a cool, welcoming space. It's the perfect spot for a long lunch, a family dinner, or a cosy night out after the beach.
+
+## Where to Find Us in Canggu
+
+You'll find us right in the heart of Canggu, easy to reach and easy to love:
+
+- **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
+- **Get directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Order delivery:** [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
+- **Follow us:** [Instagram @nanasans_bali](https://www.instagram.com/nanasans_bali/)
+
+## Book a Table or Order Today
+
+Ready to taste why Nana Sans is the **best value Indian restaurant in Canggu**? [Message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table) to book a table, or order online for delivery. Have a question first? Check our [frequently asked questions](/faq) for opening hours, spice levels, dietary options and more.
+
+We can't wait to welcome you to the family. See you at Nana Sans — Canggu's home of authentic, air-conditioned Indian dining.
+    `.trim()
+  },
   {
     slug: "history-of-tandoori-cooking-bali",
     title: "The History of Tandoori Cooking: From Punjab to Bali",
