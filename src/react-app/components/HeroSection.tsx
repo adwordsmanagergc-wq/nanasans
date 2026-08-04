@@ -133,6 +133,17 @@ export default function HeroSection() {
           </a>
 
           <a
+            href="https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center justify-center gap-3 bg-[#00B14F] hover:bg-[#009644] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 min-w-[180px] whitespace-nowrap"
+            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
+          >
+            <ShoppingBag className="w-5 h-5" />
+            Order on Grab
+          </a>
+
+          <a
             href="https://www.instagram.com/nanasans_bali/"
             target="_blank"
             rel="noopener noreferrer"

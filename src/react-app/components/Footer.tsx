@@ -38,6 +38,14 @@ export default function Footer() {
             Order on Gojek
           </a>
           <a
+            href="https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-amber-400 transition-colors text-sm"
+          >
+            Order on Grab
+          </a>
+          <a
             href="https://www.instagram.com/nanasans_bali/"
             target="_blank"
             rel="noopener noreferrer"
