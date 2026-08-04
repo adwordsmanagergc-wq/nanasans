@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { DoorOpen } from "lucide-react";
 
 const LOGO =
   "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/nana-sans-logo.png";
@@ -133,8 +134,21 @@ function DoorLeaf({ side }: { side: "left" | "right" }) {
 export default function WelcomeDoors() {
   const [phase, setPhase] = useState<Phase>("closed");
 
+  // Open the doors, then remove the overlay once they've swung apart.
+  const open = useCallback(() => {
+    setPhase((prev) => {
+      if (prev !== "closed") return prev;
+      sessionStorage.setItem("nanaSansWelcomeSeen", "1");
+      window.setTimeout(() => {
+        setPhase("done");
+        document.body.style.overflow = "";
+      }, 1800);
+      return "opening";
+    });
+  }, []);
+
   useEffect(() => {
-    // Play once per browser session so it doesn't replay on every navigation.
+    // Show once per browser session so it doesn't reappear on every navigation.
     if (sessionStorage.getItem("nanaSansWelcomeSeen")) {
       setPhase("done");
       return;
@@ -147,20 +161,23 @@ export default function WelcomeDoors() {
     link.rel = "stylesheet";
     document.head.appendChild(link);
 
+    // Lock scrolling while the doors are closed.
     document.body.style.overflow = "hidden";
-    const openTimer = window.setTimeout(() => setPhase("opening"), 1900);
-    const doneTimer = window.setTimeout(() => {
-      setPhase("done");
-      sessionStorage.setItem("nanaSansWelcomeSeen", "1");
-      document.body.style.overflow = "";
-    }, 3700);
+
+    // Let visitors open the doors with the Enter (or Space) key.
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      window.clearTimeout(openTimer);
-      window.clearTimeout(doneTimer);
+      window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [open]);
 
   if (phase === "done") return null;
 
@@ -169,9 +186,12 @@ export default function WelcomeDoors() {
   return (
     <div
       className={`fixed inset-0 z-[100] overflow-hidden ${
-        opening ? "pointer-events-none" : ""
+        opening ? "pointer-events-none" : "cursor-pointer"
       }`}
-      aria-hidden="true"
+      onClick={opening ? undefined : open}
+      role="button"
+      tabIndex={-1}
+      aria-label="Enter the Nana Sans website"
     >
       {/* Warm backdrop revealed as the doors part */}
       <div className="absolute inset-0 bg-gradient-to-b from-stone-950 via-amber-950 to-stone-950" />
@@ -220,6 +240,21 @@ export default function WelcomeDoors() {
         </h1>
         <p className="mt-3 max-w-md text-sm text-amber-200/80 sm:text-base">
           Authentic Tandoori &amp; British-Indian Cuisine
+        </p>
+
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            open();
+          }}
+          className="group mt-8 inline-flex items-center gap-3 rounded-full border border-amber-300/50 bg-amber-600/90 px-8 py-3.5 font-medium text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-600"
+        >
+          <DoorOpen className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+          Enter
+        </button>
+        <p className="mt-4 text-xs uppercase tracking-[0.25em] text-amber-200/60">
+          Tap anywhere or press Enter
         </p>
       </div>
 
