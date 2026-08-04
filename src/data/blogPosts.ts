@@ -13,6 +13,64 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "best-air-conditioned-restaurants-canggu",
+    title: "Best Air-Conditioned Restaurants in Canggu",
+    metaDescription:
+      "Escape the Bali heat at the best air-conditioned restaurants in Canggu. Discover why Nana Sans Tandoori Kitchen is the coolest spot for authentic Indian food in Canggu.",
+    excerpt:
+      "Looking for a cool, comfortable place to eat in Canggu? Here's your guide to the best air-conditioned restaurants in Canggu — and why Nana Sans tops the list.",
+    date: "2026-08-01",
+    readTime: "5 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png",
+    imageAlt:
+      "Cool, air-conditioned indoor dining room at Nana Sans Tandoori Kitchen in Canggu, Bali",
+    keywords:
+      "air conditioned restaurants Canggu, air conditioned restaurant Canggu, AC restaurant Canggu, cool restaurants Canggu, indoor dining Canggu, air conditioned Indian restaurant Canggu, best restaurants Canggu Bali",
+    content: `
+Canggu is one of Bali's most exciting places to eat, but between the tropical humidity and the midday sun, sometimes you just want to dine somewhere cool and comfortable. If you're searching for the **best air-conditioned restaurants in Canggu**, this guide is for you, and we'll show you why **Nana Sans Tandoori Kitchen** is the coolest seat in town.
+
+![Air-conditioned indoor dining area at Nana Sans in Canggu, Bali](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png)
+
+## Why Air-Conditioned Dining Matters in Canggu
+
+Many of Canggu's cafes and warungs are open-air, which is lovely in the evening breeze but tough in the heat of the day. A **fully air-conditioned restaurant in Canggu** gives you:
+
+- **Relief from the heat and humidity** so you can actually relax over your meal.
+- **A comfortable setting for families** with kids, grandparents and everyone in between.
+- **A calm escape after the beach**, the gym or a long day of exploring.
+- **A pleasant spot for a long lunch or dinner** without the midday sweat.
+
+## What to Look for in a Cool Canggu Restaurant
+
+Not all indoor dining is created equal. When choosing where to eat, look for:
+
+- **Genuine, well-maintained air conditioning**, not just a couple of fans.
+- **Great food that's worth sitting down for**, not just a place to cool off.
+- **Good value**, so comfort doesn't cost a fortune.
+- **Easy access and delivery options** for when you'd rather stay in.
+
+## Why Nana Sans Is the Coolest Spot in Canggu
+
+Nana Sans Tandoori Kitchen ticks every box. We're one of the few **air-conditioned Indian restaurants in Canggu**, serving authentic North Indian tandoori dishes, rich curries, fresh naan and an extensive vegetarian and vegan menu, all in a cosy, chilled, home-like dining room.
+
+![Flame-grilled tandoori dishes at Nana Sans, the best air-conditioned Indian restaurant in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+
+Want the full story on our food and value? Read our guide to the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu), or browse the complete [menu on our home page](/).
+
+## Where to Find Us
+
+- **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
+- **Get directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Order delivery:** [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
+- **Follow us:** [Instagram @nanasans_bali](https://www.instagram.com/nanasans_bali/)
+
+## Come In and Cool Down
+
+Next time the Canggu heat gets to you, come dine with us. [Message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table) to book a table, or check our [frequently asked questions](/faq) for opening hours and dietary options. We'll keep it cool, comfortable and delicious.
+    `.trim()
+  },
+  {
     slug: "indian-restaurant-canggu",
     title: "Indian Restaurant Canggu",
     metaDescription:
@@ -213,7 +271,7 @@ Visit our air-conditioned restaurant in Canggu to explore these pairings yoursel
 From refreshing fresh juices to traditional masala chai, we've curated our drinks menu to enhance your Indian dining experience. Book a table and discover your new favourite pairing.
     `.trim()
   }
-];
+].sort((a, b) => (a.date < b.date ? 1 : -1));
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return blogPosts.find(post => post.slug === slug);
