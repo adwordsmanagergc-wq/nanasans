@@ -2,6 +2,7 @@ import { useEffect, type JSX } from "react";
 import { useParams, Link, Navigate } from "react-router";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
+import { geoImageObject } from "@/data/photoGeo";
 import Footer from "@/react-app/components/Footer";
 
 export default function BlogPost() {
@@ -172,7 +173,12 @@ export default function BlogPost() {
             "@type": "Article",
             headline: post.title,
             description: post.metaDescription,
-            image: post.image,
+            image: [
+              geoImageObject(post.image, post.imageAlt),
+              ...Array.from(post.content.matchAll(/^!\[([^\]]*)\]\(([^)]+)\)$/gm))
+                .filter((m) => m[2] !== post.image)
+                .map((m) => geoImageObject(m[2], m[1]))
+            ],
             datePublished: post.date,
             dateModified: post.date,
             inLanguage: "en",
