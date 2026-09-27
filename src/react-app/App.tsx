@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { Analytics } from "@vercel/analytics/react";
 import HomePage from "@/react-app/pages/Home";
 import PrivacyPolicy from "@/react-app/pages/PrivacyPolicy";
 import Blog from "@/react-app/pages/Blog";
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/faq" element={<FAQ />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
