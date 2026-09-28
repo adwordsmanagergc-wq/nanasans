@@ -1,5 +1,6 @@
 import { MapPin, Instagram, UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 import MenuViewer from "./MenuViewer";
 
 const HERO_IMAGE = "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.52-pm.png";
@@ -155,6 +156,13 @@ export default function HeroSection() {
             Follow Us
           </a>
         </div>
+
+        <Link
+          to="/menu"
+          className="inline-block mt-6 text-amber-200 hover:text-amber-100 underline underline-offset-4 text-sm"
+        >
+          See our full menu &amp; prices
+        </Link>
 
       </div>
 

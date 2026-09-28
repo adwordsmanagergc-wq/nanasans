@@ -13,6 +13,239 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "indian-food-canggu",
+    title: "Indian Food in Canggu: 12 Dishes to Order",
+    metaDescription:
+      "Craving Indian food in Canggu? Here are the 12 dishes to order at Nana Sans, from tandoori chicken and butter chicken to biryani, dal makhani and fresh naan, with prices.",
+    excerpt:
+      "New to Indian food, or just want to know what's good? Here are the 12 dishes to order in Canggu, from smoky tandoori to creamy curries and fresh naan, with prices.",
+    date: "2026-09-28",
+    readTime: "6 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png",
+    imageAlt:
+      "Creamy chicken tikka masala, one of the most popular Indian dishes in Canggu, at Nana Sans",
+    keywords:
+      "Indian food Canggu, Indian food in Canggu, best Indian food Canggu, Indian dishes Canggu, butter chicken Canggu, biryani Canggu, tandoori chicken Canggu, vegetarian Indian food Canggu",
+    content: `
+Canggu is full of smoothie bowls and burgers, but when you want real **Indian food in Canggu**, you want dishes with depth: smoky tandoori, slow-cooked curries and naan straight from a clay oven. Here are the 12 dishes we'd order at **Nana Sans Tandoori Kitchen**, our air-conditioned Indian restaurant on Jalan Raya Canggu, with prices so you know what to expect.
+
+## From the Tandoor
+
+Our tandoor is a traditional clay oven that cooks at very high heat, giving meat a charred outside and a juicy inside. If you only try one section of the menu, make it this one.
+
+### 1. Tandoori Chicken (Rp 95k)
+
+Half a chicken marinated in yoghurt and Kashmiri spices, then flame-grilled in the tandoor. Smoky, tender and the dish our kitchen is named after.
+
+### 2. Chicken Tikka (Rp 85k)
+
+Boneless chicken pieces in an aromatic marinade, char-grilled on skewers. A great starter to share, or a lighter main with salad and naan.
+
+### 3. Seekh Kebab (Rp 95k)
+
+Minced lamb skewers seasoned with fresh herbs and spices. Perfect with mint chutney.
+
+### 4. Paneer Tikka (Rp 80k, vegetarian)
+
+Cubes of Indian cottage cheese marinated in spiced yoghurt and grilled until golden. The vegetarian answer to chicken tikka.
+
+![Flame-grilled tandoori chicken from the clay oven at Nana Sans in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+
+## Curries
+
+### 5. Butter Chicken (Rp 95k)
+
+The most-ordered Indian dish in the world for a reason. Tender chicken in a creamy tomato and cashew sauce, rich but mild. If you're new to Indian food, start here.
+
+### 6. Chicken Tikka Masala (Rp 95k)
+
+Grilled chicken tikka in a creamy, spiced tomato sauce. It's the great British-Indian classic, and as a kitchen with British-Indian roots, it's close to our hearts.
+
+### 7. Lamb Rogan Josh (Rp 110k)
+
+A Kashmiri-style lamb curry in a rich onion gravy with warming whole spices. Deeper and more aromatic than butter chicken, with gentle heat.
+
+### 8. Dal Makhani (Rp 70k, vegetarian)
+
+Black lentils slow-cooked overnight with butter and spices until silky. Comfort food at its best.
+
+![Dal makhani, a creamy black lentil curry, served at Nana Sans in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.33-pm.png)
+
+### 9. Palak Paneer (Rp 80k, vegetarian)
+
+Fresh spinach and soft cottage cheese in a mildly spiced gravy. Green, fresh and very moreish.
+
+### 10. Chana Masala (Rp 65k, vegan)
+
+Chickpeas in a tangy, spiced tomato gravy. Hearty, plant-based and full of flavour. See our guide to [vegetarian and vegan Indian dishes in Canggu](/blog/vegetarian-vegan-indian-dishes-canggu) for more.
+
+## Rice and Bread
+
+### 11. Chicken Biryani (Rp 95k)
+
+Fragrant basmati rice layered with spiced chicken, saffron and caramelised onions. A full meal in one pot. We also make lamb (Rp 110k) and vegetable (Rp 75k) biryani.
+
+### 12. Butter Naan (Rp 25k)
+
+No Indian meal is complete without it. Soft, blistered naan from the tandoor, brushed with butter. Upgrade to garlic naan (Rp 30k) or cheese naan (Rp 35k). Read more in our [butter naan guide](/blog/butter-naan-canggu).
+
+## How to Order Like a Local
+
+- **For two people:** one tandoori dish, two curries, one rice or biryani and two naans is plenty.
+- **Mild or spicy:** tell us how hot you like it and we'll adjust the spice level.
+- **Something for everyone:** mix a creamy curry (butter chicken) with a lentil dish (dal makhani) and a grill (chicken tikka).
+
+## Where to Eat Indian Food in Canggu
+
+You'll find all of these dishes at Nana Sans, a family-run **Indian restaurant in Canggu** with a cool, air-conditioned dining room.
+
+- **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
+- **Open:** daily, 11:00 AM to 10:00 PM
+- **See everything we cook:** [full menu and prices](/menu)
+- **Get directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Order delivery:** [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
+
+Want to know more about us? Read why locals call us the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu), or [message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table) to book a table.
+    `.trim()
+  },
+  {
+    slug: "indian-restaurant-near-me-canggu",
+    title: "Indian Restaurant Near Me in Canggu: How to Find Us",
+    metaDescription:
+      "Looking for an Indian restaurant near you in Canggu? Nana Sans is on Jalan Raya Canggu, a short ride from Berawa, Batu Bolong, Pererenan and Echo Beach. Dine in or get delivery.",
+    excerpt:
+      "Searching for an Indian restaurant near you in Canggu? Here's how to reach Nana Sans from Berawa, Batu Bolong, Pererenan, Echo Beach and Seminyak, or get it delivered.",
+    date: "2026-09-27",
+    readTime: "4 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png",
+    imageAlt:
+      "Air-conditioned dining room at Nana Sans, an Indian restaurant near Berawa and Batu Bolong in Canggu",
+    keywords:
+      "Indian restaurant near me, Indian restaurant near me Canggu, Indian food near me Canggu, Indian restaurant Berawa, Indian restaurant Batu Bolong, Indian restaurant Pererenan, Indian food delivery Canggu",
+    content: `
+If you've just typed **"Indian restaurant near me"** somewhere in Canggu, good news: **Nana Sans Tandoori Kitchen** is probably closer than you think. We're on Jalan Raya Canggu, the main road running through the middle of Canggu, so we're an easy scooter or Gojek ride from wherever you're staying.
+
+## Where We Are
+
+- **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
+- **Open:** daily, 11:00 AM to 10:00 PM
+- **Directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Parking:** free street parking nearby for scooters and cars
+
+Look for our sign on the main road.
+
+## Getting Here from Around Canggu
+
+Distances below are approximate, measured in a straight line from our door. Actual travel time depends on Canggu traffic, which is heaviest in the late afternoon.
+
+### From Berawa (about 3 km)
+
+Head inland from Berawa Beach towards Jalan Raya Canggu. It's one of the quickest trips to us, and a great way to escape the beach-club crowds for a proper Indian dinner.
+
+### From Batu Bolong (about 3 km)
+
+From the Batu Bolong beach area and the Old Man's end of town, ride up towards the main road. A short trip for a post-surf curry.
+
+### From Pererenan (about 3.5 km)
+
+Pererenan is just to the west. Cross over towards Jalan Raya Canggu and you'll be with us in a few minutes outside of rush hour.
+
+### From Echo Beach (about 4 km)
+
+Head inland from Echo Beach towards the main road. Worth the ride after a sunset session.
+
+### From Seminyak (about 6 km)
+
+Coming from further south? It's a longer ride, so time it outside peak traffic, or skip the ride altogether and order delivery.
+
+## Not Going Out? We Deliver
+
+If you'd rather eat at your villa, we deliver across Canggu through [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) and [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA). Takeaway is available too: message us on WhatsApp and pick it up on your way home.
+
+## Why It's Worth the Trip
+
+- **Fully air-conditioned dining room.** A proper escape from the Canggu heat. See our guide to the [best air-conditioned restaurants in Canggu](/blog/best-air-conditioned-restaurants-canggu).
+- **A real clay tandoor.** Tandoori chicken, tikka, kebabs and naan baked fresh to order.
+- **Great value.** Curries from Rp 65k and butter naan for Rp 25k. See our [full menu and prices](/menu).
+- **Vegetarian and vegan friendly.** Paneer, dal, chana masala and vegan biryani.
+
+![Flame-grilled tandoori dishes at Nana Sans, an Indian restaurant near you in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+
+## Book a Table
+
+The dinner rush (6 to 8 PM) gets busy, especially at weekends. [Message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table) to reserve a table, and see what to order in our guide to [Indian food in Canggu](/blog/indian-food-canggu).
+    `.trim()
+  },
+  {
+    slug: "butter-naan-canggu",
+    title: "Butter Naan in Canggu: Fresh from the Tandoor",
+    metaDescription:
+      "Where to get butter naan in Canggu, Bali. Nana Sans bakes butter, garlic and cheese naan fresh in a clay tandoor all day, from Rp 25k. Dine in, takeaway or delivery.",
+    excerpt:
+      "Soft, blistered and brushed with butter. Here's what makes a great butter naan, how ours is made, and how to get it fresh in Canggu, from Rp 25k.",
+    date: "2026-09-26",
+    readTime: "4 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.52-pm.png",
+    imageAlt:
+      "Tandoori platter with fresh naan from the clay oven at Nana Sans in Canggu, Bali",
+    keywords:
+      "butter naan Canggu, butter naan near me, naan Canggu, garlic naan Canggu, cheese naan Bali, naan bread Canggu, tandoori naan Bali",
+    content: `
+There's nothing quite like a **butter naan** pulled straight from a tandoor: puffed, blistered, slightly smoky and glossy with melted butter. If you're searching for **butter naan near me** in Canggu, here's why ours is worth the trip.
+
+## What Makes a Great Butter Naan?
+
+A great naan comes down to three things:
+
+- **A real tandoor.** Naan is slapped onto the inside wall of a clay oven that runs far hotter than a home oven. That heat is what gives naan its puffy pockets and charred spots. Naan made in a pan or pizza oven just isn't the same.
+- **Fresh dough.** Soft, leavened dough rested properly, so it stretches thin and bakes light.
+- **Served immediately.** Naan is best in the first few minutes, brushed with butter as it comes out of the oven.
+
+At **Nana Sans Tandoori Kitchen**, every naan is baked to order in our clay tandoor, so it arrives at your table hot.
+
+## Our Naan and Breads
+
+- **Butter Naan (Rp 25k):** the classic, brushed with butter.
+- **Garlic Naan (Rp 30k):** topped with fresh garlic and butter. Our most popular.
+- **Cheese Naan (Rp 35k):** stuffed with melted cheese. Dangerously good.
+- **Tandoori Roti (Rp 20k):** whole wheat flatbread from the tandoor. Vegan.
+
+See every dish on our [full menu with prices](/menu).
+
+## What to Eat with Butter Naan
+
+Naan is made for scooping up sauce, so pair it with a curry that has plenty of gravy:
+
+- **Butter Chicken:** creamy, mild and made for mopping up.
+- **Dal Makhani:** slow-cooked black lentils with butter. A vegetarian favourite.
+- **Chicken Tikka Masala:** the British-Indian classic.
+- **Lamb Rogan Josh:** rich and aromatic.
+
+For more ideas, read our guide to the [12 best Indian dishes to order in Canggu](/blog/indian-food-canggu).
+
+![Creamy curry to pair with butter naan at Nana Sans Indian restaurant in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png)
+
+## Butter Naan vs Garlic Naan vs Roti
+
+- **Butter naan** is the purest way to taste a good naan. Choose it for rich curries.
+- **Garlic naan** adds punch and goes brilliantly with tandoori grills.
+- **Tandoori roti** is made with whole wheat flour and no butter, so it's lighter and suitable for vegans.
+
+Can't decide? Order one of each and share.
+
+## Get Fresh Butter Naan in Canggu
+
+- **Dine in:** Jalan Raya Canggu No. 10C, Tibubeneng. Open daily, 11:00 AM to 10:00 PM. [Get directions](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Delivery:** order on [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
+- **Book a table:** [message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table)
+
+Naan is always best fresh from the oven, so we'd love to see you in our air-conditioned dining room. Find out how to reach us from Berawa, Batu Bolong or Pererenan in our guide to the [Indian restaurant near you in Canggu](/blog/indian-restaurant-near-me-canggu).
+    `.trim()
+  },
+  {
     slug: "best-air-conditioned-restaurants-canggu",
     title: "Best Air-Conditioned Restaurants in Canggu",
     metaDescription:
@@ -72,7 +305,7 @@ Next time the Canggu heat gets to you, come dine with us. [Message us on WhatsAp
   },
   {
     slug: "indian-restaurant-canggu",
-    title: "Indian Restaurant Canggu",
+    title: "Best Indian Restaurant in Canggu: Why Locals Choose Nana Sans",
     metaDescription:
       "Looking for the best Indian restaurant in Canggu? Nana Sans Tandoori Kitchen serves authentic, great-value tandoori & curries in a cosy, fully air-conditioned dining room.",
     excerpt:
@@ -102,7 +335,11 @@ We're not just another curry house — we're a family-owned kitchen built on war
 
 ## Great-Value, Authentic Indian Food in Canggu
 
-At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, lamb rogan josh and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
+At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, lamb rogan josh and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu and prices](/menu) to see everything we serve.
+
+## What to Order
+
+First time with us? Start with tandoori chicken, butter chicken, dal makhani and a basket of fresh butter naan. Our guide to the [12 best Indian dishes to order in Canggu](/blog/indian-food-canggu) has the full rundown, and our [butter naan guide](/blog/butter-naan-canggu) explains why naan from a real clay tandoor tastes so much better. Staying in Berawa, Batu Bolong or Pererenan? Here's [how to find us](/blog/indian-restaurant-near-me-canggu).
 
 ![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png)
 

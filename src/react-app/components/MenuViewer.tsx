@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-const menuImages = [
+export const menuImages = [
   {
     src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/1Starters-Sides.jpg",
     alt: "Starters & Sides",

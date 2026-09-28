@@ -6,21 +6,17 @@ export default function Footer() {
   const whatsappMessage = encodeURIComponent("Hi Metatap!");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-stone-900 text-stone-300 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Quick Links */}
         <div className="flex flex-wrap justify-center gap-6 mb-6">
-          <button
-            onClick={scrollToTop}
+          <Link
+            to="/menu"
             className="hover:text-amber-400 transition-colors text-sm"
           >
-            Menu
-          </button>
+            Menu &amp; Prices
+          </Link>
           <a
             href="https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9"
             target="_blank"

@@ -236,7 +236,7 @@ export default function WelcomeDoors() {
           className="text-4xl font-semibold text-amber-100 drop-shadow-lg sm:text-6xl"
           style={{ fontFamily: "'Cormorant Garamond', serif" }}
         >
-          Welcome to Nana Sans
+          Nana Sans Indian Restaurant
         </h1>
         <div className="mt-4 flex items-center gap-3 text-amber-200/60">
           <span className="h-px w-8 bg-gradient-to-r from-transparent to-amber-300/70 sm:w-12" />
