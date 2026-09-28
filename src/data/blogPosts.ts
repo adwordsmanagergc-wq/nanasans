@@ -101,7 +101,7 @@ No Indian meal is complete without it. Soft, blistered naan from the tandoor, br
 You'll find all of these dishes at Nana Sans, a family-run **Indian restaurant in Canggu** with a cool, air-conditioned dining room.
 
 - **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
-- **Open:** daily, 11:00 AM to 10:00 PM
+- **Open:** every day, 12:00 PM to 2:00 AM (Fridays 5:00 PM to 2:00 AM)
 - **See everything we cook:** [full menu and prices](/menu)
 - **Get directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
 - **Order delivery:** [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
@@ -130,7 +130,7 @@ If you've just typed **"Indian restaurant near me"** somewhere in Canggu, good n
 ## Where We Are
 
 - **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
-- **Open:** daily, 11:00 AM to 10:00 PM
+- **Open:** every day, 12:00 PM to 2:00 AM (Fridays 5:00 PM to 2:00 AM)
 - **Directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
 - **Parking:** free street parking nearby for scooters and cars
 
@@ -238,7 +238,7 @@ Can't decide? Order one of each and share.
 
 ## Get Fresh Butter Naan in Canggu
 
-- **Dine in:** Jalan Raya Canggu No. 10C, Tibubeneng. Open daily, 11:00 AM to 10:00 PM. [Get directions](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+- **Dine in:** Jalan Raya Canggu No. 10C, Tibubeneng. Open every day, 12:00 PM to 2:00 AM (Fridays 5:00 PM to 2:00 AM). [Get directions](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
 - **Delivery:** order on [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) or [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA)
 - **Book a table:** [message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20book%20a%20table)
 

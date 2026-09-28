@@ -84,7 +84,7 @@ export default function Menu() {
           serving North Indian food with a British-Indian twist. Everything from our tandoor is
           cooked to order, and our naan is baked fresh all day. Below are our most popular dishes
           and prices, followed by the full menu including starters, wraps, box specials, drinks
-          and desserts. Open daily from 11:00 AM to 10:00 PM for dine-in, takeaway and delivery.
+          and desserts. Open every day from 12:00 PM to 2:00 AM (Fridays from 5:00 PM) for dine-in, takeaway and delivery.
         </p>
 
         {menuSections.map((section) => (
