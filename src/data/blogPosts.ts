@@ -13,6 +13,83 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "late-night-food-canggu",
+    title: "Late Night Food in Canggu: Hot Curries Until 2AM",
+    metaDescription:
+      "Hungry after midnight? Nana Sans is open until 2AM every night on Jalan Raya Canggu. Tandoori, butter chicken, biryani and fresh naan for late night food in Canggu.",
+    excerpt:
+      "Most Canggu kitchens close by 10PM. We're open until 2AM every night, serving tandoori, curries and fresh naan for post-party, post-shift and midnight cravings.",
+    date: "2026-09-29",
+    readTime: "4 min read",
+    image:
+      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png",
+    imageAlt:
+      "Flame-grilled tandoori chicken, late night food served until 2AM at Nana Sans in Canggu",
+    keywords:
+      "late night food Canggu, late night restaurant Canggu, food after midnight Canggu, open late Canggu, late night eats Bali, 2am food Canggu, late night Indian food Bali, midnight food Canggu",
+    content: `
+It's past midnight in Canggu. The bars are winding down, you've just finished a shift, or your flight landed late, and you're starving. Most kitchens closed hours ago, and a convenience-store toastie isn't going to cut it. Good news: **Nana Sans Tandoori Kitchen is open until 2AM, every single night.**
+
+## Our Opening Hours
+
+- **Saturday to Thursday:** 12:00 PM (midday) to 2:00 AM
+- **Friday:** 5:00 PM to 2:00 AM
+- **Address:** Jalan Raya Canggu No. 10C, Tibubeneng, Kuta Utara, Badung Regency, Bali 80351
+- **Directions:** [Open in Google Maps](https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9)
+
+That means proper, hot, sit-down **late night food in Canggu**, in an air-conditioned dining room, long after most restaurants have stacked their chairs.
+
+## Why Indian Food Is the Best Late Night Food
+
+Forget soggy fries. After a big night, your body wants something warm, filling and full of flavour, and Indian food nails it:
+
+- **Carbs that actually satisfy.** Hot butter naan and fragrant biryani.
+- **Comfort in a bowl.** Creamy butter chicken or silky dal makhani.
+- **Something to share.** Order a few dishes for the table and pass them round.
+- **Cooked fresh.** Everything from our clay tandoor is made to order, even at 1AM.
+
+## What to Order After Midnight
+
+### Hungry and Want Comfort
+
+**Butter Chicken (Rp 95k)** with **Butter Naan (Rp 25k)**. Mild, creamy and exactly what you need at 1AM.
+
+### Feeding the Whole Group
+
+**Tandoori Chicken (Rp 95k)**, **Chicken Biryani (Rp 95k)**, **Dal Makhani (Rp 70k)** and a basket of **Garlic Naan (Rp 30k)**. Enough for everyone, with something for the vegetarians.
+
+### Something Lighter
+
+**Chicken Tikka (Rp 85k)** or **Paneer Tikka (Rp 80k)** straight off the grill. Protein-packed and not too heavy before bed.
+
+### Plant-Based
+
+**Chana Masala (Rp 65k)** with **Tandoori Roti (Rp 20k)** is fully vegan. More ideas in our [vegetarian and vegan guide](/blog/vegetarian-vegan-indian-dishes-canggu).
+
+See every dish on our [full menu with prices](/menu), or read our guide to the [12 best Indian dishes to order in Canggu](/blog/indian-food-canggu).
+
+![Creamy chicken tikka masala, a favourite late night meal at Nana Sans in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png)
+
+## Who Eats with Us Late?
+
+- **After a night out** at the beach clubs and bars of Batu Bolong and Berawa.
+- **Hospitality workers** finishing a late shift who finally want a proper meal.
+- **Late arrivals** landing at Ngurah Rai and heading to Canggu.
+- **Night owls and remote workers** on a different time zone.
+- **Anyone** who simply fancies a curry at midnight. No judgement here.
+
+## Easy to Reach, Easy to Stay In
+
+We're right on Jalan Raya Canggu, a short Gojek or Grab ride from Batu Bolong, Berawa and Pererenan. See [how to find us from around Canggu](/blog/indian-restaurant-near-me-canggu).
+
+Staying in instead? You can order Nana Sans on [GoFood (Gojek)](https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a) and [Grab](https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA). Late at night, delivery depends on drivers being available in your area, so check the app. Takeaway is always an option: [message us on WhatsApp](https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'd%20like%20to%20order%20takeaway) and grab it on your way home.
+
+## Midday to 2AM, Every Day
+
+Whether it's a long lunch, dinner with friends or a 1AM curry after the party, our doors are open. Come and cool down in our air-conditioned dining room, and find out why people call us the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu).
+    `.trim()
+  },
+  {
     slug: "indian-food-canggu",
     title: "Indian Food in Canggu: 12 Dishes to Order",
     metaDescription:
@@ -170,6 +247,7 @@ If you'd rather eat at your villa, we deliver across Canggu through [GoFood (Goj
 - **A real clay tandoor.** Tandoori chicken, tikka, kebabs and naan baked fresh to order.
 - **Great value.** Curries from Rp 65k and butter naan for Rp 25k. See our [full menu and prices](/menu).
 - **Vegetarian and vegan friendly.** Paneer, dal, chana masala and vegan biryani.
+- **Open until 2AM every night.** Proper [late night food in Canggu](/blog/late-night-food-canggu) when everywhere else is closed.
 
 ![Flame-grilled tandoori dishes at Nana Sans, an Indian restaurant near you in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
 

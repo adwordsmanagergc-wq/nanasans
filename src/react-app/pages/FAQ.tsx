@@ -15,6 +15,10 @@ const faqs: FAQItem[] = [
     answer: "We're open every day from 12:00 PM (midday) to 2:00 AM, except Fridays when we open at 5:00 PM and stay open until 2:00 AM. We recommend booking a table during peak dinner hours (6-8 PM) to avoid waiting, especially on weekends."
   },
   {
+    question: "Are you open late at night?",
+    answer: "Yes! We're open until 2:00 AM every night, making us one of the few places in Canggu serving proper hot food after midnight. Tandoori, curries, biryani and fresh naan are all available late, for dine-in or takeaway."
+  },
+  {
     question: "Do you have vegetarian and vegan options?",
     answer: "Yes! We have extensive vegetarian and vegan menus. Our vegetarian options include paneer dishes, dal makhani, and vegetable curries. Vegan guests can enjoy chana masala, aloo gobi, vegetable biryani, and many more dishes prepared without dairy. Just ask our staff for recommendations."
   },
