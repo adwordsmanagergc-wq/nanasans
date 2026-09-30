@@ -7,7 +7,48 @@ export default {
   ],
   theme: {
     extend: {
+      transitionDuration: {
+        1200: "1200ms",
+        1400: "1400ms",
+      },
+      fontFamily: {
+        display: ['"Fraunces"', "Georgia", "serif"],
+        sans: ['"Manrope"', "system-ui", "sans-serif"],
+      },
       colors: {
+        ink: {
+          DEFAULT: "#1b130e",
+          900: "#140e0a",
+          800: "#221812",
+          700: "#2e2119",
+          600: "#3d2d22",
+        },
+        paper: {
+          DEFAULT: "#f7f0e5",
+          50: "#fcf8f2",
+          100: "#f7f0e5",
+          200: "#efe4d3",
+          300: "#e3d3bc",
+        },
+        saffron: {
+          DEFAULT: "#d99a3d",
+          300: "#f0c77f",
+          400: "#e6ae55",
+          500: "#d99a3d",
+          600: "#b97d26",
+          700: "#8f5f1b",
+        },
+        chili: {
+          DEFAULT: "#b4432b",
+          500: "#b4432b",
+          600: "#963421",
+        },
+        cocoa: {
+          DEFAULT: "#6e5a4b",
+          400: "#8c7766",
+          500: "#6e5a4b",
+          700: "#3f3027",
+        },
         tandoori: "hsl(var(--tandoori))",
         spice: "hsl(var(--spice))",
         cream: "hsl(var(--cream))",
@@ -69,6 +110,14 @@ export default {
         "4xl": "2rem",
       },
       keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "slow-zoom": {
+          from: { transform: "scale(1.12)" },
+          to: { transform: "scale(1)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -79,6 +128,8 @@ export default {
         },
       },
       animation: {
+        marquee: "marquee 40s linear infinite",
+        "slow-zoom": "slow-zoom 24s ease-out both",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },

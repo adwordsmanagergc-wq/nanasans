@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { Link } from "react-router";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import Footer from "@/react-app/components/Footer";
+import PageHeader from "@/react-app/components/PageHeader";
+import PostCard from "@/react-app/components/PostCard";
+import { formatPostDate } from "@/react-app/lib/utils";
 
 export default function Blog() {
   useEffect(() => {
@@ -19,73 +22,60 @@ export default function Blog() {
     document.title = "Blog – Indian Food & Tandoori Cooking Tips | Nana Sans Canggu";
 
     // Update meta description
-    let meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
+    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
     if (meta) {
       meta.content = "Explore articles about tandoori cooking, vegetarian Indian cuisine, and food pairing tips from Nana Sans Tandoori Kitchen in Canggu, Bali.";
     }
   }, []);
 
-  return (
-    <div className="min-h-screen bg-stone-100">
-      {/* Header */}
-      <header className="bg-stone-900 text-white py-6 px-4">
-        <div className="max-w-4xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-          <h1 className="text-3xl md:text-4xl font-bold">
-            Nana Sans Blog
-          </h1>
-          <p className="text-stone-400 mt-2">
-            Stories, recipes, and insights from our kitchen in Canggu
-          </p>
-        </div>
-      </header>
+  const [featured, ...rest] = blogPosts;
 
-      {/* Blog Posts Grid */}
-      <main className="max-w-4xl mx-auto px-4 py-12">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post) => (
-            <Link
-              key={post.slug}
-              to={`/blog/${post.slug}`}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
-            >
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.imageAlt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-4 text-xs text-stone-500 mb-3">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {new Date(post.date).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "short",
-                      year: "numeric"
-                    })}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    {post.readTime}
-                  </span>
-                </div>
-                <h2 className="text-lg font-semibold text-stone-900 group-hover:text-amber-700 transition-colors mb-2">
-                  {post.title}
-                </h2>
-                <p className="text-sm text-stone-600 line-clamp-3">
-                  {post.excerpt}
-                </p>
-              </div>
-            </Link>
+  return (
+    <div className="min-h-screen bg-paper">
+      <PageHeader
+        eyebrow="The Journal"
+        title={
+          <>
+            Stories, recipes &amp; <em className="italic text-saffron-400">insights</em> from our kitchen
+          </>
+        }
+        intro="Tandoori know-how, vegetarian favourites and dining guides from Nana Sans in Canggu, Bali."
+      />
+
+      <main className="grain mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+        {featured && (
+          <Link
+            to={`/blog/${featured.slug}`}
+            className="group mb-20 grid items-center gap-8 md:grid-cols-[1.2fr_1fr] md:gap-14"
+          >
+            <div className="aspect-[4/3] overflow-hidden rounded-[1.75rem] bg-ink/10">
+              <img
+                src={featured.image}
+                alt={featured.imageAlt}
+                className="h-full w-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105"
+                loading="eager"
+              />
+            </div>
+            <div>
+              <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-saffron-600">
+                Latest <span className="mx-2 text-ink/25">/</span> {formatPostDate(featured.date, "long")}{" "}
+                <span className="mx-2 text-ink/25">/</span> {featured.readTime}
+              </p>
+              <h2 className="mt-4 font-display text-3xl leading-tight text-ink transition-colors group-hover:text-chili sm:text-5xl">
+                {featured.title}
+              </h2>
+              <p className="mt-5 leading-relaxed text-cocoa-500">{featured.excerpt}</p>
+              <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink">
+                Read the story
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </div>
+          </Link>
+        )}
+
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {rest.map((post) => (
+            <PostCard key={post.slug} post={post} headingLevel="h2" />
           ))}
         </div>
       </main>
