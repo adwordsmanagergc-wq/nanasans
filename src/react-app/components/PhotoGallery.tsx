@@ -6,32 +6,32 @@ import Reveal from "./Reveal";
 
 const galleryImages = [
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.23.52-pm.png`,
+    src: `${CDN}/gallery-tandoori-platter.jpg`,
     alt: "Authentic tandoori platter at Nana Sans Tandoori Kitchen in Canggu, Bali",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.16.18-pm.png`,
+    src: `${CDN}/gallery-chicken-tikka-masala.jpg`,
     alt: "Creamy chicken tikka masala curry served at Nana Sans Indian restaurant Canggu",
     span: "",
   },
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.23.22-pm.png`,
+    src: `${CDN}/gallery-dining-room.jpg`,
     alt: "Air-conditioned indoor dining area at Nana Sans Tandoori Kitchen Bali",
     span: "md:row-span-2",
   },
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.16.53-pm.png`,
+    src: `${CDN}/gallery-heritage-dishes.jpg`,
     alt: "Traditional Indian heritage dishes at Nana Sans Canggu",
     span: "",
   },
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.16.33-pm.png`,
+    src: `${CDN}/gallery-vegetarian-curry.jpg`,
     alt: "Vegetarian Indian curry at Nana Sans Bali",
     span: "col-span-2",
   },
   {
-    src: `${CDN}/Screenshot-2026-03-28-at-3.16.26-pm.png`,
+    src: `${CDN}/gallery-tandoori-chicken.jpg`,
     alt: "Flame-grilled tandoori chicken platter fresh from the clay oven in Canggu",
     span: "md:col-span-2",
   },
