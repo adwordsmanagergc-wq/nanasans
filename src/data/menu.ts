@@ -163,7 +163,7 @@ export const MENU: MenuCourse[] = [
       { name: "Aloo Gobi", description: "Curried cauliflower and potatoes" },
       { name: "Aloo Mutter", description: "Cubed potatoes and peas simmered in a slight tangy curry" },
       { name: "Rajma Masala", description: "Red kidney beans slow cooked in a mild spiced tomato-onion gravy" },
-      { name: "Mix Veg Curry", description: "Lightly spiced honestly curry" },
+      { name: "Mix Veg Curry", description: "Lightly spiced homestyle curry" },
       { name: "Dal Tadka", description: "Yellow lentils in a unique smoky flavor curry" },
     ],
   },
