@@ -1,165 +1,149 @@
-import { MapPin, Instagram, UtensilsCrossed, ShoppingBag } from "lucide-react";
-import { useEffect, useState } from "react";
-import MenuViewer from "./MenuViewer";
+import { ArrowDown, CalendarCheck, Leaf, Snowflake, Flame, UtensilsCrossed } from "lucide-react";
+import { CDN, SITE } from "@/data/site";
 
-const HERO_IMAGE = "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.52-pm.png";
+const HERO_IMAGE = `${CDN}/Screenshot-2026-03-28-at-3.23.52-pm.png`;
+
+/** Half Union Jack, half Tiranga: the British-Indian story in one mark. */
+function HeritageFlag() {
+  return (
+    <svg width="34" height="20" viewBox="0 0 48 28" className="rounded-[2px] shadow-md" aria-hidden="true">
+      <defs>
+        <clipPath id="heroLeftHalf">
+          <path d="M0,0 L24,14 L0,28 Z" />
+        </clipPath>
+        <clipPath id="heroRightHalf">
+          <path d="M48,0 L24,14 L48,28 Z" />
+        </clipPath>
+      </defs>
+      <g clipPath="url(#heroLeftHalf)">
+        <rect width="48" height="28" fill="#012169" />
+        <path d="M0,0 L48,28 M48,0 L0,28" stroke="#fff" strokeWidth="5" />
+        <path d="M0,0 L48,28 M48,0 L0,28" stroke="#C8102E" strokeWidth="3" />
+        <path d="M24,0 V28 M0,14 H48" stroke="#fff" strokeWidth="8" />
+        <path d="M24,0 V28 M0,14 H48" stroke="#C8102E" strokeWidth="5" />
+      </g>
+      <g clipPath="url(#heroRightHalf)">
+        <rect width="48" height="9.33" fill="#FF9933" />
+        <rect y="9.33" width="48" height="9.33" fill="#fff" />
+        <rect y="18.66" width="48" height="9.34" fill="#138808" />
+        <circle cx="24" cy="14" r="4" fill="#000080" fillOpacity="0.9" />
+        <circle cx="24" cy="14" r="3" fill="#fff" />
+        <circle cx="24" cy="14" r="1.5" fill="#000080" />
+      </g>
+    </svg>
+  );
+}
+
+const HIGHLIGHTS = [
+  { icon: Flame, label: "Clay-oven tandoor" },
+  { icon: Snowflake, label: "Fully air-conditioned" },
+  { icon: Leaf, label: "Vegetarian & vegan menus" },
+];
 
 export default function HeroSection() {
-  const [fontLoaded, setFontLoaded] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-    link.onload = () => setFontLoaded(true);
-  }, []);
-
-  const openMenu = () => {
-    setMenuOpen(true);
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink text-paper">
+      {/* Background photograph with a slow cinematic settle */}
       <div className="absolute inset-0">
         <img
           src={HERO_IMAGE}
           alt="Tandoori platter with grilled chicken, naan bread, and aromatic spices at Nana Sans Canggu"
-          className="w-full h-full object-cover"
+          className="h-full w-full animate-slow-zoom object-cover"
           loading="eager"
+          fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-stone-900/70 via-stone-900/50 to-stone-900/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
+        <div
+          className="absolute inset-0 opacity-60 mix-blend-soft-light"
+          style={{ background: "radial-gradient(ellipse at 20% 60%, rgba(217,154,61,0.45), transparent 60%)" }}
+        />
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-stone-900/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[hsl(35,30%,94%)] to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Logo/Brand */}
-        <div className="mb-6">
-          {/* Main Logo */}
-          <div className="flex justify-center mb-2">
-            <img
-              src="https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/nana-sans-logo.png"
-              alt="Nana Sans Tandoori Kitchen logo - Indian restaurant in Canggu Bali"
-              className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto drop-shadow-2xl"
-              loading="eager"
-            />
-          </div>
-          <div className="inline-block px-4 py-1 bg-amber-600/20 backdrop-blur-sm rounded-full border border-amber-400/30 mb-2">
-            <span className="text-amber-200 text-sm tracking-widest uppercase font-light">
-              Indian Cuisine With British Influence • Canggu, Bali
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-5 pb-16 pt-32 sm:px-8 sm:pt-36">
+        <div className="max-w-2xl">
+          <div className="mb-8 flex items-center gap-3 animate-in fade-in slide-in-from-bottom-3 fill-mode-both duration-700">
+            <HeritageFlag />
+            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-saffron-300">
+              Tandoori Kitchen · Canggu, Bali
             </span>
           </div>
-          {/* Combined British-Indian Flag - Below tagline */}
-          <div className="flex items-center justify-center gap-1 mb-6">
-            <svg width="48" height="28" viewBox="0 0 48 28" className="drop-shadow-lg">
-              {/* British Flag (Left half) */}
-              <defs>
-                <clipPath id="leftHalf">
-                  <path d="M0,0 L24,14 L0,28 Z" />
-                </clipPath>
-                <clipPath id="rightHalf">
-                  <path d="M48,0 L24,14 L48,28 Z" />
-                </clipPath>
-              </defs>
-              {/* UK side */}
-              <g clipPath="url(#leftHalf)">
-                <rect x="0" y="0" width="48" height="28" fill="#012169" />
-                <path d="M0,0 L48,28 M48,0 L0,28" stroke="#fff" strokeWidth="5" />
-                <path d="M0,0 L48,28 M48,0 L0,28" stroke="#C8102E" strokeWidth="3" />
-                <path d="M24,0 V28 M0,14 H48" stroke="#fff" strokeWidth="8" />
-                <path d="M24,0 V28 M0,14 H48" stroke="#C8102E" strokeWidth="5" />
-              </g>
-              {/* India side */}
-              <g clipPath="url(#rightHalf)">
-                <rect x="0" y="0" width="48" height="9.33" fill="#FF9933" />
-                <rect x="0" y="9.33" width="48" height="9.33" fill="#fff" />
-                <rect x="0" y="18.66" width="48" height="9.33" fill="#138808" />
-                <circle cx="24" cy="14" r="4" fill="#000080" fillOpacity="0.9" />
-                <circle cx="24" cy="14" r="3" fill="#fff" />
-                <circle cx="24" cy="14" r="1.5" fill="#000080" />
-              </g>
-              {/* Center divider line */}
-              <path d="M24,14 L0,0 M24,14 L0,28" stroke="rgba(255,255,255,0.3)" strokeWidth="0.5" />
-            </svg>
+
+          <h1 className="font-display text-[3.2rem] font-light leading-[0.95] tracking-[-0.03em] animate-in fade-in slide-in-from-bottom-6 fill-mode-both delay-150 duration-1000 sm:text-7xl lg:text-[6.25rem]">
+            Indian soul,
+            <br />
+            <em className="font-normal italic text-saffron-400">British</em> heart.
+            <span className="sr-only"> Nana Sans Tandoori Kitchen, Indian restaurant in Canggu, Bali</span>
+          </h1>
+
+          <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/75 animate-in fade-in slide-in-from-bottom-4 fill-mode-both delay-300 duration-1000 sm:text-lg">
+            Savour the rich flavours of traditional Indian cuisine, crafted with passion in the heart of Canggu, served
+            in the cosy, home-like warmth of our fully air-conditioned dining room.
+          </p>
+
+          <div className="mt-10 flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-4 fill-mode-both delay-500 duration-1000 sm:flex-row">
+            <a href="#menu" className="btn-primary">
+              <UtensilsCrossed className="h-4 w-4" />
+              Explore the Menu
+            </a>
+            <a href={SITE.bookUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <CalendarCheck className="h-4 w-4" />
+              Book a Table
+            </a>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-paper/60 animate-in fade-in fill-mode-both delay-700 duration-1000">
+            <a
+              href={SITE.gojekUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/25 underline-offset-4 transition-colors hover:text-paper hover:decoration-saffron-400"
+            >
+              Order on Gojek
+            </a>
+            <a
+              href={SITE.grabUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/25 underline-offset-4 transition-colors hover:text-paper hover:decoration-saffron-400"
+            >
+              Order on Grab
+            </a>
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-white/25 underline-offset-4 transition-colors hover:text-paper hover:decoration-saffron-400"
+            >
+              Follow on Instagram
+            </a>
           </div>
         </div>
-
-        <p
-          className="text-lg sm:text-xl text-stone-300 mt-6 mb-10 max-w-2xl mx-auto leading-relaxed"
-          style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-        >
-          Savour the rich flavours of traditional Indian cuisine, crafted with
-          passion in the heart of Canggu — served in the cosy, home-like warmth
-          of our fully air-conditioned dining room.
-        </p>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onClick={openMenu}
-            className="group flex items-center justify-center gap-3 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-xl shadow-amber-900/30 min-w-[180px] whitespace-nowrap"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <UtensilsCrossed className="w-5 h-5" />
-            View Our Menu
-          </button>
-
-          <a
-            href="https://www.google.com/maps/dir//Nana+Sans+Tandoori+Indian+Restaurant+Canggu,+Jl.+Raya+Canggu,+Tibubeneng,+Kuta+Utara,+Badung+Regency,+Bali+80361/@-8.7185538,115.2481957,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2dd23990a4833983:0xb1371ea48cd70454!2m2!1d115.1545625!2d-8.6413098?entry=ttu&g_ep=EgoyMDI2MDMyNC4wIKXMDSoASAFQAw%3D%3D"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-full font-medium transition-all duration-300 border border-white/20 hover:border-white/40 min-w-[180px] whitespace-nowrap"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <MapPin className="w-5 h-5" />
-            Get Directions
-          </a>
-
-          <a
-            href="https://gofood.co.id/bali/restaurant/nana-sans-tandoori-kitchen-indian-restaurant-jalan-raya-canggu-no-10c-f682a778-bdca-4b87-bf0c-ffdaa384737a"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-3 bg-[#00AA13] hover:bg-[#008F10] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 min-w-[180px] whitespace-nowrap"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <ShoppingBag className="w-5 h-5" />
-            Order on Gojek
-          </a>
-
-          <a
-            href="https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-3 bg-[#00B14F] hover:bg-[#009644] text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 min-w-[180px] whitespace-nowrap"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <ShoppingBag className="w-5 h-5" />
-            Order on Grab
-          </a>
-
-          <a
-            href="https://www.instagram.com/nanasans_bali/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center justify-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-xl shadow-purple-900/30 min-w-[180px] whitespace-nowrap"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <Instagram className="w-5 h-5" />
-            Follow Us
-          </a>
-        </div>
-
       </div>
 
-      {/* Menu Viewer Modal */}
-      <MenuViewer isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      {/* Highlights strip */}
+      <div className="relative z-10 border-t border-white/10 bg-ink/40 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <ul className="flex flex-wrap gap-x-8 gap-y-3">
+            {HIGHLIGHTS.map(({ icon: Icon, label }) => (
+              <li key={label} className="flex items-center gap-2.5 text-sm text-paper/80">
+                <Icon className="h-4 w-4 text-saffron-400" />
+                {label}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#signatures"
+            className="hidden items-center gap-3 text-xs uppercase tracking-[0.25em] text-paper/60 transition-colors hover:text-paper sm:flex"
+          >
+            Scroll
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/20">
+              <ArrowDown className="h-4 w-4 animate-bounce" />
+            </span>
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

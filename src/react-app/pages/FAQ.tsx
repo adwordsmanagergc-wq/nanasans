@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { Link } from "react-router";
-import { ArrowLeft, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { MessageCircle, Plus } from "lucide-react";
 import Footer from "@/react-app/components/Footer";
+import PageHeader from "@/react-app/components/PageHeader";
 
 interface FAQItem {
   question: string;
@@ -54,19 +53,30 @@ const faqs: FAQItem[] = [
 
 function FAQAccordion({ faq, isOpen, onClick }: { faq: FAQItem; isOpen: boolean; onClick: () => void }) {
   return (
-    <div className="border-b border-stone-200 last:border-b-0">
+    <div className="border-b border-ink/10">
       <button
         onClick={onClick}
-        className="w-full py-5 flex items-center justify-between text-left hover:bg-stone-50 transition-colors px-4 -mx-4"
+        aria-expanded={isOpen}
+        className="group flex w-full items-center justify-between gap-6 py-6 text-left"
       >
-        <span className="font-medium text-stone-900 pr-4">{faq.question}</span>
-        <ChevronDown className={`w-5 h-5 text-stone-500 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="font-display text-lg leading-snug text-ink transition-colors group-hover:text-chili sm:text-xl">
+          {faq.question}
+        </span>
+        <span
+          className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
+            isOpen ? "rotate-45 border-ink bg-ink text-paper" : "border-ink/20 text-ink"
+          }`}
+        >
+          <Plus className="h-4 w-4" />
+        </span>
       </button>
-      {isOpen && (
-        <div className="pb-5 text-stone-600 leading-relaxed">
-          {faq.answer}
+      <div
+        className={`grid transition-all duration-500 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+      >
+        <div className="overflow-hidden">
+          <p className="pb-6 pr-12 leading-relaxed text-cocoa-500">{faq.answer}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -88,7 +98,7 @@ export default function FAQ() {
     document.title = "FAQ – Nana Sans Tandoori Kitchen | Indian Restaurant Canggu";
 
     // Update meta description
-    let meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
+    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
     if (meta) {
       meta.content = "Frequently asked questions about Nana Sans Tandoori Kitchen in Canggu. Opening hours, reservations, vegetarian options, spice levels, delivery, and more.";
     }
@@ -109,35 +119,25 @@ export default function FAQ() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-100">
+    <div className="min-h-screen bg-paper">
       {/* FAQ Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Header */}
-      <header className="bg-stone-900 text-white py-6 px-4">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors mb-4"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
-          <h1 className="text-3xl md:text-4xl font-bold">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-stone-400 mt-2">
-            Everything you need to know about dining at Nana Sans
-          </p>
-        </div>
-      </header>
+      <PageHeader
+        eyebrow="Good to know"
+        title={
+          <>
+            Frequently asked <em className="italic text-saffron-400">questions</em>
+          </>
+        }
+        intro="Everything you need to know about dining at Nana Sans."
+      />
 
-      {/* FAQ Content */}
-      <main className="max-w-3xl mx-auto px-4 py-12">
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+      <main className="grain mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+        <div className="border-t border-ink/10">
           {faqs.map((faq, index) => (
             <FAQAccordion
               key={index}
@@ -149,19 +149,22 @@ export default function FAQ() {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-8 bg-amber-50 rounded-lg border border-amber-200 p-6 text-center">
-          <h2 className="text-lg font-semibold text-stone-900 mb-2">
-            Still have questions?
+        <div className="relative mt-16 overflow-hidden rounded-[1.75rem] bg-ink p-8 text-paper sm:p-12">
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-40 blur-3xl"
+            style={{ background: "radial-gradient(circle, rgba(217,154,61,0.6), transparent 65%)" }}
+          />
+          <h2 className="relative font-display text-3xl font-light sm:text-4xl">
+            Still have <em className="italic text-saffron-400">questions?</em>
           </h2>
-          <p className="text-stone-600 mb-4">
-            We're happy to help. Reach out to us on WhatsApp.
-          </p>
+          <p className="relative mt-3 text-paper/65">We're happy to help. Reach out to us on WhatsApp.</p>
           <a
             href="https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I%20have%20a%20question"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+            className="btn-primary relative mt-8"
           >
+            <MessageCircle className="h-4 w-4" />
             Chat with Us
           </a>
         </div>

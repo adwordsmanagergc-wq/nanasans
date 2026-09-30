@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { DoorOpen } from "lucide-react";
 
-const LOGO =
-  "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/nana-sans-logo.png";
+import { LOGO } from "@/data/site";
 
 type Phase = "closed" | "opening" | "done";
 
@@ -154,13 +153,6 @@ export default function WelcomeDoors() {
       return;
     }
 
-    // Load the display font used for the greeting.
-    const link = document.createElement("link");
-    link.href =
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-
     // Lock scrolling while the doors are closed.
     document.body.style.overflow = "hidden";
 
@@ -232,16 +224,13 @@ export default function WelcomeDoors() {
         <span className="mb-3 inline-block rounded-full border border-amber-300/40 bg-amber-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-amber-200">
           Canggu, Bali
         </span>
-        <h1
-          className="text-4xl font-semibold text-amber-100 drop-shadow-lg sm:text-6xl"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
-        >
-          Welcome to Nana Sans
-        </h1>
+        <p className="font-display text-4xl font-light text-paper drop-shadow-lg sm:text-6xl">
+          Welcome to <em className="italic text-saffron-300">Nana Sans</em>
+        </p>
         <div className="mt-4 flex items-center gap-3 text-amber-200/60">
           <span className="h-px w-8 bg-gradient-to-r from-transparent to-amber-300/70 sm:w-12" />
           <span
-            className="text-base font-semibold uppercase tracking-[0.18em] text-amber-100 drop-shadow-md sm:text-xl"
+            className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-100 drop-shadow-md sm:text-sm"
             style={{ textShadow: "0 1px 12px rgba(240,200,90,0.35)" }}
           >
             Authentic Tandoori &amp; British-Indian Cuisine
@@ -255,7 +244,7 @@ export default function WelcomeDoors() {
             e.stopPropagation();
             open();
           }}
-          className="group mt-8 inline-flex items-center gap-3 rounded-full border border-amber-300/50 bg-amber-600/90 px-8 py-3.5 font-medium text-white shadow-xl shadow-amber-900/40 transition-all duration-300 hover:scale-105 hover:bg-amber-600"
+          className="btn-primary group mt-8 !px-9"
         >
           <DoorOpen className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-0.5" />
           Enter

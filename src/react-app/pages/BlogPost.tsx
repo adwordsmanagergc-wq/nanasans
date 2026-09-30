@@ -4,6 +4,9 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
 import { geoImageObject } from "@/data/photoGeo";
 import Footer from "@/react-app/components/Footer";
+import SiteNav from "@/react-app/components/SiteNav";
+import PostCard from "@/react-app/components/PostCard";
+import { formatPostDate } from "@/react-app/lib/utils";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -25,7 +28,7 @@ export default function BlogPost() {
     document.title = `${post.title} | Nana Sans Canggu`;
 
     // Update meta description
-    let meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
+    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
     if (meta) {
       meta.content = post.metaDescription;
     }
@@ -50,7 +53,7 @@ export default function BlogPost() {
       if (match[1] !== undefined) {
         // Bold
         nodes.push(
-          <strong key={key++} className="font-semibold text-stone-900">
+          <strong key={key++} className="font-semibold text-ink">
             {match[1]}
           </strong>
         );
@@ -63,7 +66,7 @@ export default function BlogPost() {
             <Link
               key={key++}
               to={href}
-              className="text-amber-700 font-medium underline underline-offset-2 hover:text-amber-600"
+              className="font-medium text-chili underline decoration-chili/30 underline-offset-4 transition-colors hover:decoration-chili"
             >
               {label}
             </Link>
@@ -75,7 +78,7 @@ export default function BlogPost() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-amber-700 font-medium underline underline-offset-2 hover:text-amber-600"
+              className="font-medium text-chili underline decoration-chili/30 underline-offset-4 transition-colors hover:decoration-chili"
             >
               {label}
             </a>
@@ -102,10 +105,11 @@ export default function BlogPost() {
       const items = listItems;
       listItems = [];
       elements.push(
-        <ul key={key++} className="list-disc pl-6 mb-5 space-y-2 text-stone-700">
+        <ul key={key++} className="mb-7 space-y-3 pl-1 text-cocoa-500">
           {items.map((item, i) => (
-            <li key={i} className="leading-relaxed">
-              {renderInline(item)}
+            <li key={i} className="flex gap-4 leading-relaxed">
+              <span className="mt-[0.7em] h-1.5 w-1.5 shrink-0 rounded-full bg-saffron-500" />
+              <span>{renderInline(item)}</span>
             </li>
           ))}
         </ul>
@@ -124,20 +128,20 @@ export default function BlogPost() {
             src={imageMatch[2]}
             alt={imageMatch[1]}
             loading="lazy"
-            className="w-full rounded-xl shadow-md my-6 object-cover"
+            className="my-10 w-full rounded-2xl object-cover shadow-[0_30px_60px_-30px_rgba(27,19,14,0.6)]"
           />
         );
       } else if (line.startsWith("## ")) {
         flushList();
         elements.push(
-          <h2 key={key++} className="text-2xl font-bold text-stone-900 mt-8 mb-4">
+          <h2 key={key++} className="mb-5 mt-14 font-display text-3xl leading-tight text-ink sm:text-4xl">
             {renderInline(line.replace("## ", ""))}
           </h2>
         );
       } else if (line.startsWith("### ")) {
         flushList();
         elements.push(
-          <h3 key={key++} className="text-xl font-semibold text-stone-800 mt-6 mb-3">
+          <h3 key={key++} className="mb-4 mt-10 font-display text-2xl text-ink">
             {renderInline(line.replace("### ", ""))}
           </h3>
         );
@@ -148,7 +152,7 @@ export default function BlogPost() {
       } else {
         flushList();
         elements.push(
-          <p key={key++} className="text-stone-700 leading-relaxed mb-4">
+          <p key={key++} className="mb-6 text-[1.075rem] leading-[1.8] text-cocoa-500">
             {renderInline(line)}
           </p>
         );
@@ -163,7 +167,7 @@ export default function BlogPost() {
   const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
-    <div className="min-h-screen bg-stone-100">
+    <div className="min-h-screen bg-paper">
       {/* Article Schema */}
       <script
         type="application/ld+json"
@@ -226,75 +230,69 @@ export default function BlogPost() {
         }}
       />
 
-      {/* Header */}
-      <header className="bg-stone-900 text-white py-6 px-4">
-        <div className="max-w-3xl mx-auto">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
-        </div>
-      </header>
+      <SiteNav />
 
-      {/* Hero Image */}
-      <div className="w-full h-64 md:h-80 overflow-hidden">
+      {/* Masthead over the post's photograph */}
+      <header className="relative flex min-h-[70vh] items-end overflow-hidden bg-ink text-paper">
         <img
           src={post.image}
           alt={post.imageAlt}
-          className="w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full animate-slow-zoom object-cover"
           loading="eager"
         />
-      </div>
-
-      {/* Article Content */}
-      <article className="max-w-3xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-10 -mt-16 relative">
-          <div className="flex items-center gap-4 text-sm text-stone-500 mb-4">
-            <span className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              {new Date(post.date).toLocaleDateString("en-GB", {
-                day: "numeric",
-                month: "long",
-                year: "numeric"
-              })}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+        <div className="relative mx-auto w-full max-w-3xl px-5 pb-14 pt-36 sm:px-8">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-paper/70 transition-colors hover:text-saffron-300"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Back to the Journal
+          </Link>
+          <p className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.2em] text-saffron-300">
+            <span className="flex items-center gap-2">
+              <Calendar className="h-3.5 w-3.5" />
+              {formatPostDate(post.date, "long")}
             </span>
-            <span className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
+            <span className="flex items-center gap-2">
+              <Clock className="h-3.5 w-3.5" />
               {post.readTime}
             </span>
-          </div>
+          </p>
+          <h1 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">{post.title}</h1>
+        </div>
+      </header>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">
-            {post.title}
-          </h1>
+      {/* Article Content */}
+      <article className="grain px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto max-w-2xl">
+          <p className="mb-10 border-l-2 border-saffron-500 pl-6 font-display text-2xl font-light italic leading-snug text-ink">
+            {post.excerpt}
+          </p>
 
-          <div className="prose prose-stone max-w-none">
-            {renderContent(post.content)}
-          </div>
+          <div>{renderContent(post.content)}</div>
 
           {/* CTA */}
-          <div className="mt-10 p-6 bg-amber-50 rounded-lg border border-amber-200">
-            <h3 className="text-lg font-semibold text-stone-900 mb-2">
-              Ready to taste authentic tandoori?
+          <div className="relative mt-16 overflow-hidden rounded-[1.75rem] bg-ink p-8 text-paper sm:p-10">
+            <div
+              className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full opacity-40 blur-3xl"
+              style={{ background: "radial-gradient(circle, rgba(217,154,61,0.6), transparent 65%)" }}
+            />
+            <h3 className="relative font-display text-3xl font-light">
+              Ready to taste <em className="italic text-saffron-400">authentic tandoori?</em>
             </h3>
-            <p className="text-stone-600 mb-4">
+            <p className="relative mt-3 text-paper/65">
               Visit Nana Sans Tandoori Kitchen in Canggu and experience the flavours we've been writing about.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                to="/"
-                className="inline-flex items-center px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors text-sm font-medium"
-              >
+            <div className="relative mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link to="/#menu" className="btn-primary">
                 View Our Menu
               </Link>
               <a
                 href="https://wa.me/6281234564499?text=hey%20Nana%20Sans,%20I'm%20hungry"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                className="btn-ghost"
               >
                 Book a Table
               </a>
@@ -304,31 +302,12 @@ export default function BlogPost() {
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <div className="mt-12">
-            <h2 className="text-2xl font-bold text-stone-900 mb-6">
-              More from our blog
-            </h2>
-            <div className="grid gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-24 max-w-5xl border-t border-ink/10 pt-16">
+            <p className="eyebrow">Keep reading</p>
+            <h2 className="mb-10 mt-4 font-display text-3xl font-light sm:text-4xl">More from the journal</h2>
+            <div className="grid gap-10 md:grid-cols-2">
               {relatedPosts.map((relatedPost) => (
-                <Link
-                  key={relatedPost.slug}
-                  to={`/blog/${relatedPost.slug}`}
-                  className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow group"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={relatedPost.image}
-                      alt={relatedPost.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-stone-900 group-hover:text-amber-700 transition-colors">
-                      {relatedPost.title}
-                    </h3>
-                  </div>
-                </Link>
+                <PostCard key={relatedPost.slug} post={relatedPost} />
               ))}
             </div>
           </div>

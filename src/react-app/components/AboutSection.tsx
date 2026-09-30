@@ -1,183 +1,254 @@
-import { useState, useEffect } from "react";
-import { ChevronDown, Heart } from "lucide-react";
+import { useState } from "react";
+import { Bike, Flame, Heart, Leaf, Plus, Snowflake } from "lucide-react";
+import { CDN } from "@/data/site";
+import Reveal from "./Reveal";
+
+const PILLARS = [
+  {
+    icon: Flame,
+    title: "A real clay tandoor",
+    body: "Meats, paneer and naans are fired at blistering heat for that smoky, charred edge you can't fake.",
+  },
+  {
+    icon: Snowflake,
+    title: "Cool, calm dining",
+    body: "Step out of the Bali heat into our fully air-conditioned dining room. Stay as long as you like.",
+  },
+  {
+    icon: Leaf,
+    title: "Veg & vegan, properly",
+    body: "Dedicated vegetarian and vegan menus, not an afterthought. Everyone eats well at Nanny's table.",
+  },
+  {
+    icon: Bike,
+    title: "Delivered across Canggu",
+    body: "Craving a curry at the villa? Order through GoFood or GrabFood and we'll bring it to your door.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What makes Nana Sans the best Indian restaurant in Canggu?",
+    answer:
+      "Nana Sans combines traditional Indian recipes with British culinary influence, creating a unique dining experience you won't find elsewhere in Canggu. Our dishes are made fresh daily using quality spices, and our warm, family-style hospitality makes every guest feel at home.",
+  },
+  {
+    question: "Is Nana Sans air conditioned?",
+    answer:
+      "Yes! Nana Sans Tandoori Kitchen is fully air conditioned, providing a cool and comfortable dining experience away from the Bali heat. Enjoy your meal in our refreshing indoor space while savoring authentic Indian flavors.",
+  },
+  {
+    question: "Are there air conditioned restaurants in Canggu?",
+    answer:
+      "Absolutely! Nana Sans Tandoori Kitchen offers a fully air conditioned dining room in Canggu. It's the perfect escape from the tropical heat while enjoying delicious Indian cuisine with family and friends.",
+  },
+  {
+    question: "Where can I find an air conditioned Indian restaurant in Bali?",
+    answer:
+      "Nana Sans Tandoori Kitchen in Canggu features full air conditioning throughout the restaurant. Whether you're looking to cool down after a day at the beach or simply prefer indoor dining, we've got you covered with comfortable seating and authentic Indian dishes.",
+  },
+  {
+    question: "Where can I find great Indian food in Canggu, Bali?",
+    answer:
+      "Nana Sans Tandoori Kitchen is located on Jl. Raya Canggu, in the heart of Canggu. We're easily accessible and offer dine-in, takeaway, and delivery through Gojek. Our menu features everything from tandoori specialties to curries, biryanis, and homemade naans.",
+  },
+  {
+    question: "Is Nana Sans suitable for vegetarians and vegans?",
+    answer:
+      "Absolutely! We have extensive vegetarian and vegan menus featuring delicious curries, sides, and mains. Our chefs prepare each dish with care, ensuring plant-based diners enjoy the same rich, flavorful experience as everyone else.",
+  },
+  {
+    question: "What's the best Indian restaurant in Bali for families?",
+    answer:
+      "Nana Sans is perfect for families! Our restaurant was founded on the values of family, warmth, and togetherness. We offer a welcoming atmosphere, kid-friendly options, and generous portions meant to be shared around the table—just like at home.",
+  },
+  {
+    question: "Does Nana Sans offer delivery in Canggu?",
+    answer:
+      "Yes! You can order Nana Sans through Gojek (GoFood) for delivery anywhere in the Canggu area. Enjoy our delicious Indian cuisine from the comfort of your villa or hotel.",
+  },
+];
+
+/** Accordion row that animates its height with a CSS grid trick. */
+function Disclosure({
+  title,
+  open,
+  onToggle,
+  children,
+}: {
+  title: string;
+  open: boolean;
+  onToggle: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="border-b border-ink/10">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        className="group flex w-full items-center justify-between gap-6 py-6 text-left"
+      >
+        <span className="font-display text-lg leading-snug text-ink transition-colors group-hover:text-chili sm:text-xl">
+          {title}
+        </span>
+        <span
+          className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
+            open ? "rotate-45 border-ink bg-ink text-paper" : "border-ink/20 text-ink"
+          }`}
+        >
+          <Plus className="h-4 w-4" />
+        </span>
+      </button>
+      <div
+        className={`grid transition-all duration-500 ease-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+      >
+        <div className="overflow-hidden">
+          <div className="pb-6 pr-12 leading-relaxed text-cocoa-500">{children}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function AboutSection() {
-  const [fontLoaded, setFontLoaded] = useState(false);
   const [seoOpen, setSeoOpen] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.href = "https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-    link.onload = () => setFontLoaded(true);
-  }, []);
-
-  const faqs = [
-    {
-      question: "What makes Nana Sans the best Indian restaurant in Canggu?",
-      answer: "Nana Sans combines traditional Indian recipes with British culinary influence, creating a unique dining experience you won't find elsewhere in Canggu. Our dishes are made fresh daily using quality spices, and our warm, family-style hospitality makes every guest feel at home."
-    },
-    {
-      question: "Is Nana Sans air conditioned?",
-      answer: "Yes! Nana Sans Tandoori Kitchen is fully air conditioned, providing a cool and comfortable dining experience away from the Bali heat. Enjoy your meal in our refreshing indoor space while savoring authentic Indian flavors."
-    },
-    {
-      question: "Are there air conditioned restaurants in Canggu?",
-      answer: "Absolutely! Nana Sans Tandoori Kitchen offers a fully air conditioned dining room in Canggu. It's the perfect escape from the tropical heat while enjoying delicious Indian cuisine with family and friends."
-    },
-    {
-      question: "Where can I find an air conditioned Indian restaurant in Bali?",
-      answer: "Nana Sans Tandoori Kitchen in Canggu features full air conditioning throughout the restaurant. Whether you're looking to cool down after a day at the beach or simply prefer indoor dining, we've got you covered with comfortable seating and authentic Indian dishes."
-    },
-    {
-      question: "Where can I find great Indian food in Canggu, Bali?",
-      answer: "Nana Sans Tandoori Kitchen is located on Jl. Raya Canggu, in the heart of Canggu. We're easily accessible and offer dine-in, takeaway, and delivery through Gojek. Our menu features everything from tandoori specialties to curries, biryanis, and homemade naans."
-    },
-    {
-      question: "Is Nana Sans suitable for vegetarians and vegans?",
-      answer: "Absolutely! We have extensive vegetarian and vegan menus featuring delicious curries, sides, and mains. Our chefs prepare each dish with care, ensuring plant-based diners enjoy the same rich, flavorful experience as everyone else."
-    },
-    {
-      question: "What's the best Indian restaurant in Bali for families?",
-      answer: "Nana Sans is perfect for families! Our restaurant was founded on the values of family, warmth, and togetherness. We offer a welcoming atmosphere, kid-friendly options, and generous portions meant to be shared around the table—just like at home."
-    },
-    {
-      question: "Does Nana Sans offer delivery in Canggu?",
-      answer: "Yes! You can order Nana Sans through Gojek (GoFood) for delivery anywhere in the Canggu area. Enjoy our delicious Indian cuisine from the comfort of your villa or hotel."
-    }
-  ];
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <section className="bg-gradient-to-b from-stone-100 to-stone-200 py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        {/* Our Story Section */}
-        <div className="mb-16">
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-            {/* Image */}
-            <div className="w-full lg:w-2/5 flex-shrink-0">
-              <div className="relative">
-                <div className="absolute inset-0 bg-amber-600/20 rounded-2xl transform rotate-3" />
-                <img
-                  src="https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png"
-                  alt="Sandra, the inspiration behind Nana Sans Tandoori Kitchen, sharing warmth and hospitality in Canggu Bali"
-                  className="relative rounded-2xl shadow-2xl w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
+    <>
+      {/* Our Story */}
+      <section id="story" className="grain overflow-hidden bg-paper py-24 sm:py-32">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
+          <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
+            {/* Arched portrait frame, a nod to Mughal doorways */}
+            <div className="relative overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] shadow-[0_40px_80px_-40px_rgba(27,19,14,0.7)]">
+              <img
+                src={`${CDN}/Screenshot-2026-03-28-at-3.23.22-pm.png`}
+                alt="Sandra, the inspiration behind Nana Sans Tandoori Kitchen, sharing warmth and hospitality in Canggu Bali"
+                className="aspect-[4/5] w-full object-cover"
+                loading="lazy"
+              />
             </div>
+            <div className="absolute -inset-3 -z-10 rounded-t-[999px] rounded-b-[2.25rem] border border-saffron-500/50" />
+            <div className="absolute -bottom-6 -right-2 rounded-2xl bg-ink px-6 py-5 text-paper shadow-2xl sm:-right-8">
+              <p className="font-display text-4xl italic text-saffron-400">Nanny</p>
+              <p className="mt-1 text-[0.65rem] uppercase tracking-[0.25em] text-paper/60">The heart of our kitchen</p>
+            </div>
+          </Reveal>
 
-            {/* Story Text */}
-            <div className="w-full lg:w-3/5">
-              <h2 
-                className="text-4xl md:text-5xl text-stone-800 mb-2 flex items-center gap-3"
-                style={{ fontFamily: fontLoaded ? "'Playfair Display', serif" : "serif" }}
-              >
-                Our Story <Heart className="w-8 h-8 text-red-500 fill-red-500" />
-              </h2>
-              <p 
-                className="text-amber-700 font-medium tracking-wide mb-6 uppercase text-sm"
-                style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-              >
-                A Tribute to My Mother
+          <Reveal delay={150}>
+            <span className="eyebrow">Our Story · A Tribute to My Mother</span>
+            <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
+              Ever wondered where the name <em className="italic text-chili">Nana Sans</em> comes from?
+            </h2>
+
+            <div className="mt-8 space-y-5 leading-relaxed text-cocoa-500 sm:text-lg">
+              <p>
+                I was raised in a family where love, hard work, and community meant everything. But at the heart of it
+                all is one person: my mother, Sandra.
               </p>
-              
-              <div 
-                className="space-y-4 text-stone-700 leading-relaxed"
-                style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-              >
-                <p className="font-medium text-stone-800">
-                  Ever wondered where the name Nana Sans comes from?
-                </p>
-                <p>
-                  I was raised in a family where love, hard work, and community meant everything. But at the heart of it all is one person: my mother, Sandra.
-                </p>
-                <p>
-                  She's more than just my mom, she's the glue that holds our big, beautiful family together. A woman of strength, warmth, and endless love, she's always made sure that no one ever feels alone, especially around the dinner table. Her home-cooked meals weren't just food; they were comfort, connection, and a reminder that no matter where life takes us, family is always at the core.
-                </p>
-                <p>
-                  My nieces and nephews lovingly call her "Nanny," and it's from that love that Nana Sans was born. This restaurant is my way of honoring her; of sharing the warmth, hospitality, and home-cooked flavors that she's always given us.
-                </p>
-                <p>
-                  At Nana Sans, we believe food brings people together. We are nothing without our community, and we'd love for you to be part of ours. So come on in, share a meal, share a story, and most of all, feel at home.
-                </p>
-                <p className="font-medium text-stone-800 flex items-center gap-2">
-                  Welcome to the family. <Heart className="w-5 h-5 text-red-500 fill-red-500" />
-                </p>
-              </div>
+              <p>
+                She's more than just my mom, she's the glue that holds our big, beautiful family together. A woman of
+                strength, warmth, and endless love, she's always made sure that no one ever feels alone, especially
+                around the dinner table.
+              </p>
+              <blockquote className="border-l-2 border-saffron-500 pl-6 font-display text-2xl font-light italic leading-snug text-ink sm:text-[1.7rem]">
+                “Her home-cooked meals weren't just food; they were comfort, connection, and a reminder that no matter
+                where life takes us, family is always at the core.”
+              </blockquote>
+              <p>
+                My nieces and nephews lovingly call her "Nanny," and it's from that love that Nana Sans was born. This
+                restaurant is my way of honoring her; of sharing the warmth, hospitality, and home-cooked flavors that
+                she's always given us.
+              </p>
+              <p>
+                At Nana Sans, we believe food brings people together. We are nothing without our community, and we'd
+                love for you to be part of ours. So come on in, share a meal, share a story, and most of all, feel at
+                home.
+              </p>
             </div>
-          </div>
+            <p className="mt-8 flex items-center gap-3 font-display text-2xl italic text-ink">
+              Welcome to the family.
+              <Heart className="h-5 w-5 fill-chili text-chili" />
+            </p>
+          </Reveal>
         </div>
+      </section>
 
-        {/* SEO Dropdown */}
-        <div className="mb-8">
-          <button
-            onClick={() => setSeoOpen(!seoOpen)}
-            className="w-full flex items-center justify-between bg-white/80 backdrop-blur-sm rounded-xl px-6 py-4 shadow-md hover:shadow-lg transition-all duration-300 border border-stone-200"
-            style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-          >
-            <span className="text-stone-800 font-medium">About Indian Cuisine in Canggu</span>
-            <ChevronDown className={`w-5 h-5 text-stone-600 transition-transform duration-300 ${seoOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          <div className={`overflow-hidden transition-all duration-500 ${seoOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div 
-              className="bg-white/60 backdrop-blur-sm rounded-b-xl px-6 py-5 border border-t-0 border-stone-200 space-y-4 text-stone-700"
-              style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-            >
-              <p>
-                <strong>Nana Sans Tandoori Kitchen</strong> is Canggu's premier destination for Indian cuisine with British influence. Located in the heart of Canggu, Bali, we serve a wide variety of dishes including tandoori specialties, rich curries, aromatic biryanis, fresh naans, and homemade chutneys.
-              </p>
-              <p>
-                Whether you're searching for the <strong>best Indian restaurant in Canggu</strong>, looking for <strong>Indian food delivery in Bali</strong>, or want to enjoy a memorable dining experience with family and friends, Nana Sans offers something for everyone. Our menu caters to meat lovers, vegetarians, and vegans alike.
-              </p>
-              <p>
-                We're proud to bring the flavors of India to Canggu with dishes crafted from family recipes passed down through generations. From our signature tandoori grill to our creamy butter chicken and fragrant vegetable curries, every dish is prepared with love and the finest ingredients.
-              </p>
-              <p>
-                Visit us at <strong>Jl. Raya Canggu, Tibubeneng, Kuta Utara, Badung Regency, Bali</strong> or order online through Gojek for delivery straight to your door. Experience why locals and tourists alike consider Nana Sans the <strong>top Indian restaurant in Canggu, Bali</strong>.
-              </p>
-            </div>
-          </div>
+      {/* Pillars */}
+      <section className="bg-paper-200 py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-px overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
+          {PILLARS.map(({ icon: Icon, title, body }, i) => (
+            <Reveal key={title} delay={i * 100} className="bg-paper-100 p-8 transition-colors duration-500 hover:bg-paper-50">
+              <span className="grid h-12 w-12 place-items-center rounded-full bg-ink text-saffron-400">
+                <Icon className="h-5 w-5" />
+              </span>
+              <h3 className="mt-6 font-display text-2xl">{title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-cocoa-500">{body}</p>
+            </Reveal>
+          ))}
         </div>
+        </div>
+      </section>
 
-        {/* FAQ Section */}
-        <div>
-          <h3 
-            className="text-2xl md:text-3xl text-stone-800 mb-6 text-center"
-            style={{ fontFamily: fontLoaded ? "'Playfair Display', serif" : "serif" }}
-          >
-            Frequently Asked Questions
-          </h3>
-          
-          <div className="space-y-3">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-xl shadow-md border border-stone-200 overflow-hidden">
-                <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-white/90 transition-colors"
-                  style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
+      {/* FAQ + About */}
+      <section id="faq" className="bg-paper py-24 sm:py-32">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <Reveal className="lg:sticky lg:top-28 lg:self-start">
+            <span className="eyebrow">Good to know</span>
+            <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-5xl">
+              Frequently asked <em className="italic text-chili">questions</em>
+            </h2>
+            <p className="mt-6 max-w-sm leading-relaxed text-cocoa-500">
+              Planning a visit, ordering in, or bringing the whole family? Here's what guests usually ask us.
+            </p>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="border-t border-ink/10">
+              {faqs.map((faq, index) => (
+                <Disclosure
+                  key={faq.question}
+                  title={faq.question}
+                  open={openFaq === index}
+                  onToggle={() => setOpenFaq(openFaq === index ? null : index)}
                 >
-                  <span className="text-stone-800 font-medium pr-4">{faq.question}</span>
-                  <ChevronDown className={`w-5 h-5 text-stone-600 flex-shrink-0 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
-                </button>
-                
-                <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-[300px]' : 'max-h-0'}`}>
-                  <p 
-                    className="px-6 pb-4 text-stone-600 leading-relaxed"
-                    style={{ fontFamily: fontLoaded ? "'Outfit', sans-serif" : "sans-serif" }}
-                  >
-                    {faq.answer}
+                  {faq.answer}
+                </Disclosure>
+              ))}
+              <Disclosure title="About Indian cuisine in Canggu" open={seoOpen} onToggle={() => setSeoOpen(!seoOpen)}>
+                <div className="space-y-4">
+                  <p>
+                    <strong className="text-ink">Nana Sans Tandoori Kitchen</strong> is Canggu's premier destination
+                    for Indian cuisine with British influence. Located in the heart of Canggu, Bali, we serve a wide
+                    variety of dishes including tandoori specialties, rich curries, aromatic biryanis, fresh naans, and
+                    homemade chutneys.
+                  </p>
+                  <p>
+                    Whether you're searching for the <strong className="text-ink">best Indian restaurant in Canggu</strong>
+                    , looking for <strong className="text-ink">Indian food delivery in Bali</strong>, or want to enjoy
+                    a memorable dining experience with family and friends, Nana Sans offers something for everyone. Our
+                    menu caters to meat lovers, vegetarians, and vegans alike.
+                  </p>
+                  <p>
+                    We're proud to bring the flavors of India to Canggu with dishes crafted from family recipes passed
+                    down through generations. From our signature tandoori grill to our creamy butter chicken and
+                    fragrant vegetable curries, every dish is prepared with love and the finest ingredients.
+                  </p>
+                  <p>
+                    Visit us at{" "}
+                    <strong className="text-ink">Jl. Raya Canggu, Tibubeneng, Kuta Utara, Badung Regency, Bali</strong>{" "}
+                    or order online through Gojek for delivery straight to your door. Experience why locals and tourists
+                    alike consider Nana Sans the <strong className="text-ink">top Indian restaurant in Canggu, Bali</strong>.
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
+              </Disclosure>
+            </div>
+          </Reveal>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

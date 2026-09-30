@@ -1,215 +1,161 @@
-import { useState, useRef, useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-
-const menuImages = [
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/1Starters-Sides.jpg",
-    alt: "Starters & Sides",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/2Meat-Curries.jpg",
-    alt: "Meat Curries",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/3Vegetarian-Curries.jpg",
-    alt: "Vegetarian Curries",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/4Vegan-Curries.jpg",
-    alt: "Vegan Curries",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/5Mains.jpg",
-    alt: "Mains",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/6Nans-Tandoori-Grill.jpg",
-    alt: "Nana's Tandoori Grill",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/7Wraps.jpg",
-    alt: "Wraps",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/8Box-Specials.jpg",
-    alt: "Box Specials",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/9Naans-Rotis.jpg",
-    alt: "Naans & Rotis",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/10Sauces-Chutney.jpg",
-    alt: "Sauces & Chutney",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/11-rice-biryani.jpg",
-    alt: "Rice & Biryani",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/12tea.jpg",
-    alt: "Tea",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/13drinks.jpg",
-    alt: "Drinks",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/14-fresh-juice.jpg",
-    alt: "Fresh Juice",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/15signature-drinks.jpg",
-    alt: "Signature Drinks",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/16signatured-drinks2.jpg",
-    alt: "Signature Drinks 2",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/17desserts.jpg",
-    alt: "Desserts",
-  },
-  {
-    src: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/18ourstory.jpg",
-    alt: "Our Story",
-  },
-];
+import { MENU_PAGES } from "@/data/menu";
 
 interface MenuViewerProps {
   isOpen: boolean;
   onClose: () => void;
+  /** Page to show when the viewer opens. */
+  startIndex?: number;
 }
 
-export default function MenuViewer({ isOpen, onClose }: MenuViewerProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+const MIN_SWIPE_DISTANCE = 50;
 
-  // Minimum swipe distance
-  const minSwipeDistance = 50;
+export default function MenuViewer({ isOpen, onClose, startIndex = 0 }: MenuViewerProps) {
+  const [currentIndex, setCurrentIndex] = useState(startIndex);
+  const [loaded, setLoaded] = useState(false);
+  const touchStart = useRef<number | null>(null);
+  const touchEnd = useRef<number | null>(null);
+  const thumbsRef = useRef<HTMLDivElement>(null);
+
+  const goTo = useCallback((index: number) => {
+    setLoaded(false);
+    setCurrentIndex((index + MENU_PAGES.length) % MENU_PAGES.length);
+  }, []);
+
+  const goToNext = useCallback(() => goTo(currentIndex + 1), [goTo, currentIndex]);
+  const goToPrev = useCallback(() => goTo(currentIndex - 1), [goTo, currentIndex]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      setCurrentIndex(0);
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (!isOpen) return;
+    setLoaded(false);
+    setCurrentIndex(startIndex);
+    document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, startIndex]);
 
   // Keyboard navigation
   useEffect(() => {
+    if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isOpen) return;
       if (e.key === "ArrowLeft") goToPrev();
       if (e.key === "ArrowRight") goToNext();
       if (e.key === "Escape") onClose();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, currentIndex]);
+  }, [isOpen, goToNext, goToPrev, onClose]);
 
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % menuImages.length);
-  };
-
-  const goToPrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + menuImages.length) % menuImages.length);
-  };
+  // Keep the active chapter visible in the chapter strip.
+  useEffect(() => {
+    const active = thumbsRef.current?.querySelector<HTMLElement>(`[data-index="${currentIndex}"]`);
+    active?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }, [currentIndex, isOpen]);
 
   const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
+    touchEnd.current = null;
+    touchStart.current = e.targetTouches[0].clientX;
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    touchEnd.current = e.targetTouches[0].clientX;
   };
 
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe) goToNext();
-    if (isRightSwipe) goToPrev();
+    if (touchStart.current === null || touchEnd.current === null) return;
+    const distance = touchStart.current - touchEnd.current;
+    if (distance > MIN_SWIPE_DISTANCE) goToNext();
+    if (distance < -MIN_SWIPE_DISTANCE) goToPrev();
   };
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 z-50 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-        aria-label="Close menu"
-      >
-        <X className="w-6 h-6 text-white" />
-      </button>
+  const page = MENU_PAGES[currentIndex];
 
-      {/* Page indicator */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-sm font-medium">
-        {currentIndex + 1} / {menuImages.length}
+  return (
+    <div
+      className="fixed inset-0 z-[60] flex flex-col bg-ink-900/[0.97] text-paper backdrop-blur-sm animate-in fade-in duration-300"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Nana Sans menu"
+    >
+      {/* Top bar */}
+      <div className="flex items-center justify-between gap-4 px-4 py-4 sm:px-8">
+        <div className="min-w-0">
+          <p className="text-[0.65rem] uppercase tracking-[0.3em] text-saffron-400">
+            {String(currentIndex + 1).padStart(2, "0")} / {String(MENU_PAGES.length).padStart(2, "0")}
+          </p>
+          <p className="truncate font-display text-xl sm:text-2xl">{page.alt}</p>
+        </div>
+        <button
+          onClick={onClose}
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 transition-colors hover:bg-white/10"
+          aria-label="Close menu"
+        >
+          <X className="h-5 w-5" />
+        </button>
       </div>
 
-      {/* Navigation arrows - desktop */}
-      <button
-        onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors hidden sm:block"
-        aria-label="Previous page"
-      >
-        <ChevronLeft className="w-8 h-8 text-white" />
-      </button>
-
-      <button
-        onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors hidden sm:block"
-        aria-label="Next page"
-      >
-        <ChevronRight className="w-8 h-8 text-white" />
-      </button>
-
-      {/* Image container with swipe support */}
+      {/* Page */}
       <div
-        ref={containerRef}
-        className="w-full h-full flex items-center justify-center px-4 py-16"
+        className="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
+        {!loaded && (
+          <div className="absolute h-10 w-10 animate-spin rounded-full border-2 border-white/15 border-t-saffron-400" />
+        )}
         <img
-          src={menuImages[currentIndex].src}
-          alt={menuImages[currentIndex].alt}
-          className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+          key={page.src}
+          src={page.src}
+          alt={page.alt}
+          onLoad={() => setLoaded(true)}
+          className={`max-h-full max-w-full rounded-md object-contain shadow-2xl transition-opacity duration-500 ${
+            loaded ? "opacity-100" : "opacity-0"
+          }`}
           draggable={false}
         />
+
+        <button
+          onClick={goToPrev}
+          className="absolute left-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-ink/60 transition-colors hover:border-saffron-400 hover:text-saffron-300 sm:grid"
+          aria-label="Previous page"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+        <button
+          onClick={goToNext}
+          className="absolute right-4 top-1/2 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-white/15 bg-ink/60 transition-colors hover:border-saffron-400 hover:text-saffron-300 sm:grid"
+          aria-label="Next page"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
       </div>
 
-      {/* Dot indicators */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
-        {menuImages.map((_, index) => (
+      {/* Chapter strip */}
+      <div
+        ref={thumbsRef}
+        className="flex gap-2 overflow-x-auto px-4 py-4 [scrollbar-width:none] sm:justify-center sm:px-8 [&::-webkit-scrollbar]:hidden"
+      >
+        {MENU_PAGES.map((p, index) => (
           <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all ${
+            key={p.src}
+            data-index={index}
+            onClick={() => goTo(index)}
+            className={`shrink-0 rounded-full border px-4 py-2 text-xs font-medium transition-all ${
               index === currentIndex
-                ? "bg-amber-500 w-6"
-                : "bg-white/40 hover:bg-white/60"
+                ? "border-saffron-400 bg-saffron-500 text-ink"
+                : "border-white/15 text-paper/70 hover:border-white/40 hover:text-paper"
             }`}
-            aria-label={`Go to page ${index + 1}`}
-          />
+            aria-label={`Go to ${p.alt}`}
+            aria-current={index === currentIndex}
+          >
+            {p.alt}
+          </button>
         ))}
-      </div>
-
-      {/* Swipe hint for mobile */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-white/50 text-xs sm:hidden">
-        Swipe to navigate
       </div>
     </div>
   );
