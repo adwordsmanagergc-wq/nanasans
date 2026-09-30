@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, BookOpen, Leaf } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
-import { MENU_PAGES } from "@/data/menu";
+import { MENU_HIGHLIGHTS } from "@/data/menu";
 import MenuViewer from "./MenuViewer";
 import Reveal from "./Reveal";
 
@@ -30,11 +30,12 @@ const SIGNATURES = [
   },
 ];
 
-// "Our Story" is the last page of the printed menu; it isn't a food chapter.
-const CHAPTERS = MENU_PAGES.map((page, index) => ({ ...page, index })).filter((p) => p.alt !== "Our Story");
+const formatPrice = (idr: number) => `${Math.round(idr / 1000)}k`;
 
 export default function MenuSection() {
   const [viewerIndex, setViewerIndex] = useState<number | null>(null);
+  const [course, setCourse] = useState(0);
+  const active = MENU_HIGHLIGHTS[course];
 
   return (
     <>
@@ -89,54 +90,95 @@ export default function MenuSection() {
         </div>
       </section>
 
-      {/* Menu chapters */}
+      {/* Menu */}
       <section id="menu" className="relative overflow-hidden bg-ink py-24 text-paper sm:py-32">
         <div
           className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full opacity-30 blur-3xl"
           style={{ background: "radial-gradient(circle, rgba(217,154,61,0.5), transparent 65%)" }}
         />
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <Reveal className="lg:sticky lg:top-28 lg:self-start">
-            <span className="eyebrow text-saffron-400">The Menu</span>
-            <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
-              Seventeen chapters of <em className="italic text-saffron-400">comfort</em>
-            </h2>
-            <p className="mt-6 max-w-md leading-relaxed text-paper/65">
-              From sizzling tandoori grills and rich meat curries to dedicated vegetarian and vegan pages, fresh naans,
-              biryanis, chai and signature drinks. Pick a chapter to start reading.
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <span className="eyebrow text-saffron-400">The Menu</span>
+              <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
+                What's cooking at <em className="italic text-saffron-400">Nana's</em>
+              </h2>
+            </div>
+            <p className="max-w-sm text-paper/65 md:text-right">
+              A taste of our kitchen, from the tandoor to the bread basket. Every curry comes with the love of a
+              family recipe.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          </Reveal>
+
+          {/* Course tabs */}
+          <Reveal delay={100} className="mt-12">
+            <div
+              role="tablist"
+              aria-label="Menu courses"
+              className="flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] sm:flex-wrap [&::-webkit-scrollbar]:hidden"
+            >
+              {MENU_HIGHLIGHTS.map((c, i) => (
+                <button
+                  key={c.name}
+                  type="button"
+                  role="tab"
+                  aria-selected={course === i}
+                  onClick={() => setCourse(i)}
+                  className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
+                    course === i
+                      ? "border-saffron-400 bg-saffron-500 text-ink"
+                      : "border-white/15 text-paper/70 hover:border-white/40 hover:text-paper"
+                  }`}
+                >
+                  {c.name}
+                </button>
+              ))}
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div key={active.name} className="mt-10 animate-in fade-in slide-in-from-bottom-2 duration-500" role="tabpanel">
+              <p className="font-display text-lg italic text-paper/60">{active.description}</p>
+              <ul className="mt-6 grid gap-x-16 border-t border-white/10 md:grid-cols-2">
+                {active.dishes.map((dish) => (
+                  <li key={dish.name} className="border-b border-white/10 py-6">
+                    <div className="flex items-baseline gap-3">
+                      <h3 className="font-display text-xl sm:text-2xl">{dish.name}</h3>
+                      {dish.diet && (
+                        <span
+                          className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.15em] ${
+                            dish.diet === "vegan" ? "bg-emerald-500/15 text-emerald-300" : "bg-lime-500/10 text-lime-200"
+                          }`}
+                        >
+                          <Leaf className="h-3 w-3" />
+                          {dish.diet === "vegan" ? "Vegan" : "Veg"}
+                        </span>
+                      )}
+                      <span className="mb-1.5 flex-1 border-b border-dotted border-white/20" aria-hidden="true" />
+                      <span className="font-display text-xl text-saffron-300">{formatPrice(dish.price)}</span>
+                    </div>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-paper/60">{dish.description}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          <Reveal className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <p className="max-w-lg text-sm leading-relaxed text-paper/50">
+              Prices in Indonesian rupiah (k = thousand). This is a selection; our full menu also has starters, wraps,
+              box specials, chai, fresh juices, signature drinks and desserts.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
               <button type="button" onClick={() => setViewerIndex(0)} className="btn-primary">
                 <BookOpen className="h-4 w-4" />
-                Open the Full Menu
+                See the Full Menu
               </button>
               <a href={SITE.gojekUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 Order for Delivery
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
-          </Reveal>
-
-          <Reveal delay={150}>
-            <ol className="grid border-t border-white/10 sm:grid-cols-2 sm:gap-x-10">
-              {CHAPTERS.map((chapter) => (
-                <li key={chapter.src} className="border-b border-white/10">
-                  <button
-                    type="button"
-                    onClick={() => setViewerIndex(chapter.index)}
-                    className="group flex w-full items-center gap-5 py-5 text-left"
-                  >
-                    <span className="w-7 font-display text-sm italic text-saffron-400/70 transition-colors group-hover:text-saffron-300">
-                      {String(chapter.index + 1).padStart(2, "0")}
-                    </span>
-                    <span className="flex-1 font-display text-xl transition-transform duration-300 group-hover:translate-x-1.5 sm:text-2xl">
-                      {chapter.alt}
-                    </span>
-                    <ArrowUpRight className="h-4 w-4 text-paper/30 transition-all duration-300 group-hover:rotate-45 group-hover:text-saffron-400" />
-                  </button>
-                </li>
-              ))}
-            </ol>
           </Reveal>
         </div>
       </section>
