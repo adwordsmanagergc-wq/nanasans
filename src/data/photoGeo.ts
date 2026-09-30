@@ -24,12 +24,12 @@ export const RESTAURANT_LOCATION = {
 };
 
 export const PHOTO_GEO: Record<string, string> = {
-  [`${CDN}/Screenshot-2026-03-28-at-3.23.52-pm.png`]: "Tandoori Platter",
-  [`${CDN}/Screenshot-2026-03-28-at-3.16.18-pm.png`]: "Chicken Tikka Masala",
-  [`${CDN}/Screenshot-2026-03-28-at-3.16.26-pm.png`]: "Tandoori Chicken",
-  [`${CDN}/Screenshot-2026-03-28-at-3.16.33-pm.png`]: "Vegetarian Curry",
-  [`${CDN}/Screenshot-2026-03-28-at-3.16.53-pm.png`]: "Traditional Indian Heritage Dishes",
-  [`${CDN}/Screenshot-2026-03-28-at-3.23.22-pm.png`]: "Air-Conditioned Dining Room",
+  [`${CDN}/gallery-tandoori-platter.jpg`]: "Tandoori Platter",
+  [`${CDN}/gallery-chicken-tikka-masala.jpg`]: "Chicken Tikka Masala",
+  [`${CDN}/gallery-tandoori-chicken.jpg`]: "Tandoori Chicken",
+  [`${CDN}/gallery-vegetarian-curry.jpg`]: "Vegetarian Curry",
+  [`${CDN}/gallery-heritage-dishes.jpg`]: "Traditional Indian Heritage Dishes",
+  [`${CDN}/gallery-dining-room.jpg`]: "Air-Conditioned Dining Room",
 };
 
 export function geoImageObject(url: string, caption?: string) {
