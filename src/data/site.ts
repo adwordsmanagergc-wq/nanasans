@@ -1,6 +1,9 @@
 // Contact details and outbound links shared across the site.
 
-export const CDN = "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com";
+// Photos and menu pages are served from public/images (self-hosted, so they
+// don't depend on the old Mocha CDN).
+export const CDN = "/images";
+export const SITE_ORIGIN = "https://nanasans.com";
 
 export const LOGO = `${CDN}/nana-sans-logo.png`;
 

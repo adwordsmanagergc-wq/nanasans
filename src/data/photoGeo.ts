@@ -3,7 +3,7 @@
 // engines associate every photo with the restaurant in Canggu, Bali.
 // Keep in sync with the ImageGallery JSON-LD in index.html.
 
-const CDN = "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com";
+import { CDN, SITE_ORIGIN } from "@/data/site";
 
 export const RESTAURANT_LOCATION = {
   "@type": "Place",
@@ -34,11 +34,12 @@ export const PHOTO_GEO: Record<string, string> = {
 
 export function geoImageObject(url: string, caption?: string) {
   const subject = PHOTO_GEO[url];
-  if (!subject) return url;
+  const absolute = new URL(url, SITE_ORIGIN).href;
+  if (!subject) return absolute;
   return {
     "@type": "ImageObject",
-    contentUrl: url,
-    url,
+    contentUrl: absolute,
+    url: absolute,
     name: `${subject} at Nana Sans, Canggu, Bali`,
     ...(caption ? { caption } : {}),
     contentLocation: RESTAURANT_LOCATION,

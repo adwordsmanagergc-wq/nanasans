@@ -92,3 +92,23 @@ src/
   email service binding. **None of these were used by the site** — the app is
   fully static — so they have been dropped. If you later add features that need a
   backend, add Vercel Serverless/Edge Functions under an `api/` directory.
+
+## Images
+
+All photos, the logo and the menu pages are served from `public/images/`
+(they used to be hot-linked from the old Mocha CDN, which no longer serves them).
+Upload these files to `public/images/` with exactly these names:
+
+- `nana-sans-logo.png`
+- Photos: `Screenshot-2026-03-28-at-3.16.18-pm.png` (chicken tikka masala),
+  `Screenshot-2026-03-28-at-3.16.26-pm.png` (tandoori chicken),
+  `Screenshot-2026-03-28-at-3.16.33-pm.png` (dal makhani),
+  `Screenshot-2026-03-28-at-3.16.53-pm.png` (heritage dishes),
+  `Screenshot-2026-03-28-at-3.23.22-pm.png` (dining room),
+  `Screenshot-2026-03-28-at-3.23.52-pm.png` (tandoori platter, hero)
+- Menu pages: `1Starters-Sides.jpg`, `2Meat-Curries.jpg`, `3Vegetarian-Curries.jpg`,
+  `4Vegan-Curries.jpg`, `5Mains.jpg`, `6Nans-Tandoori-Grill.jpg`, `7Wraps.jpg`,
+  `8Box-Specials.jpg`, `9Naans-Rotis.jpg`, `10Sauces-Chutney.jpg`,
+  `11-rice-biryani.jpg`, `12tea.jpg`, `13drinks.jpg`, `14-fresh-juice.jpg`,
+  `15signature-drinks.jpg`, `16signatured-drinks2.jpg`, `17desserts.jpg`,
+  `18ourstory.jpg`

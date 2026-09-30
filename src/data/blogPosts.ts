@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     date: "2026-08-01",
     readTime: "5 min read",
     image:
-      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png",
+      "/images/Screenshot-2026-03-28-at-3.23.22-pm.png",
     imageAlt:
       "Cool, air-conditioned indoor dining room at Nana Sans Tandoori Kitchen in Canggu, Bali",
     keywords:
@@ -30,7 +30,7 @@ export const blogPosts: BlogPost[] = [
     content: `
 Canggu is one of Bali's most exciting places to eat, but between the tropical humidity and the midday sun, sometimes you just want to dine somewhere cool and comfortable. If you're searching for the **best air-conditioned restaurants in Canggu**, this guide is for you, and we'll show you why **Nana Sans Tandoori Kitchen** is the coolest seat in town.
 
-![Air-conditioned indoor dining area at Nana Sans in Canggu, Bali](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.22-pm.png)
+![Air-conditioned indoor dining area at Nana Sans in Canggu, Bali](/images/Screenshot-2026-03-28-at-3.23.22-pm.png)
 
 ## Why Air-Conditioned Dining Matters in Canggu
 
@@ -54,7 +54,7 @@ Not all indoor dining is created equal. When choosing where to eat, look for:
 
 Nana Sans Tandoori Kitchen ticks every box. We're one of the few **air-conditioned Indian restaurants in Canggu**, serving authentic North Indian tandoori dishes, rich curries, fresh naan and an extensive vegetarian and vegan menu, all in a cosy, chilled, home-like dining room.
 
-![Flame-grilled tandoori dishes at Nana Sans, the best air-conditioned Indian restaurant in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+![Flame-grilled tandoori dishes at Nana Sans, the best air-conditioned Indian restaurant in Canggu](/images/Screenshot-2026-03-28-at-3.16.26-pm.png)
 
 Want the full story on our food and value? Read our guide to the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu), or browse the complete [menu on our home page](/).
 
@@ -80,7 +80,7 @@ Next time the Canggu heat gets to you, come dine with us. [Message us on WhatsAp
     date: "2026-08-04",
     readTime: "6 min read",
     image:
-      "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.23.52-pm.png",
+      "/images/Screenshot-2026-03-28-at-3.23.52-pm.png",
     imageAlt:
       "Authentic tandoori platter at Nana Sans, the best Indian restaurant in Canggu, Bali",
     keywords:
@@ -88,7 +88,7 @@ Next time the Canggu heat gets to you, come dine with us. [Message us on WhatsAp
     content: `
 Searching for the **best Indian restaurant in Canggu**? Welcome to **Nana Sans Tandoori Kitchen** — the great-value, go-to **air-conditioned Indian restaurant in Canggu**, Bali. We serve authentic North Indian tandoori dishes, rich creamy curries, freshly baked naan and an extensive vegetarian and vegan menu, all in a cosy, home-like dining room that stays cool no matter how hot Bali gets.
 
-![Flame-grilled tandoori platter at Nana Sans Indian restaurant in Canggu](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.26-pm.png)
+![Flame-grilled tandoori platter at Nana Sans Indian restaurant in Canggu](/images/Screenshot-2026-03-28-at-3.16.26-pm.png)
 
 ## Why Nana Sans Is the Best Indian Restaurant in Canggu
 
@@ -104,7 +104,7 @@ We're not just another curry house — we're a family-owned kitchen built on war
 
 At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, lamb rogan josh and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
 
-![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/Screenshot-2026-03-28-at-3.16.18-pm.png)
+![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](/images/Screenshot-2026-03-28-at-3.16.18-pm.png)
 
 ## A Cosy, Fully Air-Conditioned Dining Room
 

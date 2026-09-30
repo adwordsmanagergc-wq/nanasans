@@ -202,7 +202,7 @@ export default function BlogPost() {
               name: "Nana Sans Tandoori Kitchen",
               logo: {
                 "@type": "ImageObject",
-                url: "https://019d3354-8713-702b-8fee-7250ae8a6674.mochausercontent.com/nana-sans-logo.png"
+                url: "https://nanasans.com/images/nana-sans-logo.png"
               }
             }
           })
