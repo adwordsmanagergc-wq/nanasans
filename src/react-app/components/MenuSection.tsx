@@ -17,7 +17,7 @@ const SIGNATURES = [
     name: "Chicken Tikka Masala",
     note: "The British-Indian classic",
     description: "Smooth tomato curry with a hint of spice. Add a garlic butter naan and you're home.",
-    image: `${CDN}/signature-chicken-tikka-masala.webp`,
+    image: `${CDN}/gallery-chicken-tikka-masala.jpg`,
     alt: "Creamy chicken tikka masala curry served at Nana Sans Indian restaurant Canggu",
   },
   {
