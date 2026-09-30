@@ -96,7 +96,17 @@ export default function Footer() {
               Privacy Policy
             </Link>
             <span className="flex items-center gap-2">
-              Website & marketing by Metatap Pty Ltd
+              <span>
+                Website built by{" "}
+                <a
+                  href="https://metatapdigital.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-paper/70 underline decoration-white/25 underline-offset-4 transition-colors hover:text-saffron-300"
+                >
+                  metatapdigital.com
+                </a>
+              </span>
               <a
                 href={whatsappUrl}
                 target="_blank"
