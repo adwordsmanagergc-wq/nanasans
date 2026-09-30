@@ -121,17 +121,20 @@ export default function AboutSection() {
       <section id="story" className="grain overflow-hidden bg-paper py-24 sm:py-32">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
-            {/* Arched portrait frame, a nod to Mughal doorways */}
-            <div className="relative overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] bg-gradient-to-b from-ink-600 to-ink shadow-[0_40px_80px_-40px_rgba(27,19,14,0.7)]">
-              <img
-                src={`${CDN}/Screenshot-2026-03-28-at-3.23.22-pm.png`}
-                alt="Sandra, the inspiration behind Nana Sans Tandoori Kitchen, sharing warmth and hospitality in Canggu Bali"
-                className="aspect-[4/5] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="absolute -inset-3 -z-10 rounded-t-[999px] rounded-b-[2.25rem] border border-saffron-500/50" />
-            <div className="absolute -bottom-6 -right-2 rounded-2xl bg-ink px-6 py-5 text-paper shadow-2xl sm:-right-8">
+            {/* The family photo, framed like a keepsake print */}
+            <figure className="relative -rotate-2 transition-transform duration-700 hover:rotate-0">
+              <div className="overflow-hidden rounded-md bg-paper-300 shadow-[0_40px_80px_-30px_rgba(27,19,14,0.75)]">
+                <img
+                  src={`${CDN}/nanny-sandra.jpg`}
+                  alt="Old family photograph of Sandra, the 'Nanny' behind Nana Sans, smiling as she holds a baby"
+                  className="aspect-square w-full object-cover"
+                  width={1100}
+                  height={1076}
+                  loading="lazy"
+                />
+              </div>
+            </figure>
+            <div className="absolute -bottom-2 -right-2 rounded-2xl bg-ink px-6 py-5 text-paper shadow-2xl sm:-right-8">
               <p className="font-display text-4xl italic text-saffron-400">Nanny</p>
               <p className="mt-1 text-[0.65rem] uppercase tracking-[0.25em] text-paper/60">The heart of our kitchen</p>
             </div>
@@ -161,6 +164,11 @@ export default function AboutSection() {
                 My nieces and nephews lovingly call her "Nanny," and it's from that love that Nana Sans was born. This
                 restaurant is my way of honoring her; of sharing the warmth, hospitality, and home-cooked flavors that
                 she's always given us.
+              </p>
+              <p>
+                Being far from home made me realize just how powerful food is. It has the ability to bring people
+                together, to create a sense of belonging. That's exactly what Nana Sans is all about: a place where
+                anyone, whether traveling or living far from home, can walk in and feel like family.
               </p>
               <p>
                 At Nana Sans, we believe food brings people together. We are nothing without our community, and we'd

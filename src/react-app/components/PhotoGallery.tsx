@@ -27,7 +27,7 @@ const galleryImages = [
   },
   {
     src: `${CDN}/Screenshot-2026-03-28-at-3.16.33-pm.png`,
-    alt: "Authentic dal makhani and vegetarian Indian curry at Nana Sans Bali",
+    alt: "Vegetarian Indian curry at Nana Sans Bali",
     span: "col-span-2",
   },
   {

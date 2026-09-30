@@ -15,7 +15,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Do you have vegetarian and vegan options?",
-    answer: "Yes! We have extensive vegetarian and vegan menus. Our vegetarian options include paneer dishes, dal makhani, and vegetable curries. Vegan guests can enjoy chana masala, aloo gobi, vegetable biryani, and many more dishes prepared without dairy. Just ask our staff for recommendations."
+    answer: "Yes! We have extensive vegetarian and vegan menus. Our vegetarian curries include Paneer Tikka Masala, Paneer Makhni, Palak Paneer and Mutter Paneer. Vegan guests can enjoy Chole Masala, Aloo Gobi, Rajma Masala, Dal Tadka and more, all prepared without dairy. Just ask our staff for recommendations."
   },
   {
     question: "How spicy is the food? Can I adjust spice levels?",

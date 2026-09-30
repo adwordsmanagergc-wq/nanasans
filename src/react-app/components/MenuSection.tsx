@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowUpRight, BookOpen, Leaf } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
-import { MENU_HIGHLIGHTS } from "@/data/menu";
+import { MENU, MENU_TAX_NOTE, type Diet } from "@/data/menu";
 import MenuViewer from "./MenuViewer";
 import Reveal from "./Reveal";
 
@@ -9,33 +9,46 @@ const SIGNATURES = [
   {
     name: "Tandoori Chicken",
     note: "From the clay oven",
-    description: "Half chicken marinated in yoghurt and Kashmiri spices, flame-grilled in our tandoor.",
+    description: "Half or full, cooked properly in our clay oven and served in pieces. Or share a mixed grill.",
     image: `${CDN}/Screenshot-2026-03-28-at-3.16.26-pm.png`,
     alt: "Flame-grilled tandoori chicken platter fresh from the clay oven in Canggu",
   },
   {
     name: "Chicken Tikka Masala",
     note: "The British-Indian classic",
-    description: "Char-grilled chicken tikka folded into a creamy, gently spiced tomato sauce.",
+    description: "Smooth tomato curry with a hint of spice. Add a garlic butter naan and you're home.",
     image: `${CDN}/Screenshot-2026-03-28-at-3.16.18-pm.png`,
     alt: "Creamy chicken tikka masala curry served at Nana Sans Indian restaurant Canggu",
   },
   {
-    name: "Dal Makhani",
-    note: "Slow-cooked overnight",
-    description: "Black lentils simmered low and slow with butter and warming spices.",
+    name: "Veg & Vegan Curries",
+    note: "Twelve meat-free curries",
+    description: "From Paneer Makhni and Palak Paneer to Chole Masala, Rajma Masala and smoky Dal Tadka.",
     image: `${CDN}/Screenshot-2026-03-28-at-3.16.33-pm.png`,
-    alt: "Authentic dal makhani and vegetarian Indian curry at Nana Sans Bali",
+    alt: "Vegetarian Indian curry at Nana Sans Bali",
     veg: true,
   },
 ];
 
 const formatPrice = (idr: number) => `${Math.round(idr / 1000)}k`;
 
+function DietTag({ diet }: { diet: Diet }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.15em] ${
+        diet === "vegan" ? "bg-emerald-500/15 text-emerald-300" : "bg-lime-500/10 text-lime-200"
+      }`}
+    >
+      <Leaf className="h-3 w-3" />
+      {diet === "vegan" ? "Vegan" : "Vegetarian"}
+    </span>
+  );
+}
+
 export default function MenuSection() {
   const [viewerIndex, setViewerIndex] = useState<number | null>(null);
   const [course, setCourse] = useState(0);
-  const active = MENU_HIGHLIGHTS[course];
+  const active = MENU[course];
 
   return (
     <>
@@ -105,7 +118,7 @@ export default function MenuSection() {
               </h2>
             </div>
             <p className="max-w-sm text-paper/65 md:text-right">
-              A taste of our kitchen, from the tandoor to the bread basket. Every curry comes with the love of a
+              From the tandoor to the bread basket, chai to Biscoff cheesecake. Every curry comes with the love of a
               family recipe.
             </p>
           </Reveal>
@@ -117,7 +130,7 @@ export default function MenuSection() {
               aria-label="Menu courses"
               className="flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none] sm:flex-wrap [&::-webkit-scrollbar]:hidden"
             >
-              {MENU_HIGHLIGHTS.map((c, i) => (
+              {MENU.map((c, i) => (
                 <button
                   key={c.name}
                   type="button"
@@ -138,26 +151,45 @@ export default function MenuSection() {
 
           <Reveal delay={150}>
             <div key={active.name} className="mt-10 animate-in fade-in slide-in-from-bottom-2 duration-500" role="tabpanel">
-              <p className="font-display text-lg italic text-paper/60">{active.description}</p>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="font-display text-3xl sm:text-4xl">{active.name}</h3>
+                    {active.diet && <DietTag diet={active.diet} />}
+                  </div>
+                  {active.note && <p className="mt-2 max-w-xl text-sm italic text-paper/55">{active.note}</p>}
+                </div>
+                <div className="flex items-center gap-4">
+                  {active.price && (
+                    <span className="rounded-full border border-saffron-400/40 px-4 py-1.5 font-display text-lg text-saffron-300">
+                      All {formatPrice(active.price)}
+                    </span>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setViewerIndex(active.page)}
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-paper/60 transition-colors hover:text-saffron-300"
+                  >
+                    <BookOpen className="h-4 w-4" />
+                    Printed page
+                  </button>
+                </div>
+              </div>
               <ul className="mt-6 grid gap-x-16 border-t border-white/10 md:grid-cols-2">
                 {active.dishes.map((dish) => (
-                  <li key={dish.name} className="border-b border-white/10 py-6">
+                  <li key={dish.name} className="border-b border-white/10 py-5">
                     <div className="flex items-baseline gap-3">
-                      <h3 className="font-display text-xl sm:text-2xl">{dish.name}</h3>
-                      {dish.diet && (
-                        <span
-                          className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[0.6rem] font-semibold uppercase tracking-[0.15em] ${
-                            dish.diet === "vegan" ? "bg-emerald-500/15 text-emerald-300" : "bg-lime-500/10 text-lime-200"
-                          }`}
-                        >
-                          <Leaf className="h-3 w-3" />
-                          {dish.diet === "vegan" ? "Vegan" : "Veg"}
-                        </span>
+                      <h4 className="font-display text-xl">{dish.name}</h4>
+                      {dish.price && (
+                        <>
+                          <span className="mb-1.5 flex-1 border-b border-dotted border-white/20" aria-hidden="true" />
+                          <span className="font-display text-xl text-saffron-300">{formatPrice(dish.price)}</span>
+                        </>
                       )}
-                      <span className="mb-1.5 flex-1 border-b border-dotted border-white/20" aria-hidden="true" />
-                      <span className="font-display text-xl text-saffron-300">{formatPrice(dish.price)}</span>
                     </div>
-                    <p className="mt-2 max-w-md text-sm leading-relaxed text-paper/60">{dish.description}</p>
+                    {dish.description && (
+                      <p className="mt-1.5 max-w-md text-sm leading-relaxed text-paper/60">{dish.description}</p>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -166,13 +198,12 @@ export default function MenuSection() {
 
           <Reveal className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <p className="max-w-lg text-sm leading-relaxed text-paper/50">
-              Prices in Indonesian rupiah (k = thousand). This is a selection; our full menu also has starters, wraps,
-              box specials, chai, fresh juices, signature drinks and desserts.
+              Prices in Indonesian rupiah (k = thousand). {MENU_TAX_NOTE}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <button type="button" onClick={() => setViewerIndex(0)} className="btn-primary">
                 <BookOpen className="h-4 w-4" />
-                See the Full Menu
+                View the Printed Menu
               </button>
               <a href={SITE.gojekUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 Order for Delivery

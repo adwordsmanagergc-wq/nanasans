@@ -97,7 +97,9 @@ src/
 
 All photos, the logo and the menu pages are served from `public/images/`
 (they used to be hot-linked from the old Mocha CDN, which no longer serves them).
-Upload these files to `public/images/` with exactly these names:
+The logo, menu pages (`1Starters-Sides.jpg` … `18ourstory.jpg`) and the Our Story
+photo (`nanny-sandra.jpg`) are already there. The food and dining-room photos still
+need uploading to `public/images/` with exactly these names:
 
 - `nana-sans-logo.png`
 - Photos: `Screenshot-2026-03-28-at-3.16.18-pm.png` (chicken tikka masala),
@@ -112,3 +114,15 @@ Upload these files to `public/images/` with exactly these names:
   `11-rice-biryani.jpg`, `12tea.jpg`, `13drinks.jpg`, `14-fresh-juice.jpg`,
   `15signature-drinks.jpg`, `16signatured-drinks2.jpg`, `17desserts.jpg`,
   `18ourstory.jpg`
+
+## Instagram feed
+
+The home page has a "Follow Us" section. To show the latest posts automatically:
+
+1. Create a free account at [behold.so](https://behold.so), connect the
+   `@nanasans_bali` Instagram account and create a JSON feed.
+2. In Vercel, open the project → **Settings → Environment Variables** and add
+   `VITE_INSTAGRAM_FEED_URL` set to the feed URL (e.g. `https://feeds.behold.so/…`).
+3. Redeploy. New Instagram posts then appear on the site automatically.
+
+Without the variable the section shows a "Follow @nanasans_bali" card instead.
