@@ -50,7 +50,7 @@ export default function SiteNav({ overlay = false }: SiteNavProps) {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="Nana Sans home" onClick={() => setOpen(false)}>
           <Logo
-            className={`w-auto drop-shadow-lg transition-all duration-500 ${solid ? "h-11" : "h-14 sm:h-16"}`}
+            className={`w-auto drop-shadow-lg transition-all duration-500 ${solid ? "h-12" : "h-16 sm:h-20"}`}
             wordmarkClassName={solid ? "text-xl" : "text-2xl"}
           />
         </Link>

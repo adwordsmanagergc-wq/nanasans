@@ -2,13 +2,13 @@ const ITEMS = [
   "Tandoori Chicken",
   "Butter Chicken",
   "Garlic Naan",
-  "Lamb Rogan Josh",
-  "Chicken Biryani",
-  "Paneer Tikka",
-  "Dal Makhani",
-  "Masala Chai",
-  "Seekh Kebab",
-  "Chana Masala",
+  "Chicken Korma",
+  "Lamb Biryani",
+  "Paneer Makhni",
+  "Dal Tadka",
+  "Mango Lassi",
+  "Lamb Seekh Kebab",
+  "Gulab Jamun",
 ];
 
 /** A slow ribbon of dish names between sections. */

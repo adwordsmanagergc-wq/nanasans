@@ -5,7 +5,8 @@
 export const CDN = "/images";
 export const SITE_ORIGIN = "https://nanasans.com";
 
-export const LOGO = `${CDN}/nana-sans-logo.png`;
+// Cream version of the logo for the dark header, doors and footer.
+export const LOGO = `${CDN}/nana-sans-logo-light.png`;
 
 export const SITE = {
   name: "Nana Sans Tandoori Kitchen",

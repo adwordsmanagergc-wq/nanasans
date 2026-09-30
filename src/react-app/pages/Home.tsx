@@ -6,6 +6,7 @@ import Marquee from "@/react-app/components/Marquee";
 import MenuSection from "@/react-app/components/MenuSection";
 import FloatingWhatsApp from "@/react-app/components/FloatingWhatsApp";
 import PhotoGallery from "@/react-app/components/PhotoGallery";
+import InstagramSection from "@/react-app/components/InstagramSection";
 import AboutSection from "@/react-app/components/AboutSection";
 import VisitSection from "@/react-app/components/VisitSection";
 import BlogHighlights from "@/react-app/components/BlogHighlights";
@@ -39,6 +40,8 @@ export default function HomePage() {
       <AboutSection />
 
       <PhotoGallery />
+
+      <InstagramSection />
 
       <VisitSection />
 

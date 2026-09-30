@@ -97,12 +97,12 @@ We're not just another curry house — we're a family-owned kitchen built on war
 - **Best value in Canggu** — generous, shareable portions of authentic Indian food at fair, honest prices.
 - **Fully air-conditioned** — a cool, comfortable escape from the Bali heat while you dine.
 - **Authentic tandoori & curries** — flame-grilled in a real clay tandoor, using family recipes and freshly ground spices.
-- **Vegetarian & vegan friendly** — an extensive plant-based menu, from dal makhani to chana masala.
+- **Vegetarian & vegan friendly** — an extensive plant-based menu, from paneer makhni to chole masala and dal tadka.
 - **Dine in, takeaway or delivery** — order in, or get it delivered across Canggu via GoFood and Grab.
 
 ## Great-Value, Authentic Indian Food in Canggu
 
-At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, lamb rogan josh and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
+At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, chicken korma, lamb curry and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
 
 ![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](/images/Screenshot-2026-03-28-at-3.16.18-pm.png)
 
@@ -166,7 +166,7 @@ We invite you to taste this history for yourself. Visit Nana Sans on Jalan Raya 
   {
     slug: "vegetarian-vegan-indian-dishes-canggu",
     title: "Your Guide to Vegetarian & Vegan Indian Dishes in Canggu",
-    metaDescription: "Explore the best vegetarian and vegan Indian food in Canggu. From creamy dal to paneer tikka, discover plant-based Indian cuisine at Nana Sans Tandoori Kitchen.",
+    metaDescription: "Explore the best vegetarian and vegan Indian food in Canggu. From smoky dal tadka to paneer makhni, discover plant-based Indian cuisine at Nana Sans Tandoori Kitchen.",
     excerpt: "India has the world's oldest vegetarian culinary tradition. Explore the plant-based treasures waiting for you at Nana Sans.",
     date: "2024-12-10",
     readTime: "4 min read",
@@ -185,25 +185,25 @@ At Nana Sans, our dedicated vegan menu honours these traditions while ensuring e
 
 ## Must-Try Vegetarian Dishes
 
-### Paneer Tikka
-Cubes of Indian cottage cheese marinated in spiced yoghurt, then char-grilled in our tandoor. The smoky exterior gives way to a soft, creamy centre—a vegetarian favourite that even meat-lovers adore.
+### Paneer Tikka Masala
+Soft cubes of Indian cottage cheese in a smooth tomato curry with a hint of spice. Rich, comforting and a vegetarian favourite that even meat-lovers adore.
 
-### Dal Makhani
-This Punjabi classic simmers black lentils overnight with tomatoes, ginger, and aromatic spices. The result is impossibly creamy and rich—comfort food at its finest.
+### Paneer Makhni
+Paneer in a sweet tomato curry with a buttery finish. Mellow, creamy and deeply satisfying—comfort food at its finest.
 
 ### Palak Paneer
 Fresh spinach and soft paneer cheese come together in this iron-rich North Indian staple. Subtly spiced and vibrant green, it's nutrition and flavour in perfect harmony.
 
 ## Vegan Specialities
 
-### Chana Masala
-Chickpeas in a tangy, spiced tomato gravy. This protein-packed dish has fuelled generations and remains a vegan favourite worldwide.
+### Chole Masala
+White chickpeas simmered in a tangy onion gravy. This protein-packed dish has fuelled generations and remains a vegan favourite worldwide.
 
 ### Aloo Gobi
-Cauliflower and potato, dry-roasted with turmeric, cumin, and fresh coriander. Simple ingredients transformed through Indian spice alchemy.
+Curried cauliflower and potatoes. Simple ingredients transformed through Indian spice alchemy.
 
-### Vegetable Biryani
-Fragrant basmati rice layered with seasonal vegetables, saffron, and whole spices. Our vegan biryani proves you don't need meat for a celebration dish.
+### Dal Tadka
+Yellow lentils in a unique smoky flavoured curry. Pair it with jeera rice or a roti for a humble, heart-warming plate that proves you don't need meat for a feast.
 
 ## Why Canggu Loves Indian Vegetarian Food
 
