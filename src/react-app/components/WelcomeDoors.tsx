@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { DoorOpen } from "lucide-react";
 
-import { LOGO } from "@/data/site";
+import Logo from "./Logo";
 
 type Phase = "closed" | "opening" | "done";
 
@@ -216,11 +216,9 @@ export default function WelcomeDoors() {
           opening ? "scale-95 opacity-0" : "scale-100 opacity-100"
         }`}
       >
-        <img
-          src={LOGO}
-          alt="Nana Sans Tandoori Kitchen"
-          className="mb-5 w-40 drop-shadow-2xl sm:w-52"
-        />
+        <div className="mb-5">
+          <Logo className="w-40 drop-shadow-2xl sm:w-52" wordmarkClassName="text-3xl" />
+        </div>
         <span className="mb-3 inline-block rounded-full border border-amber-300/40 bg-amber-500/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-amber-200">
           Canggu, Bali
         </span>

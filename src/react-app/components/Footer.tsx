@@ -1,6 +1,7 @@
 import { ArrowUp, Instagram, MessageCircle } from "lucide-react";
 import { Link } from "react-router";
-import { LOGO, SITE } from "@/data/site";
+import { SITE } from "@/data/site";
+import Logo from "./Logo";
 
 const linkClass = "text-paper/65 transition-colors hover:text-saffron-300";
 
@@ -23,7 +24,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-5 pb-10 pt-20 sm:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <img src={LOGO} alt="Nana Sans Tandoori Kitchen logo" className="h-20 w-auto" loading="lazy" />
+            <Logo className="h-20 w-auto" wordmarkClassName="text-3xl" />
             <p className="mt-6 max-w-xs font-display text-2xl font-light italic leading-snug text-paper/85">
               Indian cuisine with British influence, cooked with love in Canggu.
             </p>

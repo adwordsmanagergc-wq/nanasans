@@ -9,7 +9,10 @@ import App from "@/react-app/App.tsx";
 document.addEventListener(
   "error",
   (e) => {
-    if (e.target instanceof HTMLImageElement) e.target.style.visibility = "hidden";
+    if (e.target instanceof HTMLImageElement) {
+      e.target.style.visibility = "hidden";
+      e.target.classList.add("img-missing");
+    }
   },
   true
 );

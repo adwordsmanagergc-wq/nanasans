@@ -122,7 +122,7 @@ export default function AboutSection() {
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.1fr] lg:gap-24">
           <Reveal className="relative mx-auto w-full max-w-md lg:max-w-none">
             {/* Arched portrait frame, a nod to Mughal doorways */}
-            <div className="relative overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] shadow-[0_40px_80px_-40px_rgba(27,19,14,0.7)]">
+            <div className="relative overflow-hidden rounded-t-[999px] rounded-b-[1.75rem] bg-gradient-to-b from-ink-600 to-ink shadow-[0_40px_80px_-40px_rgba(27,19,14,0.7)]">
               <img
                 src={`${CDN}/Screenshot-2026-03-28-at-3.23.22-pm.png`}
                 alt="Sandra, the inspiration behind Nana Sans Tandoori Kitchen, sharing warmth and hospitality in Canggu Bali"

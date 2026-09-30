@@ -83,13 +83,13 @@ export default function PhotoGallery() {
           </a>
         </Reveal>
 
-        <div className="grid auto-rows-[220px] grid-cols-2 gap-3 sm:gap-4 md:auto-rows-[240px] md:grid-cols-4">
+        <div className="grid grid-flow-row-dense auto-rows-[220px] grid-cols-2 gap-3 sm:gap-4 md:auto-rows-[240px] md:grid-cols-4">
           {galleryImages.map((image, index) => (
             <Reveal key={image.src} delay={(index % 3) * 100} className={`${image.span} ${index === 0 ? "col-span-2" : ""}`}>
               <button
                 type="button"
                 onClick={() => setActive(index)}
-                className="group relative h-full w-full overflow-hidden rounded-2xl bg-ink/10"
+                className="group relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br from-ink-600 via-ink-700 to-ink"
                 aria-label={`View photo: ${PHOTO_GEO[image.src] ?? image.alt}`}
               >
                 <img
@@ -99,7 +99,7 @@ export default function PhotoGallery() {
                   className="h-full w-full object-cover transition-transform duration-1200 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <span className="absolute bottom-4 left-4 translate-y-2 font-display text-lg italic text-paper opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                <span className="img-caption absolute bottom-4 left-4 translate-y-2 font-display text-lg italic text-paper opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   {PHOTO_GEO[image.src]}
                 </span>
               </button>
