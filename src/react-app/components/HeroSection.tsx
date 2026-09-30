@@ -1,7 +1,7 @@
 import { ArrowDown, CalendarCheck, Leaf, Snowflake, Flame, UtensilsCrossed } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
 
-const HERO_IMAGE = `${CDN}/Screenshot-2026-03-28-at-3.23.52-pm.png`;
+const HERO_IMAGE = `${CDN}/nanny-sandra-hero.jpg`;
 
 /** Half Union Jack, half Tiranga: the British-Indian story in one mark. */
 function HeritageFlag() {
@@ -43,22 +43,26 @@ const HIGHLIGHTS = [
 export default function HeroSection() {
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink text-paper">
-      {/* Background photograph with a slow cinematic settle */}
-      <div className="absolute inset-0">
+      {/* Nanny's photo on the right, fading into the dark */}
+      <div className="absolute inset-0 lg:left-auto lg:w-[60%]">
         <img
           src={HERO_IMAGE}
-          alt="Tandoori platter with grilled chicken, naan bread, and aromatic spices at Nana Sans Canggu"
-          className="h-full w-full animate-slow-zoom object-cover"
+          alt="Old family photograph of Sandra, the 'Nanny' behind Nana Sans, smiling as she holds a baby"
+          className="h-full w-full animate-slow-zoom object-cover object-[50%_20%] opacity-60 sepia-[.35] lg:opacity-90 lg:[mask-image:linear-gradient(to_right,transparent,black_55%)]"
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
-        <div
-          className="absolute inset-0 opacity-60 mix-blend-soft-light"
-          style={{ background: "radial-gradient(ellipse at 20% 60%, rgba(217,154,61,0.45), transparent 60%)" }}
-        />
+        {/* Mobile: darken the whole photo so the text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/60 to-ink lg:hidden" />
+                <div className="absolute inset-0 hidden bg-gradient-to-t from-ink via-transparent to-ink/50 lg:block" />
       </div>
+      <div
+        className="pointer-events-none absolute inset-0 opacity-60 mix-blend-soft-light"
+        style={{ background: "radial-gradient(ellipse at 20% 60%, rgba(217,154,61,0.45), transparent 60%)" }}
+      />
+      <p className="absolute bottom-24 right-6 z-10 hidden font-display text-lg italic text-paper/70 lg:block">
+        Nanny, where it all began
+      </p>
 
       {/* Content */}
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 items-center px-5 pb-16 pt-32 sm:px-8 sm:pt-36">
