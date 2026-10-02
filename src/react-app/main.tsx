@@ -1,8 +1,9 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
 import { Analytics } from "@vercel/analytics/react";
 import "@/react-app/index.css";
-import App from "@/react-app/App.tsx";
+import AppRoutes from "@/react-app/AppRoutes";
 
 // If a photo is missing, hide it so the section's background shows through
 // instead of the browser's broken-image icon and alt text.
@@ -17,9 +18,19 @@ document.addEventListener(
   true
 );
 
-createRoot(document.getElementById("root")!).render(
+const app = (
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
     <Analytics />
   </StrictMode>
 );
+
+const root = document.getElementById("root")!;
+// Production pages are prerendered to static HTML: attach to it instead of re-rendering.
+if (root.hasChildNodes()) {
+  hydrateRoot(root, app);
+} else {
+  createRoot(root).render(app);
+}

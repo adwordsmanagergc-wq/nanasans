@@ -6,7 +6,7 @@ export const CDN = "/images";
 export const SITE_ORIGIN = "https://nanasans.com";
 
 // Cream version of the logo for the dark header, doors and footer.
-export const LOGO = `${CDN}/nana-sans-logo-light.png`;
+export const LOGO = `${CDN}/nana-sans-logo-light.webp`;
 
 export const SITE = {
   name: "Nana Sans Tandoori Kitchen",
@@ -25,4 +25,15 @@ export const SITE = {
     "https://food.grab.com/id/id/restaurant/nanasans-tandoori-kitchen-tibubeneng-delivery/6-C3DJGCL1BBUCUA",
   instagramUrl: "https://www.instagram.com/nanasans_bali/",
   instagramHandle: "@nanasans_bali",
+  /** Google Maps listing for the restaurant. */
+  googleMapsUrl: "https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9",
+  /** Neighbouring restaurant, used as a landmark ("right next door to Nico's Smokehouse"). */
+  nicosUrl: "https://nicossmokehouse.com",
+  // Opening hours as stated on the FAQ page: daily, 11:00 to 22:00.
+  opens: "11:00",
+  closes: "22:00",
+  geo: { latitude: -8.6413098, longitude: 115.1545625 },
+  postalCode: "80351",
+  /** Default social preview image (absolute URL). JPG for the widest app support. */
+  ogImage: `${SITE_ORIGIN}/images/gallery-tandoori-platter.jpg`,
 };

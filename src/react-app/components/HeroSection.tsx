@@ -1,7 +1,8 @@
 import { ArrowDown, CalendarCheck, Leaf, Snowflake, Flame, UtensilsCrossed } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
+import { imgSize } from "@/react-app/lib/utils";
 
-const HERO_IMAGE = `${CDN}/nanny-sandra-hero.jpg`;
+const HERO_IMAGE = `${CDN}/nanny-sandra-hero.webp`;
 
 /** Half Union Jack, half Tiranga: the British-Indian story in one mark. */
 function HeritageFlag() {
@@ -49,6 +50,7 @@ export default function HeroSection() {
           src={HERO_IMAGE}
           alt="Old family photograph of Sandra, the 'Nanny' behind Nana Sans, smiling as she holds a baby"
           className="h-full w-full animate-slow-zoom object-cover object-[50%_20%] opacity-60 sepia-[.35] lg:opacity-90 lg:[mask-image:linear-gradient(to_right,transparent,black_55%)]"
+          {...imgSize(HERO_IMAGE)}
           loading="eager"
           fetchPriority="high"
         />
@@ -69,21 +71,29 @@ export default function HeroSection() {
         <div className="max-w-2xl">
           <div className="mb-8 flex items-center gap-3 animate-in fade-in slide-in-from-bottom-3 fill-mode-both duration-700">
             <HeritageFlag />
-            <span className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-saffron-300">
-              Tandoori Kitchen · Canggu, Bali
-            </span>
+            <p className="font-display text-xl italic text-saffron-300 sm:text-2xl">
+              Indian soul, <span className="text-paper">British heart.</span>
+            </p>
           </div>
 
-          <h1 className="font-display text-[3.2rem] font-light leading-[0.95] tracking-[-0.03em] animate-in fade-in slide-in-from-bottom-6 fill-mode-both delay-150 duration-1000 sm:text-7xl lg:text-[6.25rem]">
-            Indian soul,
-            <br />
-            <em className="font-normal italic text-saffron-400">British</em> heart.
-            <span className="sr-only"> Nana Sans Tandoori Kitchen, Indian restaurant in Canggu, Bali</span>
+          <h1 className="font-display text-[2.6rem] font-light leading-[1.02] tracking-[-0.025em] animate-in fade-in slide-in-from-bottom-6 fill-mode-both delay-150 duration-1000 sm:text-6xl lg:text-[4.6rem]">
+            Authentic Indian Restaurant &amp; <em className="font-normal italic text-saffron-400">Tandoori Kitchen</em> in
+            Canggu
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-paper/75 animate-in fade-in slide-in-from-bottom-4 fill-mode-both delay-300 duration-1000 sm:text-lg">
-            Savour the rich flavours of traditional Indian cuisine, crafted with passion in the heart of Canggu, served
-            in the cosy, home-like warmth of our fully air-conditioned dining room.
+            Nana Sans is an Indian restaurant in Canggu, Bali, serving slow-cooked tandoori dishes, rich creamy curries
+            and the British-Indian favourites you've been missing. Cool off in our air-conditioned dining room, choose
+            from plenty of vegetarian and vegan options, and find us right next door to{" "}
+            <a
+              href={SITE.nicosUrl}
+              target="_blank"
+              rel="noopener"
+              className="text-paper underline decoration-saffron-400/50 underline-offset-4 transition-colors hover:text-saffron-300"
+            >
+              Nico's Smokehouse
+            </a>
+            .
           </p>
 
           <div className="mt-10 flex flex-col gap-3 animate-in fade-in slide-in-from-bottom-4 fill-mode-both delay-500 duration-1000 sm:flex-row">

@@ -1,41 +1,21 @@
-import { useEffect, type JSX } from "react";
-import { useParams, Link, Navigate } from "react-router";
+import { type JSX } from "react";
+import { useParams, Link } from "react-router";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
 import { geoImageObject } from "@/data/photoGeo";
 import Footer from "@/react-app/components/Footer";
+import NotFound from "@/react-app/pages/NotFound";
 import SiteNav from "@/react-app/components/SiteNav";
 import PostCard from "@/react-app/components/PostCard";
-import { formatPostDate } from "@/react-app/lib/utils";
+import { formatPostDate, imgSize } from "@/react-app/lib/utils";
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
-  useEffect(() => {
-    if (!post) return;
-
-    // Set canonical URL
-    let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = `https://nanasans.com/blog/${post.slug}`;
-
-    // Update title
-    document.title = `${post.title} | Nana Sans Canggu`;
-
-    // Update meta description
-    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
-    if (meta) {
-      meta.content = post.metaDescription;
-    }
-  }, [post]);
 
   if (!post) {
-    return <Navigate to="/blog" replace />;
+    return <NotFound />;
   }
 
   // Parse inline markdown (**bold** and [text](url) links) into React nodes.
@@ -127,7 +107,9 @@ export default function BlogPost() {
             key={key++}
             src={imageMatch[2]}
             alt={imageMatch[1]}
+            {...imgSize(imageMatch[2])}
             loading="lazy"
+            decoding="async"
             className="my-10 w-full rounded-2xl object-cover shadow-[0_30px_60px_-30px_rgba(27,19,14,0.6)]"
           />
         );
@@ -237,6 +219,8 @@ export default function BlogPost() {
         <img
           src={post.image}
           alt={post.imageAlt}
+          {...imgSize(post.image)}
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full animate-slow-zoom object-cover"
           loading="eager"
         />

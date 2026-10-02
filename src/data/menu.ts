@@ -4,75 +4,75 @@ import { CDN } from "@/data/site";
 
 export const MENU_PAGES = [
   {
-    src: `${CDN}/1Starters-Sides.jpg`,
+    src: `${CDN}/1Starters-Sides.webp`,
     alt: "Starters & Sides",
   },
   {
-    src: `${CDN}/2Meat-Curries.jpg`,
+    src: `${CDN}/2Meat-Curries.webp`,
     alt: "Meat Curries",
   },
   {
-    src: `${CDN}/3Vegetarian-Curries.jpg`,
+    src: `${CDN}/3Vegetarian-Curries.webp`,
     alt: "Vegetarian Curries",
   },
   {
-    src: `${CDN}/4Vegan-Curries.jpg`,
+    src: `${CDN}/4Vegan-Curries.webp`,
     alt: "Vegan Curries",
   },
   {
-    src: `${CDN}/5Mains.jpg`,
+    src: `${CDN}/5Mains.webp`,
     alt: "Mains",
   },
   {
-    src: `${CDN}/6Nans-Tandoori-Grill.jpg`,
+    src: `${CDN}/6Nans-Tandoori-Grill.webp`,
     alt: "Nana's Tandoori Grill",
   },
   {
-    src: `${CDN}/7Wraps.jpg`,
+    src: `${CDN}/7Wraps.webp`,
     alt: "Wraps",
   },
   {
-    src: `${CDN}/8Box-Specials.jpg`,
+    src: `${CDN}/8Box-Specials.webp`,
     alt: "Box Specials",
   },
   {
-    src: `${CDN}/9Naans-Rotis.jpg`,
+    src: `${CDN}/9Naans-Rotis.webp`,
     alt: "Naans & Rotis",
   },
   {
-    src: `${CDN}/10Sauces-Chutney.jpg`,
+    src: `${CDN}/10Sauces-Chutney.webp`,
     alt: "Sauces & Chutney",
   },
   {
-    src: `${CDN}/11-rice-biryani.jpg`,
+    src: `${CDN}/11-rice-biryani.webp`,
     alt: "Rice & Biryani",
   },
   {
-    src: `${CDN}/12tea.jpg`,
+    src: `${CDN}/12tea.webp`,
     alt: "Tea",
   },
   {
-    src: `${CDN}/13drinks.jpg`,
+    src: `${CDN}/13drinks.webp`,
     alt: "Drinks",
   },
   {
-    src: `${CDN}/14-fresh-juice.jpg`,
+    src: `${CDN}/14-fresh-juice.webp`,
     alt: "Fresh Juice",
   },
   {
-    src: `${CDN}/15signature-drinks.jpg`,
+    src: `${CDN}/15signature-drinks.webp`,
     alt: "Signature Drinks",
   },
   {
-    src: `${CDN}/16signatured-drinks2.jpg`,
+    src: `${CDN}/16signatured-drinks2.webp`,
     alt: "Signature Drinks II",
   },
   {
-    src: `${CDN}/17desserts.jpg`,
+    src: `${CDN}/17desserts.webp`,
     alt: "Desserts",
   },
   {
-    src: `${CDN}/18ourstory.jpg`,
+    src: `${CDN}/18ourstory.webp`,
     alt: "Our Story",
   },
 ];

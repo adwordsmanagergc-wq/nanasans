@@ -1,32 +1,12 @@
-import { useEffect } from "react";
 import { Link } from "react-router";
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import Footer from "@/react-app/components/Footer";
 import PageHeader from "@/react-app/components/PageHeader";
 import PostCard from "@/react-app/components/PostCard";
-import { formatPostDate } from "@/react-app/lib/utils";
+import { formatPostDate, imgSize } from "@/react-app/lib/utils";
 
 export default function Blog() {
-  useEffect(() => {
-    // Set canonical URL
-    let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = "https://nanasans.com/blog";
-
-    // Update title
-    document.title = "Blog – Indian Food & Tandoori Cooking Tips | Nana Sans Canggu";
-
-    // Update meta description
-    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
-    if (meta) {
-      meta.content = "Explore articles about tandoori cooking, vegetarian Indian cuisine, and food pairing tips from Nana Sans Tandoori Kitchen in Canggu, Bali.";
-    }
-  }, []);
 
   const [featured, ...rest] = blogPosts;
 
@@ -36,7 +16,7 @@ export default function Blog() {
         eyebrow="The Journal"
         title={
           <>
-            Stories, recipes &amp; <em className="italic text-saffron-400">insights</em> from our kitchen
+            Indian Food &amp; Tandoori <em className="italic text-saffron-400">Blog</em> from Nana Sans, Canggu
           </>
         }
         intro="Tandoori know-how, vegetarian favourites and dining guides from Nana Sans in Canggu, Bali."
@@ -52,6 +32,7 @@ export default function Blog() {
               <img
                 src={featured.image}
                 alt={featured.imageAlt}
+                {...imgSize(featured.image)}
                 className="h-full w-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105"
                 loading="eager"
               />

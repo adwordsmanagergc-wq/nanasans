@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { imgSize } from "@/react-app/lib/utils";
 import { LOGO } from "@/data/site";
 
 /** The Nana Sans logo, falling back to a typeset wordmark if the image is missing. */
@@ -18,6 +19,7 @@ export default function Logo({ className = "", wordmarkClassName = "text-2xl" }:
     <img
       src={LOGO}
       alt="Nana Sans Tandoori Kitchen logo"
+      {...imgSize(LOGO)}
       className={className}
       onError={() => setFailed(true)}
     />

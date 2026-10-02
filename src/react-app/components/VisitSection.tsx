@@ -12,12 +12,30 @@ export default function VisitSection() {
       <div className="relative mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <span className="eyebrow text-saffron-400">Visit Us</span>
-          <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
-            Pull up a chair, <em className="italic text-saffron-400">you're family</em>
+          <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-5xl">
+            Find Us: Next to <em className="italic text-saffron-400">Nico's Smokehouse</em>, Canggu
           </h2>
           <p className="mt-6 max-w-md leading-relaxed text-paper/65">
-            Find us on Jalan Raya Canggu, a few minutes from the beach. Walk-ins are always welcome; for groups and
-            peak dinner hours we recommend booking ahead on WhatsApp.
+            We're on Jalan Raya Canggu, right next door to{" "}
+            <a
+              href={SITE.nicosUrl}
+              target="_blank"
+              rel="noopener"
+              className="text-paper underline decoration-saffron-400/50 underline-offset-4 hover:text-saffron-300"
+            >
+              Nico's Smokehouse
+            </a>
+            . Walk-ins are always welcome; for groups and peak dinner hours we recommend booking ahead on WhatsApp.
+            You can also{" "}
+            <a
+              href={SITE.googleMapsUrl}
+              target="_blank"
+              rel="noopener"
+              className="text-paper underline decoration-saffron-400/50 underline-offset-4 hover:text-saffron-300"
+            >
+              see Nana Sans on Google Maps
+            </a>
+            .
           </p>
 
           <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2">
@@ -36,9 +54,9 @@ export default function VisitSection() {
                 <Clock className="h-3.5 w-3.5" /> Hours
               </dt>
               <dd className="mt-3 leading-relaxed text-paper/85">
-                Monday – Sunday
+                Monday to Sunday
                 <br />
-                11:00 am – 10:00 pm
+                {SITE.opens} to {SITE.closes}
               </dd>
             </div>
             <div className="bg-ink-800 p-6 sm:col-span-2">
