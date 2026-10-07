@@ -2,13 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.nanasans.com" }],
-      "destination": "https://nanasans.com/:path*",
-      "permanent": true
-    }
-  ]
+  "trailingSlash": false
 }
