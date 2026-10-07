@@ -172,19 +172,19 @@ export default function BlogPost() {
             ...(post.keywords ? { keywords: post.keywords } : {}),
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://nanasans.com/blog/${post.slug}`
+              "@id": `https://www.nanasans.com/blog/${post.slug}`
             },
             author: {
               "@type": "Organization",
               name: "Nana Sans Tandoori Kitchen",
-              url: "https://nanasans.com"
+              url: "https://www.nanasans.com"
             },
             publisher: {
               "@type": "Organization",
               name: "Nana Sans Tandoori Kitchen",
               logo: {
                 "@type": "ImageObject",
-                url: "https://nanasans.com/images/nana-sans-logo.png"
+                url: "https://www.nanasans.com/images/nana-sans-logo.png"
               }
             }
           })
@@ -199,13 +199,13 @@ export default function BlogPost() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://nanasans.com" },
-              { "@type": "ListItem", position: 2, name: "Blog", item: "https://nanasans.com/blog" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.nanasans.com" },
+              { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.nanasans.com/blog" },
               {
                 "@type": "ListItem",
                 position: 3,
                 name: post.title,
-                item: `https://nanasans.com/blog/${post.slug}`
+                item: `https://www.nanasans.com/blog/${post.slug}`
               }
             ]
           })

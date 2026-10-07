@@ -3,7 +3,10 @@
 // Photos and menu pages are served from public/images (self-hosted, so they
 // don't depend on the old Mocha CDN).
 export const CDN = "/images";
-export const SITE_ORIGIN = "https://nanasans.com";
+// The address Vercel actually serves: nanasans.com redirects to www.nanasans.com
+// (set in the Vercel dashboard under Domains). Canonicals, the sitemap and
+// structured data must use this exact origin.
+export const SITE_ORIGIN = "https://www.nanasans.com";
 
 // Cream version of the logo for the dark header, doors and footer.
 export const LOGO = `${CDN}/nana-sans-logo-light.webp`;

@@ -48,7 +48,14 @@ Every route is prerendered to its own static HTML file at build time (see
 **SEO** below). `vercel.json` turns on `cleanUrls`, so `dist/blog.html` is
 served at `/blog` and `dist/blog/<slug>.html` at `/blog/<slug>`. Direct visits
 and refreshes load real HTML, and unknown URLs get `dist/404.html` with a 404
-status. It also redirects `www.nanasans.com` to `nanasans.com`.
+status.
+
+The main domain is **www.nanasans.com**. Vercel's Domains settings redirect
+`nanasans.com` to it, and every canonical, sitemap and schema URL uses
+`https://www.nanasans.com` (`SITE_ORIGIN` in `src/data/site.ts`). Don't add a
+host redirect to `vercel.json`: it would fight the dashboard setting and loop.
+If you switch the primary domain in Vercel, change `SITE_ORIGIN`,
+`scripts/prerender.mjs` and `public/robots.txt` to match.
 
 You can also deploy from the CLI:
 

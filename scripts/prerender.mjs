@@ -8,7 +8,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const ssrDir = path.join(root, "dist-ssr");
-const SITE_ORIGIN = "https://nanasans.com";
+const SITE_ORIGIN = "https://www.nanasans.com";
 
 const { render, PAGES, NOT_FOUND_SEO, headHtml } = await import(
   pathToFileURL(path.join(ssrDir, "entry-server.js")).href
