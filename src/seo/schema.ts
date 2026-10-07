@@ -70,14 +70,13 @@ export function restaurantSchema({ withMenu = false } = {}): Json {
     address: RESTAURANT_LOCATION.address,
     geo: { "@type": "GeoCoordinates", ...SITE.geo },
     hasMap: SITE.googleMapsUrl,
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: SITE.opens,
-        closes: SITE.closes,
-      },
-    ],
+    // Closing before opening (e.g. 12:00 to 02:00) means the restaurant closes after midnight.
+    openingHoursSpecification: SITE.openingHours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.days,
+      opens: h.opens,
+      closes: h.closes,
+    })),
     areaServed: [
       { "@type": "City", name: "Canggu" },
       { "@type": "State", name: "Bali" },

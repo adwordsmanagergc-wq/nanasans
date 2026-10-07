@@ -11,7 +11,7 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: "What are your opening hours?",
-    answer: "We're open daily from 11:00 AM to 10:00 PM. We recommend booking a table during peak dinner hours (6-8 PM) to avoid waiting, especially on weekends."
+    answer: "We're open from midday to 2:00 AM every day except Friday, when we open at 5:00 PM and close at 2:00 AM. We recommend booking a table during peak dinner hours (6-8 PM) to avoid waiting, especially on weekends."
   },
   {
     question: "Do you have vegetarian and vegan options?",

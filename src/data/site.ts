@@ -15,7 +15,7 @@ export const SITE = {
   name: "Nana Sans Tandoori Kitchen",
   phoneDisplay: "+62 812 3456 4499",
   phone: "6281234564499",
-  hours: "Open daily · 11:00 – 22:00",
+  hours: "Daily 12pm to 2am · Fridays from 5pm",
   addressLine1: "Jalan Raya Canggu No. 10C",
   addressLine2: "Tibubeneng, Canggu, Bali 80351",
   bookUrl: `https://wa.me/6281234564499?text=${encodeURIComponent("Hi Nana Sans, I'd like to book a table")}`,
@@ -32,9 +32,14 @@ export const SITE = {
   googleMapsUrl: "https://maps.app.goo.gl/BwSJsaJaS3CmDTDF9",
   /** Neighbouring restaurant, used as a landmark ("right next door to Nico's Smokehouse"). */
   nicosUrl: "https://nicossmokehouse.com",
-  // Opening hours as stated on the FAQ page: daily, 11:00 to 22:00.
-  opens: "11:00",
-  closes: "22:00",
+  /**
+   * Opening hours (24h clock). Closing at 02:00 means 2am the following morning.
+   * Used for the Visit section, footer and the Restaurant structured data.
+   */
+  openingHours: [
+    { label: "Saturday to Thursday", days: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "12:00", closes: "02:00", display: "12pm to 2am" },
+    { label: "Friday", days: ["Friday"], opens: "17:00", closes: "02:00", display: "5pm to 2am" },
+  ],
   geo: { latitude: -8.6413098, longitude: 115.1545625 },
   postalCode: "80351",
   /** Default social preview image (absolute URL). JPG for the widest app support. */

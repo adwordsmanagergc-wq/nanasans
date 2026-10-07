@@ -79,7 +79,13 @@ export default function Footer() {
                 <br />
                 {SITE.addressLine2}
               </p>
-              <p>Daily, 11:00 am – 10:00 pm</p>
+              <p>
+                {SITE.openingHours.map((h) => (
+                  <span key={h.label} className="block">
+                    {h.label}: {h.display}
+                  </span>
+                ))}
+              </p>
               <p>
                 <a href={SITE.directionsUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   Directions ↗

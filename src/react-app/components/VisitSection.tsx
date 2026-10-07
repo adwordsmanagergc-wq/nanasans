@@ -54,9 +54,11 @@ export default function VisitSection() {
                 <Clock className="h-3.5 w-3.5" /> Hours
               </dt>
               <dd className="mt-3 leading-relaxed text-paper/85">
-                Monday to Sunday
-                <br />
-                {SITE.opens} to {SITE.closes}
+                {SITE.openingHours.map((h) => (
+                  <span key={h.label} className="block">
+                    {h.label}: {h.display}
+                  </span>
+                ))}
               </dd>
             </div>
             <div className="bg-ink-800 p-6 sm:col-span-2">
