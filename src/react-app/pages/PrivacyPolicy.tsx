@@ -1,37 +1,17 @@
 import Footer from "@/react-app/components/Footer";
 import PageHeader from "@/react-app/components/PageHeader";
-import { useEffect } from "react";
 
 export default function PrivacyPolicy() {
-  useEffect(() => {
-    // Set canonical URL for this page
-    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
-    if (canonical) {
-      canonical.href = "https://nanasans.com/privacy";
-    } else {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      canonical.href = "https://nanasans.com/privacy";
-      document.head.appendChild(canonical);
-    }
-    
-    return () => {
-      // Reset to home canonical when leaving
-      if (canonical) {
-        canonical.href = "https://nanasans.com/";
-      }
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-paper text-ink">
-      <PageHeader eyebrow="Legal" title="Privacy Policy" intro="Nana Sans Tandoori Kitchen" />
+      <PageHeader eyebrow="Legal" title="Nana Sans Tandoori Kitchen Privacy Policy" intro="How we collect, use and protect your information." />
 
       {/* Content */}
       <div className="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-20">
         <div className="prose prose-stone max-w-none space-y-8">
           <p className="text-cocoa-400 text-sm">
-            Last updated: {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
+            Last updated: 3 August 2026
           </p>
 
           <section>

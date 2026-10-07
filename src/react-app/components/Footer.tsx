@@ -10,9 +10,6 @@ export default function Footer() {
   const whatsappMessage = encodeURIComponent("Hi Metatap!");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <footer className="relative overflow-hidden bg-ink-900 text-paper">
@@ -53,7 +50,10 @@ export default function Footer() {
           <div>
             <h3 className="text-[0.65rem] font-sans font-semibold uppercase tracking-[0.25em] text-saffron-400">Explore</h3>
             <ul className="mt-5 space-y-3 text-sm">
-              <li><Link to="/#menu" className={linkClass}>Menu</Link></li>
+              <li><Link to="/menu" className={linkClass}>Menu</Link></li>
+              <li><Link to="/#vegetarian" className={linkClass}>Vegetarian &amp; Vegan</Link></li>
+              <li><Link to="/#visit" className={linkClass}>Find Us</Link></li>
+              <li><Link to="/#book" className={linkClass}>Book a Table</Link></li>
               <li><Link to="/#story" className={linkClass}>Our Story</Link></li>
               <li><Link to="/#gallery" className={linkClass}>Gallery</Link></li>
               <li><Link to="/blog" className={linkClass}>Blog</Link></li>
@@ -89,8 +89,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 text-xs text-paper/45 md:flex-row">
-          <p>© {new Date().getFullYear()} Nana Sans Tandoori Kitchen. All rights reserved.</p>
+        <div className="mt-16 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-8 text-xs text-paper/65 md:flex-row">
+          <p suppressHydrationWarning>© {new Date().getFullYear()} Nana Sans Tandoori Kitchen. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/privacy" className="transition-colors hover:text-paper">
               Privacy Policy
@@ -111,20 +111,19 @@ export default function Footer() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 rounded-full bg-green-600 px-2 py-1 text-[10px] text-white transition-colors hover:bg-green-500"
+                className="inline-flex items-center gap-1 rounded-full bg-green-700 px-2 py-1 text-[10px] text-white transition-colors hover:bg-green-800"
               >
                 <MessageCircle className="h-3 w-3" />
                 <span>Metatap</span>
               </a>
             </span>
-            <button
-              type="button"
-              onClick={scrollToTop}
+            <a
+              href="#root"
               className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-paper/70 transition-colors hover:border-saffron-400 hover:text-saffron-300"
               aria-label="Back to top"
             >
               <ArrowUp className="h-4 w-4" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

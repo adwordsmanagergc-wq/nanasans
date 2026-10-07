@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { imgSize } from "@/react-app/lib/utils";
 import { ChevronLeft, ChevronRight, Instagram, X } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
 import { PHOTO_GEO } from "@/data/photoGeo";
@@ -6,32 +7,32 @@ import Reveal from "./Reveal";
 
 const galleryImages = [
   {
-    src: `${CDN}/gallery-tandoori-platter.jpg`,
+    src: `${CDN}/gallery-tandoori-platter.webp`,
     alt: "Authentic tandoori platter at Nana Sans Tandoori Kitchen in Canggu, Bali",
     span: "md:col-span-2 md:row-span-2",
   },
   {
-    src: `${CDN}/gallery-chicken-tikka-masala.jpg`,
+    src: `${CDN}/gallery-chicken-tikka-masala.webp`,
     alt: "Creamy chicken tikka masala curry served at Nana Sans Indian restaurant Canggu",
     span: "",
   },
   {
-    src: `${CDN}/gallery-dining-room.jpg`,
+    src: `${CDN}/gallery-dining-room.webp`,
     alt: "Air-conditioned indoor dining area at Nana Sans Tandoori Kitchen Bali",
     span: "md:row-span-2",
   },
   {
-    src: `${CDN}/gallery-heritage-dishes.jpg`,
+    src: `${CDN}/gallery-heritage-dishes.webp`,
     alt: "Traditional Indian heritage dishes at Nana Sans Canggu",
     span: "",
   },
   {
-    src: `${CDN}/gallery-vegetarian-curry.jpg`,
+    src: `${CDN}/gallery-vegetarian-curry.webp`,
     alt: "Vegetarian Indian curry at Nana Sans Bali",
     span: "col-span-2",
   },
   {
-    src: `${CDN}/gallery-tandoori-chicken.jpg`,
+    src: `${CDN}/gallery-tandoori-chicken.webp`,
     alt: "Flame-grilled tandoori chicken platter fresh from the clay oven in Canggu",
     span: "md:col-span-2",
   },
@@ -95,7 +96,9 @@ export default function PhotoGallery() {
                 <img
                   src={image.src}
                   alt={image.alt}
+                  {...imgSize(image.src)}
                   loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-1200 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -139,6 +142,7 @@ export default function PhotoGallery() {
               key={galleryImages[active].src}
               src={galleryImages[active].src}
               alt={galleryImages[active].alt}
+              {...imgSize(galleryImages[active].src)}
               className="max-h-[80vh] w-auto rounded-xl object-contain shadow-2xl animate-in fade-in zoom-in-95 duration-500"
             />
             <figcaption className="mt-4 text-center font-display text-lg italic text-paper/80">

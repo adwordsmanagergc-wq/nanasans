@@ -27,7 +27,7 @@ Other scripts:
 
 ```bash
 npm run build    # type-check and build to dist/
-npm run preview  # preview the production build locally
+npm run preview  # serve dist/ locally with clean URLs, like Vercel
 npm run lint     # run ESLint
 ```
 
@@ -44,9 +44,11 @@ automatic:
    - **Install command:** `npm install`
 4. Click **Deploy**.
 
-The `rewrites` rule in `vercel.json` sends all non-asset routes to `index.html`
-so client-side routes such as `/blog`, `/blog/:slug`, `/faq`, and `/privacy`
-resolve correctly on direct navigation and page refresh.
+Every route is prerendered to its own static HTML file at build time (see
+**SEO** below). `vercel.json` turns on `cleanUrls`, so `dist/blog.html` is
+served at `/blog` and `dist/blog/<slug>.html` at `/blog/<slug>`. Direct visits
+and refreshes load real HTML, and unknown URLs get `dist/404.html` with a 404
+status. It also redirects `www.nanasans.com` to `nanasans.com`.
 
 You can also deploy from the CLI:
 
@@ -126,3 +128,29 @@ The home page has a "Follow Us" section. To show the latest posts automatically:
 3. Redeploy. New Instagram posts then appear on the site automatically.
 
 Without the variable the section shows a "Follow @nanasans_bali" card instead.
+
+## SEO
+
+`npm run build` runs three steps:
+
+1. `vite build` builds the browser app (minified).
+2. `vite build --ssr src/entry-server.tsx` builds a renderer for Node.
+3. `node scripts/prerender.mjs` renders every route to static HTML in `dist/`,
+   writes `dist/404.html` and generates `dist/sitemap.xml` with `<lastmod>`.
+
+Crawlers therefore get the full page (headings, text, images, links and
+structured data) without running JavaScript. In the browser, React attaches to
+that HTML (`hydrateRoot`) instead of re-rendering it.
+
+- **Titles, descriptions, canonicals, OpenGraph/Twitter tags and JSON-LD** for
+  every route live in `src/seo/pages.ts`. The build writes them into each
+  page's `<head>`, and the same data updates the head on client-side navigation.
+- **Structured data** is built from real site data in `src/seo/schema.ts`
+  (Restaurant, Menu, FAQPage, ImageGallery, BreadcrumbList). Blog posts and the
+  FAQ page also render their own Article/FAQ schema.
+- **New pages:** add the route in `src/react-app/AppRoutes.tsx` and an entry in
+  `src/seo/pages.ts`. Blog posts added to `src/data/blogPosts.ts` are picked up
+  automatically.
+- **Images:** width/height attributes come from the real files in
+  `public/images` at build time (`imgSize()` in `src/react-app/lib/utils.ts`),
+  so new uploads get them automatically. Prefer WebP for page images.

@@ -177,13 +177,12 @@ export default function WelcomeDoors() {
 
   return (
     <div
+      data-welcome-doors
       className={`fixed inset-0 z-[100] overflow-hidden ${
         opening ? "pointer-events-none" : "cursor-pointer"
       }`}
+      // Clicking anywhere opens the doors; keyboard users have the Enter button (and the Enter key).
       onClick={opening ? undefined : open}
-      role="button"
-      tabIndex={-1}
-      aria-label="Enter the Nana Sans website"
     >
       {/* Warm backdrop revealed as the doors part */}
       <div className="absolute inset-0 bg-gradient-to-b from-stone-950 via-amber-950 to-stone-950" />

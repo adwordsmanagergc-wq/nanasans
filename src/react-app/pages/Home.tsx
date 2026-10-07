@@ -9,6 +9,8 @@ import PhotoGallery from "@/react-app/components/PhotoGallery";
 import InstagramSection from "@/react-app/components/InstagramSection";
 import AboutSection from "@/react-app/components/AboutSection";
 import VisitSection from "@/react-app/components/VisitSection";
+import VegSection from "@/react-app/components/VegSection";
+import BookSection from "@/react-app/components/BookSection";
 import BlogHighlights from "@/react-app/components/BlogHighlights";
 import Footer from "@/react-app/components/Footer";
 import WelcomeDoors from "@/react-app/components/WelcomeDoors";
@@ -37,6 +39,8 @@ export default function HomePage() {
 
       <MenuSection />
 
+      <VegSection />
+
       <AboutSection />
 
       <PhotoGallery />
@@ -44,6 +48,8 @@ export default function HomePage() {
       <InstagramSection />
 
       <VisitSection />
+
+      <BookSection />
 
       <BlogHighlights />
 

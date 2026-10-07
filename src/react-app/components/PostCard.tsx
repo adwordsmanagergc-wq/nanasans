@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { ArrowUpRight } from "lucide-react";
 import type { BlogPost } from "@/data/blogPosts";
-import { formatPostDate } from "@/react-app/lib/utils";
+import { formatPostDate, imgSize } from "@/react-app/lib/utils";
 
 /** Editorial card linking to a journal post. */
 export default function PostCard({ post, headingLevel = "h3" }: { post: BlogPost; headingLevel?: "h2" | "h3" }) {
@@ -12,6 +12,8 @@ export default function PostCard({ post, headingLevel = "h3" }: { post: BlogPost
         <img
           src={post.image}
           alt={post.imageAlt}
+          {...imgSize(post.image)}
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-1200 ease-out group-hover:scale-105"
           loading="lazy"
         />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MessageCircle, Plus } from "lucide-react";
 import Footer from "@/react-app/components/Footer";
 import PageHeader from "@/react-app/components/PageHeader";
@@ -84,25 +84,6 @@ function FAQAccordion({ faq, isOpen, onClick }: { faq: FAQItem; isOpen: boolean;
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  useEffect(() => {
-    // Set canonical URL
-    let link = document.querySelector("link[rel='canonical']") as HTMLLinkElement;
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "canonical";
-      document.head.appendChild(link);
-    }
-    link.href = "https://nanasans.com/faq";
-
-    // Update title
-    document.title = "FAQ – Nana Sans Tandoori Kitchen | Indian Restaurant Canggu";
-
-    // Update meta description
-    const meta = document.querySelector("meta[name='description']") as HTMLMetaElement;
-    if (meta) {
-      meta.content = "Frequently asked questions about Nana Sans Tandoori Kitchen in Canggu. Opening hours, reservations, vegetarian options, spice levels, delivery, and more.";
-    }
-  }, []);
 
   // Generate FAQPage schema
   const faqSchema = {
@@ -130,7 +111,7 @@ export default function FAQ() {
         eyebrow="Good to know"
         title={
           <>
-            Frequently asked <em className="italic text-saffron-400">questions</em>
+            Nana Sans FAQ: Visiting Our <em className="italic text-saffron-400">Indian Restaurant</em> in Canggu
           </>
         }
         intro="Everything you need to know about dining at Nana Sans."

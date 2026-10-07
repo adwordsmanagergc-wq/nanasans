@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { ArrowUpRight, BookOpen, Leaf } from "lucide-react";
+import { Link } from "react-router";
+import { ArrowRight, ArrowUpRight, BookOpen, Leaf } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
-import { MENU, MENU_TAX_NOTE, type Diet } from "@/data/menu";
+import { MENU, MENU_TAX_NOTE } from "@/data/menu";
+import { imgSize } from "@/react-app/lib/utils";
+import MenuCoursePanel from "./MenuCourse";
+import { courseId } from "@/react-app/lib/menu";
 import MenuViewer from "./MenuViewer";
 import Reveal from "./Reveal";
 
@@ -17,7 +21,7 @@ const SIGNATURES = [
     name: "Chicken Tikka Masala",
     note: "The British-Indian classic",
     description: "Smooth tomato curry with a hint of spice. Add a garlic butter naan and you're home.",
-    image: `${CDN}/gallery-chicken-tikka-masala.jpg`,
+    image: `${CDN}/gallery-chicken-tikka-masala.webp`,
     alt: "Creamy chicken tikka masala curry served at Nana Sans Indian restaurant Canggu",
   },
   {
@@ -30,25 +34,9 @@ const SIGNATURES = [
   },
 ];
 
-const formatPrice = (idr: number) => `${Math.round(idr / 1000)}k`;
-
-function DietTag({ diet }: { diet: Diet }) {
-  return (
-    <span
-      className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.15em] ${
-        diet === "vegan" ? "bg-emerald-500/15 text-emerald-300" : "bg-lime-500/10 text-lime-200"
-      }`}
-    >
-      <Leaf className="h-3 w-3" />
-      {diet === "vegan" ? "Vegan" : "Vegetarian"}
-    </span>
-  );
-}
-
 export default function MenuSection() {
   const [viewerIndex, setViewerIndex] = useState<number | null>(null);
   const [course, setCourse] = useState(0);
-  const active = MENU[course];
 
   return (
     <>
@@ -59,12 +47,12 @@ export default function MenuSection() {
             <div className="max-w-2xl">
               <span className="eyebrow">Signatures</span>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
-                From the tandoor <em className="italic text-chili">to your table</em>
+                British-Indian <em className="italic text-chili">Favourites</em>
               </h2>
             </div>
             <p className="max-w-sm text-cocoa-500 md:text-right">
-              Family recipes, fresh spice blends and a proper clay oven. These are the plates our regulars come back
-              for.
+              Family recipes, fresh spice blends and a proper clay oven. From chicken tikka masala to tandoori chicken,
+              these are the plates our regulars come back for.
             </p>
           </Reveal>
 
@@ -75,7 +63,9 @@ export default function MenuSection() {
                   <img
                     src={dish.image}
                     alt={dish.alt}
+                    {...imgSize(dish.image)}
                     loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition-transform duration-1400 ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
@@ -85,7 +75,8 @@ export default function MenuSection() {
                     </span>
                     {dish.veg && (
                       <span className="grid h-7 w-7 place-items-center rounded-full bg-emerald-700 text-white" title="Vegetarian">
-                        <Leaf className="h-3.5 w-3.5" />
+                        <Leaf className="h-3.5 w-3.5" aria-hidden="true" />
+                        <span className="sr-only">Vegetarian</span>
                       </span>
                     )}
                   </div>
@@ -114,7 +105,7 @@ export default function MenuSection() {
             <div className="max-w-2xl">
               <span className="eyebrow text-saffron-400">The Menu</span>
               <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-6xl">
-                What's cooking at <em className="italic text-saffron-400">Nana's</em>
+                Tandoori &amp; <em className="italic text-saffron-400">Curry</em> Menu
               </h2>
             </div>
             <p className="max-w-sm text-paper/65 md:text-right">
@@ -135,6 +126,8 @@ export default function MenuSection() {
                   key={c.name}
                   type="button"
                   role="tab"
+                  id={`${courseId(c)}-tab`}
+                  aria-controls={courseId(c)}
                   aria-selected={course === i}
                   onClick={() => setCourse(i)}
                   className={`shrink-0 rounded-full border px-5 py-2.5 text-sm font-medium transition-all ${
@@ -149,51 +142,20 @@ export default function MenuSection() {
             </div>
           </Reveal>
 
+          {/* Every course is in the HTML (crawlers and no-JS readers see the whole menu); tabs just toggle visibility. */}
           <Reveal delay={150}>
-            <div key={active.name} className="mt-10 animate-in fade-in slide-in-from-bottom-2 duration-500" role="tabpanel">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-display text-3xl sm:text-4xl">{active.name}</h3>
-                    {active.diet && <DietTag diet={active.diet} />}
-                  </div>
-                  {active.note && <p className="mt-2 max-w-xl text-sm italic text-paper/55">{active.note}</p>}
-                </div>
-                <div className="flex items-center gap-4">
-                  {active.price && (
-                    <span className="rounded-full border border-saffron-400/40 px-4 py-1.5 font-display text-lg text-saffron-300">
-                      All {formatPrice(active.price)}
-                    </span>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setViewerIndex(active.page)}
-                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-paper/60 transition-colors hover:text-saffron-300"
-                  >
-                    <BookOpen className="h-4 w-4" />
-                    Printed page
-                  </button>
-                </div>
+            {MENU.map((c, i) => (
+              <div
+                key={c.name}
+                id={courseId(c)}
+                role="tabpanel"
+                aria-labelledby={`${courseId(c)}-tab`}
+                hidden={course !== i}
+                className="mt-10 animate-in fade-in slide-in-from-bottom-2 duration-500"
+              >
+                <MenuCoursePanel course={c} onPrintedPage={() => setViewerIndex(c.page)} />
               </div>
-              <ul className="mt-6 grid gap-x-16 border-t border-white/10 md:grid-cols-2">
-                {active.dishes.map((dish) => (
-                  <li key={dish.name} className="border-b border-white/10 py-5">
-                    <div className="flex items-baseline gap-3">
-                      <h4 className="font-display text-xl">{dish.name}</h4>
-                      {dish.price && (
-                        <>
-                          <span className="mb-1.5 flex-1 border-b border-dotted border-white/20" aria-hidden="true" />
-                          <span className="font-display text-xl text-saffron-300">{formatPrice(dish.price)}</span>
-                        </>
-                      )}
-                    </div>
-                    {dish.description && (
-                      <p className="mt-1.5 max-w-md text-sm leading-relaxed text-paper/60">{dish.description}</p>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </Reveal>
 
           <Reveal className="mt-12 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -201,9 +163,13 @@ export default function MenuSection() {
               Prices in Indonesian rupiah (k = thousand). {MENU_TAX_NOTE}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <button type="button" onClick={() => setViewerIndex(0)} className="btn-primary">
+              <Link to="/menu" className="btn-primary">
+                Full Menu Page
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <button type="button" onClick={() => setViewerIndex(0)} className="btn-ghost">
                 <BookOpen className="h-4 w-4" />
-                View the Printed Menu
+                Printed Menu
               </button>
               <a href={SITE.gojekUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 Order for Delivery

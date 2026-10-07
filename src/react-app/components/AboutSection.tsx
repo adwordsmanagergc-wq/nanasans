@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Bike, Flame, Heart, Leaf, Plus, Snowflake } from "lucide-react";
+import { Link } from "react-router";
 import { CDN } from "@/data/site";
+import { imgSize } from "@/react-app/lib/utils";
+import { HOME_FAQS as faqs } from "@/data/homeFaqs";
 import Reveal from "./Reveal";
 
 const PILLARS = [
@@ -26,48 +29,6 @@ const PILLARS = [
   },
 ];
 
-const faqs = [
-  {
-    question: "What makes Nana Sans the best Indian restaurant in Canggu?",
-    answer:
-      "Nana Sans combines traditional Indian recipes with British culinary influence, creating a unique dining experience you won't find elsewhere in Canggu. Our dishes are made fresh daily using quality spices, and our warm, family-style hospitality makes every guest feel at home.",
-  },
-  {
-    question: "Is Nana Sans air conditioned?",
-    answer:
-      "Yes! Nana Sans Tandoori Kitchen is fully air conditioned, providing a cool and comfortable dining experience away from the Bali heat. Enjoy your meal in our refreshing indoor space while savoring authentic Indian flavors.",
-  },
-  {
-    question: "Are there air conditioned restaurants in Canggu?",
-    answer:
-      "Absolutely! Nana Sans Tandoori Kitchen offers a fully air conditioned dining room in Canggu. It's the perfect escape from the tropical heat while enjoying delicious Indian cuisine with family and friends.",
-  },
-  {
-    question: "Where can I find an air conditioned Indian restaurant in Bali?",
-    answer:
-      "Nana Sans Tandoori Kitchen in Canggu features full air conditioning throughout the restaurant. Whether you're looking to cool down after a day at the beach or simply prefer indoor dining, we've got you covered with comfortable seating and authentic Indian dishes.",
-  },
-  {
-    question: "Where can I find great Indian food in Canggu, Bali?",
-    answer:
-      "Nana Sans Tandoori Kitchen is located on Jl. Raya Canggu, in the heart of Canggu. We're easily accessible and offer dine-in, takeaway, and delivery through Gojek. Our menu features everything from tandoori specialties to curries, biryanis, and homemade naans.",
-  },
-  {
-    question: "Is Nana Sans suitable for vegetarians and vegans?",
-    answer:
-      "Absolutely! We have extensive vegetarian and vegan menus featuring delicious curries, sides, and mains. Our chefs prepare each dish with care, ensuring plant-based diners enjoy the same rich, flavorful experience as everyone else.",
-  },
-  {
-    question: "What's the best Indian restaurant in Bali for families?",
-    answer:
-      "Nana Sans is perfect for families! Our restaurant was founded on the values of family, warmth, and togetherness. We offer a welcoming atmosphere, kid-friendly options, and generous portions meant to be shared around the table—just like at home.",
-  },
-  {
-    question: "Does Nana Sans offer delivery in Canggu?",
-    answer:
-      "Yes! You can order Nana Sans through Gojek (GoFood) for delivery anywhere in the Canggu area. Enjoy our delicious Indian cuisine from the comfort of your villa or hotel.",
-  },
-];
 
 /** Accordion row that animates its height with a CSS grid trick. */
 function Disclosure({
@@ -125,12 +86,12 @@ export default function AboutSection() {
             <figure className="relative -rotate-2 transition-transform duration-700 hover:rotate-0">
               <div className="overflow-hidden rounded-md bg-paper-300 shadow-[0_40px_80px_-30px_rgba(27,19,14,0.75)]">
                 <img
-                  src={`${CDN}/nanny-sandra.jpg`}
+                  src={`${CDN}/nanny-sandra.webp`}
                   alt="Old family photograph of Sandra, the 'Nanny' behind Nana Sans, smiling as she holds a baby"
                   className="aspect-square w-full object-cover"
-                  width={1100}
-                  height={1076}
+                  {...imgSize(`${CDN}/nanny-sandra.webp`)}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </figure>
@@ -185,8 +146,33 @@ export default function AboutSection() {
       </section>
 
       {/* Pillars */}
-      <section className="bg-paper-200 py-20 sm:py-24">
+      <section id="dining" className="bg-paper-200 py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <Reveal className="mb-12 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <span className="eyebrow">Cool, comfortable, family-style</span>
+            <h2 className="mt-5 font-display text-4xl font-light leading-[1.05] sm:text-5xl">
+              Air-Conditioned Dining <em className="italic text-chili">in Canggu</em>
+            </h2>
+            <p className="mt-6 max-w-xl leading-relaxed text-cocoa-500">
+              Escape the Bali heat in our fully air-conditioned dining room on Jalan Raya Canggu. It's a relaxed,
+              home-like space for long family dinners, date nights and a quick curry after the beach, with tandoori
+              fresh from the clay oven and a{" "}
+              <Link to="/menu" className="text-ink underline decoration-saffron-500/60 underline-offset-4 hover:text-chili">
+                full menu
+              </Link>{" "}
+              that looks after meat lovers, vegetarians and vegans alike.
+            </p>
+          </div>
+          <img
+            src={`${CDN}/gallery-dining-room.webp`}
+            alt="Air-conditioned indoor dining room at Nana Sans Indian restaurant in Canggu"
+            {...imgSize(`${CDN}/gallery-dining-room.webp`)}
+            loading="lazy"
+            decoding="async"
+            className="aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-[0_30px_60px_-30px_rgba(27,19,14,0.6)]"
+          />
+        </Reveal>
         <div className="grid gap-px overflow-hidden rounded-[1.75rem] border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 100} className="bg-paper-100 p-8 transition-colors duration-500 hover:bg-paper-50">
