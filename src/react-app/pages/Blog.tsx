@@ -19,7 +19,15 @@ export default function Blog() {
             Indian Food &amp; Tandoori <em className="italic text-saffron-400">Blog</em> from Nana Sans, Canggu
           </>
         }
-        intro="Tandoori know-how, vegetarian favourites and dining guides from Nana Sans in Canggu, Bali."
+        intro={
+          <>
+            Tandoori know-how, vegetarian favourites and dining guides from Nana Sans. New here? Start with our{" "}
+            <Link to="/blog/indian-restaurant-canggu" className="text-paper underline decoration-saffron-400/50 underline-offset-4 hover:text-saffron-300">
+              Indian restaurant Canggu guide
+            </Link>
+            .
+          </>
+        }
       />
 
       <main className="grain mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">

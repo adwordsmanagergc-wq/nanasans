@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useState } from "react";
 import { MessageCircle, Plus } from "lucide-react";
 import Footer from "@/react-app/components/Footer";
@@ -114,7 +115,15 @@ export default function FAQ() {
             Nana Sans FAQ: Visiting Our <em className="italic text-saffron-400">Indian Restaurant</em> in Canggu
           </>
         }
-        intro="Everything you need to know about dining at Nana Sans."
+        intro={
+          <>
+            Everything you need to know about dining at Nana Sans, the air-conditioned{" "}
+            <Link to="/blog/indian-restaurant-canggu" className="text-paper underline decoration-saffron-400/50 underline-offset-4 hover:text-saffron-300">
+              Indian restaurant in Canggu
+            </Link>
+            .
+          </>
+        }
       />
 
       <main className="grain mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">

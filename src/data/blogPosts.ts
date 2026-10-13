@@ -56,7 +56,7 @@ Nana Sans Tandoori Kitchen ticks every box. We're one of the few **air-condition
 
 ![Flame-grilled tandoori dishes at Nana Sans, the best air-conditioned Indian restaurant in Canggu](/images/gallery-tandoori-chicken.webp)
 
-Want the full story on our food and value? Read our guide to the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu), or browse the complete [menu on our home page](/).
+Want the full story on our food and value? Read our guide to the [best Indian restaurant in Canggu](/blog/indian-restaurant-canggu), or browse the [complete menu](/menu).
 
 ## Where to Find Us
 
@@ -102,7 +102,7 @@ We're not just another curry house — we're a family-owned kitchen built on war
 
 ## Great-Value, Authentic Indian Food in Canggu
 
-At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, chicken korma, lamb curry and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our full [menu on the home page](/) to see everything we serve.
+At Nana Sans we believe incredible Indian food shouldn't cost a fortune. Our menu blends traditional North Indian cooking with a British-Indian influence, so you'll find everyone's favourites — butter chicken, chicken tikka masala, chicken korma, lamb curry and fragrant biryani — alongside tandoori grills, fresh naan and homemade chutneys. Take a look at our [full menu](/menu) to see everything we serve.
 
 ![Creamy butter chicken curry served at Nana Sans in Canggu, Bali](/images/gallery-chicken-tikka-masala.webp)
 
@@ -160,7 +160,7 @@ Our clay tandoor reaches the same searing temperatures used for centuries, produ
 
 ## Experience Authentic Tandoori in Canggu
 
-We invite you to taste this history for yourself. Visit Nana Sans on Jalan Raya Canggu and experience why tandoori cooking has captivated food lovers for five thousand years. Our air-conditioned dining room provides the perfect escape from Bali's heat while you savour these time-honoured flavours.
+We invite you to taste this history for yourself. Visit Nana Sans, an [authentic Indian restaurant in Canggu](/blog/indian-restaurant-canggu) on Jalan Raya Canggu, and experience why tandoori cooking has captivated food lovers for five thousand years. Our air-conditioned dining room provides the perfect escape from Bali's heat while you savour these time-honoured flavours.
     `.trim()
   },
   {
@@ -211,7 +211,7 @@ Canggu's health-conscious community has embraced Indian vegetarian cuisine for g
 
 ## Visit Our Air-Conditioned Restaurant
 
-Whether you're a lifelong vegetarian, exploring plant-based eating, or simply craving something delicious, Nana Sans welcomes you. Our air-conditioned dining room on Jalan Raya Canggu offers the perfect setting to explore India's incredible vegetarian heritage.
+Whether you're a lifelong vegetarian, exploring plant-based eating, or simply craving something delicious, Nana Sans welcomes you. Our air-conditioned dining room on Jalan Raya Canggu offers the perfect setting to explore India's incredible vegetarian heritage, and our guide to this [vegetarian-friendly Indian restaurant in Canggu](/blog/indian-restaurant-canggu) has everything you need to plan a visit.
     `.trim()
   },
   {
@@ -266,7 +266,7 @@ Very tannic red wines can clash with spicy food, amplifying heat uncomfortably. 
 
 ## Your Perfect Pairing at Nana Sans
 
-Visit our air-conditioned restaurant in Canggu to explore these pairings yourself. Our team can guide you to the perfect drink for your chosen dishes, ensuring every element of your meal works in harmony.
+Visit our air-conditioned restaurant to explore these pairings yourself. Our [Indian restaurant Canggu guide](/blog/indian-restaurant-canggu) has directions and ways to book. Our team can guide you to the perfect drink for your chosen dishes, ensuring every element of your meal works in harmony.
 
 From refreshing fresh juices to traditional masala chai, we've curated our drinks menu to enhance your Indian dining experience. Book a table and discover your new favourite pairing.
     `.trim()

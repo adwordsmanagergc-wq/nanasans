@@ -72,7 +72,11 @@ export default function MenuPage() {
           tell us about any allergies when you order.
         </p>
         <p className="mt-6 text-paper/70">
-          Ready to eat?{" "}
+          New to Nana Sans? Read our guide to{" "}
+          <Link to="/blog/indian-restaurant-canggu" className="text-saffron-300 underline decoration-saffron-400/40 underline-offset-4">
+            our Indian restaurant in Canggu
+          </Link>
+          . Ready to eat?{" "}
           <a
             href={SITE.bookUrl}
             target="_blank"

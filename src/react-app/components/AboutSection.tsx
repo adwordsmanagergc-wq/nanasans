@@ -196,7 +196,12 @@ export default function AboutSection() {
               Frequently asked <em className="italic text-chili">questions</em>
             </h2>
             <p className="mt-6 max-w-sm leading-relaxed text-cocoa-500">
-              Planning a visit, ordering in, or bringing the whole family? Here's what guests usually ask us.
+              Planning a visit, ordering in, or bringing the whole family? Here's what guests usually ask us. New to
+              Nana Sans? Start with our guide to this{" "}
+              <Link to="/blog/indian-restaurant-canggu" className="text-ink underline decoration-saffron-500/60 underline-offset-4 hover:text-chili">
+                Indian restaurant in Canggu
+              </Link>
+              .
             </p>
           </Reveal>
 
