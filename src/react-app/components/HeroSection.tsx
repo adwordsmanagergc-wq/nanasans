@@ -1,4 +1,4 @@
-import { ArrowDown, CalendarCheck, Leaf, Snowflake, Flame, UtensilsCrossed } from "lucide-react";
+import { ArrowDown, CalendarCheck, Leaf, Snowflake, Flame, ShoppingBag, UtensilsCrossed } from "lucide-react";
 import { CDN, SITE } from "@/data/site";
 import { imgSize } from "@/react-app/lib/utils";
 
@@ -112,16 +112,18 @@ export default function HeroSection() {
               href={SITE.gojekUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-white/25 underline-offset-4 transition-colors hover:text-paper hover:decoration-saffron-400"
+              className="inline-flex items-center gap-1.5 rounded-full border border-saffron-400/60 bg-saffron-500/15 px-4 py-1.5 font-semibold text-saffron-300 transition-colors hover:border-saffron-300 hover:bg-saffron-500/25 hover:text-paper"
             >
+              <ShoppingBag className="h-3.5 w-3.5" />
               Order on Gojek
             </a>
             <a
               href={SITE.grabUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline decoration-white/25 underline-offset-4 transition-colors hover:text-paper hover:decoration-saffron-400"
+              className="inline-flex items-center gap-1.5 rounded-full border border-saffron-400/60 bg-saffron-500/15 px-4 py-1.5 font-semibold text-saffron-300 transition-colors hover:border-saffron-300 hover:bg-saffron-500/25 hover:text-paper"
             >
+              <ShoppingBag className="h-3.5 w-3.5" />
               Order on Grab
             </a>
             <a

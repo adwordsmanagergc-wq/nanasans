@@ -31,11 +31,11 @@ export default function BookSection() {
             <UtensilsCrossed className="h-4 w-4" />
             View the Menu
           </Link>
-          <a href={SITE.gojekUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline border-ink/30">
+          <a href={SITE.gojekUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline border-paper bg-paper shadow-sm hover:border-ink">
             <ShoppingBag className="h-4 w-4" />
             Order on Gojek
           </a>
-          <a href={SITE.grabUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline border-ink/30">
+          <a href={SITE.grabUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline border-paper bg-paper shadow-sm hover:border-ink">
             <ShoppingBag className="h-4 w-4" />
             Order on Grab
           </a>

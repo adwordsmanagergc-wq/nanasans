@@ -106,25 +106,25 @@ export default function VisitSection() {
               href={SITE.gojekUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/10 bg-ink-800 p-5 transition-colors hover:border-saffron-400/60"
+              className="group flex items-center justify-between rounded-2xl border border-saffron-400/50 bg-saffron-500/10 p-5 transition-colors hover:border-saffron-400 hover:bg-saffron-500/20"
             >
               <span>
                 <span className="block text-[0.65rem] uppercase tracking-[0.25em] text-paper/50">Delivery</span>
                 <span className="mt-1 block font-display text-xl">GoFood</span>
               </span>
-              <ArrowUpRight className="h-5 w-5 text-paper/40 transition-all group-hover:rotate-45 group-hover:text-saffron-400" />
+              <ArrowUpRight className="h-5 w-5 text-saffron-400 transition-all group-hover:rotate-45 group-hover:text-saffron-400" />
             </a>
             <a
               href={SITE.grabUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-2xl border border-white/10 bg-ink-800 p-5 transition-colors hover:border-saffron-400/60"
+              className="group flex items-center justify-between rounded-2xl border border-saffron-400/50 bg-saffron-500/10 p-5 transition-colors hover:border-saffron-400 hover:bg-saffron-500/20"
             >
               <span>
                 <span className="block text-[0.65rem] uppercase tracking-[0.25em] text-paper/50">Delivery</span>
                 <span className="mt-1 block font-display text-xl">GrabFood</span>
               </span>
-              <ArrowUpRight className="h-5 w-5 text-paper/40 transition-all group-hover:rotate-45 group-hover:text-saffron-400" />
+              <ArrowUpRight className="h-5 w-5 text-saffron-400 transition-all group-hover:rotate-45 group-hover:text-saffron-400" />
             </a>
           </div>
         </Reveal>
