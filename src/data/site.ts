@@ -8,7 +8,7 @@ export const CDN = "/images";
 // structured data must use this exact origin.
 export const SITE_ORIGIN = "https://www.nanasans.com";
 
-// Cream version of the logo for the dark header, doors and footer.
+// Cream version of the logo for the dark header and footer.
 export const LOGO = `${CDN}/nana-sans-logo-light.webp`;
 
 export const SITE = {
