@@ -13,7 +13,6 @@ import VegSection from "@/react-app/components/VegSection";
 import BookSection from "@/react-app/components/BookSection";
 import BlogHighlights from "@/react-app/components/BlogHighlights";
 import Footer from "@/react-app/components/Footer";
-import WelcomeDoors from "@/react-app/components/WelcomeDoors";
 
 export default function HomePage() {
   const { hash } = useLocation();
@@ -29,8 +28,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-paper">
-      <WelcomeDoors />
-
       <SiteNav overlay />
 
       <HeroSection />
